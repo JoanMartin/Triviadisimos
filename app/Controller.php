@@ -3,12 +3,8 @@
  	class Controller
  	{
 
-     	public function inicio()
+     	public function homePage()
      	{
-         	$params = array(
-	             'mensaje' => 'Bienvenido al curso de symfony 1.4',
-	             'fecha' => date('d-m-yyy'),
-         	);
-         	require __DIR__ . '/templates/inicio.php';
+         	require __DIR__ . '/templates/home_page.php';
      	}
  	}

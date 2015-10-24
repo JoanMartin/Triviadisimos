@@ -8,7 +8,7 @@
 
  // enrutamiento
  $map = array(
-     'inicio' => array('controller' =>'Controller', 'action' =>'inicio')
+     'homePage' => array('controller' =>'Controller', 'action' =>'homePage')
  );
 
  // Parseo de la ruta
@@ -23,7 +23,7 @@
          exit;
      }
  } else {
-     $ruta = 'inicio';
+     $ruta = 'homePage';
  }
 
  $controlador = $map[$ruta];
