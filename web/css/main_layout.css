@@ -1,0 +1,23 @@
+
+#divBlack {
+	position: fixed;
+	top: 0px; 
+	height:100vh; 
+	width: 100vw; 
+	background-color: black;
+	opacity: 0.75; 
+	filter: alpha(opacity=40); 
+	visibility: hidden;
+}
+
+#divRegister{
+	position: fixed;
+	top: 100px; 
+	visibility: hidden;
+}
+
+#divLogin{
+	position: fixed; 
+	top: 100px; 
+	visibility: hidden;
+}

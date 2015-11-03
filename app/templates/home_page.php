@@ -4,7 +4,6 @@
 	<section id="banner"></section>
 
 
-
 <!-- Main -->
 	<!-- One -->
 		<section class="wrapper style1 special">

@@ -6,14 +6,10 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_vis_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_mainlay_css ?>" />
-        <link rel="stylesheet" type="text/css" href="<?php echo ''.Config::$mvc_validate_css ?>" />
-
 
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_js1_js ?>"></script>
-        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq1_js ?>"></script>
-        <script type="text/javascript" src="<?php echo ''.Config::$mvc_validate_js ?>"></script>
-        <script type="text/javascript" src="<?php echo ''.Config::$mvc_valadmet_js ?>"></script>
+        <script src="<?php echo 'web/js/'.Config::$mvc_jq1_js ?>"></script>
 
     </head>
 
@@ -25,8 +21,6 @@
                 <nav id="nav">
                     <ul>
                         <li class="menu"><a href="#">Ayuda</a></li>
-                        <li class="menu"><a onclick="LoginFunction()">Iniciar sesi&oacuten</a></li>
-                        <li><a onclick="RegisterFunction()" class="button special">Registrarse</a></li>
                     </ul>
                 </nav>
             </header>
@@ -36,36 +30,37 @@
     <!--BLACK SCREEN TO LOGIN-->
     <div class="row" id="divBlack" >
     </div>
-
-    <!--SESSION CHECK IN-->
     <?php 
+
         session_start();
         
         if(!isset($_SESSION['username'])){
             $sesion=0;
             session_destroy();            
+            echo "<div style=' position:absolute; top:100px; background-color:blue'><p>NOOOO INICIADO</p></div>";
             //Sesión No iniciada
+
         }else{ 
+            
+            echo "<div style='position:absolute; top:100px; background-color:green'><p>INICIADO</p></div>";
             //Sesión Iniciada
-            //session_destroy();  
-            include "main_layout_userPrueba.php";
         }
     ?>
 
     <!--REGISTER FORM-->
-    <div class="container-login">
+    <div class="container">
         <div class="row centered-form">
-            <div class="col-md-6 col-sm-offset-2 col-md-offset-3">
+            <div class="col-md-4 col-sm-offset-2 col-md-offset-4">
                 <div class="panel panel-default" id="divRegister" name="divRegister">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Registro</h3>
+                        <h3 class="panel-title">Resgitro<small>&#161Es gratuito!</small></h3>
                     </div>
                         <div class="panel-body">
-                        <form role="form" id="formRegister" name="formRegister" method="post" action="index.php?ctl=registerUser" >
+                        <form role="form" method="post" action="index.php?ctl=registerUser" >
                             <div class="row">
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="nick" id="nick" class="form-control input-sm" placeholder="Nick" required>
+                                        <input type="text" name="nick" id="nick" class="form-control input-sm" placeholder="Nick">
                                     </div>
                                 </div>                                
                             </div>
@@ -73,33 +68,33 @@
                             <div class="row">
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre" required>
+                                        <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre">
                                     </div>
                                 </div>
                                  <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="apellidos" id="apellidos" class="form-control input-sm" placeholder="Apellidos" required>
+                                        <input type="text" name="apellidos" id="apellidos" class="form-control input-sm" placeholder="Apellidos">
                                     </div>
                                 </div>                               
                             </div>
 
                             <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email" required>
+                                <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email">
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Contrase&#241a" required>
+                                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Contrase&#241a">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Contrase&#241a" required>
+                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Contrase&#241a">
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" value="Registrarse" class="btn btn-info btn-block button special">
+                            <input type="submit" value="Registrarse" class="btn btn-info btn-block">
                         
                         </form>
                         </div>
@@ -110,30 +105,30 @@
 
 
     <!--LOGIN FORM-->
-    <div class="container-login">
+    <div class="container">
         <div class="row centered-form">
             <div class="col-md-4 col-sm-offset-2 col-md-offset-4">
                 <div class="panel panel-default" id="divLogin" name="divLogin">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Login</h3>
+                        <h3 class="panel-title">Login<small>&#161A jugar!</small></h3>
                     </div>
                         <div class="panel-body">
                         <form role="form" method="post" action="index.php?ctl=loginUser" >
                             <div class="row">
-                                <div class="col-sm-12 col-md-12">
+                                <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <input type="text" name="nickLogin" id="nickLogin" class="form-control input-sm" placeholder="Nick">
                                     </div>
                                 </div>                                
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-md-12">
+                                <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <input type="password" name="passwordLogin" id="passwordLogin" class="form-control input-sm" placeholder="Contrase&#241a">
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" value="Entrar" class="btn btn-info btn-block button special">
+                            <input type="submit" value="Entrar" class="btn btn-info btn-block">
                         
                         </form>
                         </div>

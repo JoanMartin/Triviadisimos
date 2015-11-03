@@ -8,7 +8,9 @@
 
  // enrutamiento
  $map = array(
-     'homePage' => array('controller' =>'Controller', 'action' =>'homePage')
+     'homePage' => array('controller' =>'Controller', 'action' =>'homePage'),
+     'registerUser' => array('controller' =>'Controller', 'action' =>'registerUser'),
+     'loginUser' => array('controller' =>'Controller', 'action' =>'loginUser')
  );
 
  // Parseo de la ruta
