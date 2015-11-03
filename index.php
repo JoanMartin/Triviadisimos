@@ -6,12 +6,28 @@
  require_once (__DIR__.'/app/Model.php');
  require_once (__DIR__.'/app/Controller.php');
 
- // enrutamiento
- $map = array(
-     'homePage' => array('controller' =>'Controller', 'action' =>'homePage'),
-     'registerUser' => array('controller' =>'Controller', 'action' =>'registerUser'),
-     'loginUser' => array('controller' =>'Controller', 'action' =>'loginUser')
- );
+session_start();
+        
+if(!isset($_SESSION['username'])){    
+    //Sesión No iniciada
+    $sesion=0;
+    session_destroy(); 
+
+     // enrutamiento
+     $map = array(
+         'homePage' => array('controller' =>'Controller', 'action' =>'homePage'),
+         'registerUser' => array('controller' =>'Controller', 'action' =>'registerUser'),
+         'loginUser' => array('controller' =>'Controller', 'action' =>'loginUser')
+     );           
+}else{ 
+    //Sesión Iniciada
+    //session_destroy();  
+    
+     // enrutamiento
+     $map = array(
+         'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage')
+     );
+}
 
  // Parseo de la ruta
  if (isset($_GET['ctl'])) {
@@ -25,7 +41,12 @@
          exit;
      }
  } else {
-     $ruta = 'homePage';
+     if(!isset($_SESSION['username'])){
+        $ruta = 'homePage';
+     }else{
+        $ruta = 'userHomePage';
+     }
+
  }
 
  $controlador = $map[$ruta];

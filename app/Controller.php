@@ -8,6 +8,13 @@
          	require __DIR__ . '/templates/home_page.php';
      	}
 
+
+
+     	public function userHomePage()
+     	{
+         	require __DIR__ . '/templates/user_home_page.php';
+     	}
+
      	public function registerUser()
 	    {			
 	        $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
@@ -17,7 +24,15 @@
 	                $m->registerUser($_POST['nick'], $_POST['nombre'],
 	                        $_POST['apellidos'], $_POST['email'], $_POST['password']);
 	        }
-         	require __DIR__ . '/templates/home_page.php';
+
+	        $reslt = $m->getlogin($_POST['nick'], $_POST['password']);
+            
+            if($reslt == 'login'){ 	
+         		require __DIR__ . '/templates/user_home_page.php';
+			}
+			else{
+         		header("Location: ./"); 
+			}  
 	    }
 	    
 	    public function loginUser(){
@@ -27,14 +42,11 @@
 
 			$reslt = $m->getlogin($_POST['nickLogin'], $_POST['passwordLogin']);
             
-            if($reslt == 'login'){
- 	
-         		header("Location: ./"); 
-         		//require __DIR__ . '/templates/home_page.php';
+            if($reslt == 'login'){ 	
+         		require __DIR__ . '/templates/user_home_page.php';
 			}
-			else{
-				//require __DIR__ . '/templates/home_page.php';				
-         		header("Location: ./NOOO"); 
+			else{			
+         		header("Location: ./"); 
 			}  
  		}
 

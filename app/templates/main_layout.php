@@ -37,21 +37,6 @@
     <div class="row" id="divBlack" >
     </div>
 
-    <!--SESSION CHECK IN-->
-    <?php 
-        session_start();
-        
-        if(!isset($_SESSION['username'])){
-            $sesion=0;
-            session_destroy();            
-            //Sesión No iniciada
-        }else{ 
-            //Sesión Iniciada
-            //session_destroy();  
-            include "main_layout_userPrueba.php";
-        }
-    ?>
-
     <!--REGISTER FORM-->
     <div class="container-login">
         <div class="row centered-form">

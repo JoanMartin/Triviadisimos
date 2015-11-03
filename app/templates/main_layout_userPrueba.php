@@ -30,22 +30,6 @@
     <!--BLACK SCREEN TO LOGIN-->
     <div class="row" id="divBlack" >
     </div>
-    <?php 
-
-        session_start();
-        
-        if(!isset($_SESSION['username'])){
-            $sesion=0;
-            session_destroy();            
-            echo "<div style=' position:absolute; top:100px; background-color:blue'><p>NOOOO INICIADO</p></div>";
-            //Sesión No iniciada
-
-        }else{ 
-            
-            echo "<div style='position:absolute; top:100px; background-color:green'><p>INICIADO</p></div>";
-            //Sesión Iniciada
-        }
-    ?>
 
     <!--REGISTER FORM-->
     <div class="container">
