@@ -1,0 +1,24 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,900");
+
+	.game-container {
+		color: white;
+		border-radius: 10px;
+
+	}
+
+		.game-container.title-blue {
+			background-color: blue;
+		}
+
+		.game-container.title-grey {
+			background-color: grey;
+		}
+
+		.game-container.title-orange {
+			background-color: orange;
+		}
+
+		.game-container.game {
+			background-color: orange;
+			margin: 0.1em;
+		}

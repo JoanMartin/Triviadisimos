@@ -4,7 +4,7 @@
     <head>
         <title>Triviadísimos</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_vis_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_main_css ?>" />
     </head>
 
     <body>
