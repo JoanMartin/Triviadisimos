@@ -63,4 +63,10 @@ class Model
         }
     }
 
+    //Close Session
+    public function closeSession(){
+
+        session_destroy(); 
+    }
+
 }

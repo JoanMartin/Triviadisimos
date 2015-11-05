@@ -10,7 +10,7 @@ session_start();
         
 if(!isset($_SESSION['username'])){    
     //Sesión No iniciada
-    $sesion=0;
+    //$sesion=0;
     session_destroy(); 
 
      // enrutamiento
@@ -25,7 +25,8 @@ if(!isset($_SESSION['username'])){
     
      // enrutamiento
      $map = array(
-         'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage')
+         'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
+         'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
      );
 }
 
@@ -34,7 +35,7 @@ if(!isset($_SESSION['username'])){
      if (isset($map[$_GET['ctl']])) {
          $ruta = $_GET['ctl'];
      } else {
-         header('Status: 404 Not Found');
+         header('Status: 404 Not Found');  
          echo '<html><body><h1>Error 404: No existe la ruta <i>' .
                  $_GET['ctl'] .
                  '</p></body></html>';

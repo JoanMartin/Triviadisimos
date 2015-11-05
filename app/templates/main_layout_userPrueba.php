@@ -21,6 +21,7 @@
                 <nav id="nav">
                     <ul>
                         <li class="menu"><a href="#">Ayuda</a></li>
+                        <li class="menu"><a href="index.php?ctl=closeSession">Cerrar sesi&oacuten</a></li>
                     </ul>
                 </nav>
             </header>
