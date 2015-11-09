@@ -1,0 +1,27 @@
+
+.boxWhite {
+	position: relative;
+	background: #FFFFFF;
+	border:solid;
+	border-color: #000000;
+	/*margin: -100px;*/
+	height: 200px;
+	width: 250px;
+}
+
+.top{
+	margin-top: 12em;
+    margin-left: 5em;
+}
+
+#div-image-okay{
+	/*width: 300px;*/
+}
+#div-image-cross{	
+	/*width: 300px;	*/
+}
+
+.percentage{
+	font-size: 2em;
+}
+

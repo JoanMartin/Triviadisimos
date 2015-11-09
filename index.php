@@ -12,7 +12,6 @@ if(!isset($_SESSION['username'])){
     //Sesión No iniciada
     //$sesion=0;
     session_destroy(); 
-
      // enrutamiento
      $map = array(
          'homePage' => array('controller' =>'Controller', 'action' =>'homePage'),
@@ -20,12 +19,11 @@ if(!isset($_SESSION['username'])){
          'loginUser' => array('controller' =>'Controller', 'action' =>'loginUser')
      );           
 }else{ 
-    //Sesión Iniciada
-    //session_destroy();  
-    
+    //Sesión Iniciada    
      // enrutamiento
      $map = array(
          'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
+         'stats' => array('controller' =>'Controller', 'action' =>'stats'),
          'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
      );
 }

@@ -69,4 +69,171 @@ class Model
         session_destroy(); 
     }
 
+    public function statTotalesAcertadas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_acertadas) AS numero_acertadas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        WHERE `Nick`='".$nick."'";
+            
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+    public function statTotalesFalladas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_falladas) AS numero_falladas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        WHERE `Nick`='".$nick."'";
+            
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }    
+
+    public function statDisneyAcertadas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_acertadas) AS numero_acertadas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        INNER JOIN `bdtrivialisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
+        INNER JOIN `bdtrivialisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Disney'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+    public function statDisneyFalladas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_falladas) AS numero_falladas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        INNER JOIN `bdtrivialisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
+        INNER JOIN `bdtrivialisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Disney'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+    public function statNormalAcertadas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_acertadas) AS numero_acertadas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        INNER JOIN `bdtrivialisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
+        INNER JOIN `bdtrivialisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+    public function statNormalFalladas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_falladas) AS numero_falladas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        INNER JOIN `bdtrivialisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
+        INNER JOIN `bdtrivialisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+    public function statNormalGeoAcertadas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_acertadas) AS numero_acertadas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        INNER JOIN `bdtrivialisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
+        INNER JOIN `bdtrivialisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal' AND `nombre_categoria`= 'Geografia'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+    public function statNormalGeoFalladas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_falladas) AS numero_falladas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        INNER JOIN `bdtrivialisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
+        INNER JOIN `bdtrivialisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal' AND `nombre_categoria`= 'Geografia'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+    public function statNormalCieAcertadas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_acertadas) AS numero_acertadas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        INNER JOIN `bdtrivialisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
+        INNER JOIN `bdtrivialisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal' AND `nombre_categoria`= 'Ciencias'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+    public function statNormalCieFalladas($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT SUM(numero_falladas) AS numero_falladas FROM `bdtrivialisimos`.`jugador`
+        INNER JOIN `bdtrivialisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
+        INNER JOIN `bdtrivialisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
+        INNER JOIN `bdtrivialisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal' AND `nombre_categoria`= 'Ciencias'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+
 }

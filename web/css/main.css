@@ -30,9 +30,7 @@
 
 	.column {
 	    float: left;
-	    padding: 15px;
-
-	}
+  }
 
 		.column.col-1 {width: 8.33%;}
 		.column.col-2 {width: 16.66%;}
@@ -753,6 +751,43 @@
 		width: 100%;
 		margin: 0 0 2em 0;
 	}
+
+  
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+}
+.img-rounded {
+  border-radius: 6px;
+}
+.img-thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+}
+.img-circle {
+  border-radius: 50%;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
 
 
 
@@ -1541,13 +1576,6 @@ input[type="button"].btn-block {
 	  }
 	}
 
-	/* ROW */
-
-	.row {
-	  margin-right: -15px;
-	  margin-left: -15px;
-	}
-
 	/* PANEL */
 
 	.panel {
@@ -1996,3 +2024,18 @@ input[type="button"].btn-block {
 		    line-height: 46px;
 		  }
 		}
+
+
+    /* TEXT-ALIGN*/
+    .text-left {
+      text-align: left;
+    }
+    .text-right {
+      text-align: right;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .text-justify {
+      text-align: justify;
+    }
