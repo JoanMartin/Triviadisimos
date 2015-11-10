@@ -1,17 +1,17 @@
 
 .boxWhite {
-	position: relative;
 	background: #FFFFFF;
 	border:solid;
 	border-color: #000000;
-	/*margin: -100px;*/
-	height: 200px;
-	width: 250px;
 }
 
-.top{
-	margin-top: 12em;
-    margin-left: 5em;
+.boxWhiteBody {
+	background: #FFFFFF;
+	border: solid;
+	border-top-color: #000000; 
+	border-bottom-color: #000000; 
+	border-right-color: #FFFFFF; 
+	border-left-color: #FFFFFF; 
 }
 
 #div-image-okay{
