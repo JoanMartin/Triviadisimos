@@ -8,15 +8,76 @@
 .boxWhiteBody {
 	background: #FFFFFF;
 	border: solid;
-	border-top-color: #000000; 
-	border-bottom-color: #000000; 
+	border-top-color: #848484; 
+	border-bottom-color: #848484; 
 	border-right-color: #FFFFFF; 
-	border-left-color: #FFFFFF; 
+	border-left-color: #FFFFFF; 	
+}
+
+.boxBlueTitle{
+	background: #013ADF;
+}
+
+.boxBlueBody{
+	background: #A9D0F5;
+}
+
+.boxGreenTitle{
+	background: #31B404;
+}
+
+.boxGreenBody{
+	background: #CEF6CE;
+}
+
+.boxYellowTitle{
+	background: #F4FA58;
+}
+
+.boxYellowBody{
+	background: #F2F5A9;
+}
+
+.boxOrangeTitle{
+	background: #FF8000;
+}
+
+.boxOrangeBody{
+	background: #F7BE81;
+}
+
+.boxPinkTitle{
+	background: #B404AE;
+}
+
+.boxPinkBody{
+	background: #F6CEEC;
+}
+
+.boxRedTitle{
+	background: #DF0101;
+}
+
+.boxRedBody{
+	background: #F78181;
+}
+
+.fontTitlePrincipal{
+	color: #000000;
+	font-weight: bold;
+	text-align: center;
+}
+
+.fontTitle{
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: center;
 }
 
 #div-image-okay{
 	/*width: 300px;*/
 }
+
 #div-image-cross{	
 	/*width: 300px;	*/
 }

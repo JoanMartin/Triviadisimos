@@ -6,7 +6,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-6">
                     <div class="panel panel-default boxWhite">
                             <div class="panel-heading">
-                             <h4>Partidas normales</h4> 
+                             <h4 class= "fontTitlePrincipal">Partidas normales</h4> 
                             </div>
                             <div class="panel-body boxWhiteBody">
                             <table class="table">
@@ -29,7 +29,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-6">
                     <div class="panel panel-default boxWhite">
                         <div class="panel-heading">
-                        <h4>Partidas disney</h4> 
+                        <h4 class= "fontTitlePrincipal">Partidas disney</h4> 
                         </div>
                         <div class="panel-body boxWhiteBody">
                             <table class="table">
@@ -52,7 +52,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-6">
                     <div class="panel panel-default boxWhite">
                         <div class="panel-heading">
-                         <h4>Partidas totales</h4> 
+                         <h4 class= "fontTitlePrincipal">Partidas totales</h4> 
                         </div>
                         <div class="panel-body boxWhiteBody">
                             <table class="table">
@@ -79,11 +79,11 @@
         <div class="container">
            <div class="row" style="margin-top:-175px;">
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="panel panel-default">
+                        <div class="panel boxBlueTitle">
                             <div class="panel-heading">
-                             <h4>Geograf&iacutea</h4> 
+                             <h4 class= "fontTitle">Geograf&iacutea</h4> 
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body boxBlueBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -102,11 +102,11 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-warning">
+                    <div class="panel boxGreenTitle">
                         <div class="panel-heading">
-                        <h4>Ciencias</h4> 
+                        <h4 class= "fontTitle">Ciencias</h4> 
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body boxGreenBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -125,11 +125,11 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                         <h4>Historia</h4> 
+                    <div class="panel boxYellowTitle">
+                        <div class="panel-heading ">
+                         <h4 class= "fontTitle">Historia</h4> 
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body boxYellowBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -148,11 +148,11 @@
                     </div>
                 </div>
                <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-primary">
+                    <div class="panel boxOrangeTitle">
                         <div class="panel-heading">
-                         <h4>Desportes</h4> 
+                         <h4 class= "fontTitle">Deportes</h4> 
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body boxOrangeBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -171,11 +171,11 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-success">
+                    <div class="panel boxPinkTitle">
                         <div class="panel-heading">
-                         <h4>Espect&aacuteculos</h4> 
+                         <h4 class= "fontTitle">Espect&aacuteculos</h4> 
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body boxPinkBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -194,11 +194,11 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-info">
+                    <div class="panel boxRedTitle">
                         <div class="panel-heading">
-                         <h4>Arte y literatura</h4> 
+                         <h4 class= "fontTitle">Arte y literatura</h4> 
                         </div>                        
-                        <div class="panel-body">
+                        <div class="panel-body boxRedBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -223,11 +223,11 @@
         <div class="container">
            <div class="row" style="margin-top:-175px;">
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="panel panel-default">
+                        <div class="panel boxBlueTitle">
                             <div class="panel-heading">
-                             <h4>Hab&iacutea una vez</h4> 
+                             <h4 class= "fontTitle">Hab&iacutea una vez</h4> 
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body boxBlueBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -246,11 +246,11 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-warning">
+                    <div class="panel boxGreenTitle">
                         <div class="panel-heading">
-                        <h4>Maravilloso mundo de Disney</h4> 
+                        <h4 class= "fontTitle">Maravilloso mundo de Disney</h4> 
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body boxGreenBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -269,11 +269,11 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-danger">
+                    <div class="panel boxYellowTitle">
                         <div class="panel-heading">
-                         <h4>Monstruos y villanos</h4> 
+                         <h4 class= "fontTitle">Monstruos y villanos</h4> 
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body boxYellowBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -292,11 +292,11 @@
                     </div>
                 </div>
                <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-primary">
+                    <div class="panel boxOrangeTitle">
                         <div class="panel-heading">
-                         <h4>H&eacuteroes y hero&iacutenas</h4> 
+                         <h4 class= "fontTitle">H&eacuteroes y hero&iacutenas</h4> 
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body boxOrangeBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -315,11 +315,11 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-success">
+                    <div class="panel boxPinkTitle">
                         <div class="panel-heading">
-                         <h4>Estrellas secundarias</h4> 
+                         <h4 class= "fontTitle">Estrellas secundarias</h4> 
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body boxPinkBody">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -338,11 +338,11 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6">
-                    <div class="panel panel-info">
+                    <div class="panel boxRedTitle">
                         <div class="panel-heading">
-                         <h4>Lugares y objetos</h4> 
+                         <h4 class= "fontTitle">Lugares y objetos</h4> 
                         </div>                        
-                        <div class="panel-body">
+                        <div class="panel-body boxRedBody">
                             <table class="table">
                                 <thead>
                                     <tr>
