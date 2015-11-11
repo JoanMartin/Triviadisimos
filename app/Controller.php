@@ -21,18 +21,24 @@
 	                    Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
 	        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	                $m->registerUser($_POST['nick'], $_POST['nombre'],
+                $result = $m->registerUser($_POST['nick'], $_POST['nombre'],
 	                        $_POST['apellidos'], $_POST['email'], $_POST['password']);
 	        }
 
-	        $reslt = $m->getlogin($_POST['nick'], $_POST['password']);
-            
-            if($reslt == 'login'){ 	
-         		require __DIR__ . '/templates/user_home_page.php';
-			}
-			else{
-         		header("Location: ./"); 
-			}  
+            //header("Location: ./".$result.""); 
+
+            if($result == 'NickRepeated'){
+                header("Location: ./NickRepeated"); 
+            }else{
+                $reslt = $m->getlogin($_POST['nick'], $_POST['password']);
+                
+                if($reslt == 'login'){  
+                    require __DIR__ . '/templates/user_home_page.php';
+                }
+                else{
+                    header("Location: ./usuario y password no coinciden"); 
+                }
+            }	         
 	    }
 	    
 	    public function loginUser(){
