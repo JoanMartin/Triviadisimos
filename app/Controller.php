@@ -25,18 +25,20 @@
 	                        $_POST['apellidos'], $_POST['email'], $_POST['password']);
 	        }
 
-            //header("Location: ./".$result.""); 
-
             if($result == 'NickRepeated'){
-                header("Location: ./NickRepeated"); 
+                require __DIR__ . '/templates/errorNickRepeated.php';
             }else{
-                $reslt = $m->getlogin($_POST['nick'], $_POST['password']);
-                
-                if($reslt == 'login'){  
-                    require __DIR__ . '/templates/user_home_page.php';
-                }
-                else{
-                    header("Location: ./usuario y password no coinciden"); 
+                if($result == 'EmailRepeated'){
+                require __DIR__ . '/templates/errorEmailRepeated.php';
+                }else{
+                    $reslt = $m->getlogin($_POST['nick'], $_POST['password']);
+                    
+                    if($reslt == 'login'){  
+                        require __DIR__ . '/templates/user_home_page.php';
+                    }
+                    else{
+                        header("Location: ./usuario y password no coinciden"); 
+                    }
                 }
             }	         
 	    }

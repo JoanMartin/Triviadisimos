@@ -11,6 +11,7 @@
 		static public $mvc_vis_css     = "main.css";
 		static public $mvc_mainlay_css = "main_layout.css";
 		static public $mvc_validate_css = "jqueryvalidation.css";
+		static public $mvc_errRepeated_css = "errorRepeated.css";
 		//JQ
 		static public $mvc_jq_js	   = "jquery.js";
 		static public $mvc_js1_js	   = "js1.js";

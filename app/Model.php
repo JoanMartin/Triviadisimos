@@ -40,11 +40,21 @@ class Model
         if(mysql_num_rows($result) > 0) {
             return 'NickRepeated';
         }else{
-            $sql = "INSERT INTO `bdtrivialisimos`.`jugador` (`Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_Imagen`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`) VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', '', '', '', '', '')";
+
+            $sql = "SELECT `Id_Jugador` FROM `bdtrivialisimos`.`jugador` WHERE `Email`='".$email."'";
 
             $result = mysql_query($sql, $this->conexion);
 
-            return 'NoRepeated';             
+            if(mysql_num_rows($result) > 0) {
+                return 'EmailRepeated';
+            }else{
+
+                $sql = "INSERT INTO `bdtrivialisimos`.`jugador` (`Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_Imagen`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`) VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', '', '', '', '', '')";
+
+                $result = mysql_query($sql, $this->conexion);
+
+                return 'NoRepeated';    
+            }         
         }
     }
     
