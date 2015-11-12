@@ -53,8 +53,8 @@
             if($reslt == 'login'){ 	
          		require __DIR__ . '/templates/user_home_page.php';
 			}
-			else{			
-         		header("Location: ./"); 
+			else{
+                require __DIR__ . '/templates/errorUserNotFound.php'; 
 			}  
  		} 
 
