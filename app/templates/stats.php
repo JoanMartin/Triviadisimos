@@ -13,16 +13,28 @@
                                 <thead>
                                     <tr>
                                         <th><img class="img-responsive" src="web/images/okay.png"></th>
-                                        <th><h2><strong><?php echo $paramsNormalGeoAcertadas['numero_acertadas'] ?></p></strong></h2>
+                                        <th><h2><strong><?php echo $paramsNormalAcertadas['numero_acertadas'] ?></p></strong></h2>
                                     
                                         <th><img  class="img-responsive" src="web/images/cross.png"></th>
-                                        <th><h2><strong><?php echo $paramsNormalGeoFalladas['numero_falladas'] ?></p></strong></h2> 
+                                        <th><h2><strong><?php echo $paramsNormalFalladas['numero_falladas'] ?></p></strong></h2> 
                                     </tr> 
                                 </thead>
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsNormalGeoAcertadas['numero_acertadas']/($paramsNormalGeoAcertadas['numero_acertadas'] + $paramsNormalGeoFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsNormalAcertadas['numero_acertadas'] + $paramsNormalFalladas['numero_falladas'])){
+                                    echo number_format($paramsNormalAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -36,16 +48,28 @@
                                 <thead>
                                     <tr>
                                         <th><img  class="img-responsive" src="web/images/okay.png"></th>
-                                        <th><h2><strong><?php echo $paramsNormalCieAcertadas['numero_acertadas'] ?></p></strong></h2>
+                                        <th><h2><strong><?php echo $paramsDisneyAcertadas['numero_acertadas'] ?></p></strong></h2>
                                     
                                         <th><img  class="img-responsive" src="web/images/cross.png"></th>
-                                        <th><h2><strong><?php echo $paramsNormalCieFalladas['numero_falladas'] ?></p></strong></h2> 
+                                        <th><h2><strong><?php echo $paramsDisneyFalladas['numero_falladas'] ?></p></strong></h2> 
                                     </tr> 
                                 </thead>
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsNormalCieAcertadas['numero_acertadas']/($paramsNormalCieAcertadas['numero_acertadas'] + $paramsNormalCieFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsDisneyAcertadas['numero_acertadas'] + $paramsDisneyFalladas['numero_falladas'])){
+                                    echo number_format($paramsDisneyAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -59,16 +83,28 @@
                                 <thead>
                                     <tr>
                                         <th><img  class="img-responsive" src="web/images/okay.png"></th>
-                                        <th><h2><strong><?php echo $paramsNormalHisAcertadas['numero_acertadas'] ?></p></strong></h2>
+                                        <th><h2><strong><?php echo $paramsTotalesAcertadas['numero_acertadas'] ?></p></strong></h2>
                                     
                                         <th><img  class="img-responsive" src="web/images/cross.png"></th>
-                                        <th><h2><strong><?php echo $paramsNormalHisFalladas['numero_falladas'] ?></p></strong></h2> 
+                                        <th><h2><strong><?php echo $paramsTotalesFalladas['numero_falladas'] ?></p></strong></h2> 
                                     </tr> 
                                 </thead>
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsNormalHisAcertadas['numero_acertadas']/($paramsNormalHisAcertadas['numero_acertadas'] + $paramsNormalHisFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsTotalesAcertadas['numero_acertadas'] + $paramsTotalesFalladas['numero_falladas'])){
+                                    echo number_format($paramsTotalesAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>         
@@ -97,7 +133,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsNormalGeoAcertadas['numero_acertadas']/($paramsNormalGeoAcertadas['numero_acertadas'] + $paramsNormalGeoFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsNormalGeoAcertadas['numero_acertadas'] + $paramsNormalGeoFalladas['numero_falladas'])){
+                                    echo number_format($paramsNormalGeoAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -120,7 +168,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsNormalCieAcertadas['numero_acertadas']/($paramsNormalCieAcertadas['numero_acertadas'] + $paramsNormalCieFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsNormalCieAcertadas['numero_acertadas'] + $paramsNormalCieFalladas['numero_falladas'])){
+                                    echo number_format($paramsNormalCieAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -143,7 +203,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsNormalHisAcertadas['numero_acertadas']/($paramsNormalHisAcertadas['numero_acertadas'] + $paramsNormalHisFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsNormalHisAcertadas['numero_acertadas'] + $paramsNormalHisFalladas['numero_falladas'])){
+                                    echo number_format($paramsNormalHisAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -166,7 +238,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsNormalDepAcertadas['numero_acertadas']/($paramsNormalDepAcertadas['numero_acertadas'] + $paramsNormalDepFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsNormalDepAcertadas['numero_acertadas'] + $paramsNormalDepFalladas['numero_falladas'])){
+                                    echo number_format($paramsNormalDepAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -189,7 +273,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsNormalEspAcertadas['numero_acertadas']/($paramsNormalEspAcertadas['numero_acertadas'] + $paramsNormalEspFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsNormalEspAcertadas['numero_acertadas'] + $paramsNormalEspFalladas['numero_falladas'])){
+                                    echo number_format($paramsNormalEspAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -212,7 +308,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsNormalAyLAcertadas['numero_acertadas']/($paramsNormalAyLAcertadas['numero_acertadas'] + $paramsNormalAyLFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsNormalAyLAcertadas['numero_acertadas'] + $paramsNormalAyLFalladas['numero_falladas'])){
+                                    echo number_format($paramsNormalAyLAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>                
@@ -241,7 +349,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsDisneyHabLAcertadas['numero_acertadas']/($paramsDisneyHabLAcertadas['numero_acertadas'] + $paramsDisneyHabFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsDisneyHabLAcertadas['numero_acertadas'] + $paramsDisneyHabFalladas['numero_falladas'])){
+                                    echo number_format($paramsDisneyHabLAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -264,7 +384,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsDisneyMarAcertadas['numero_acertadas']/($paramsDisneyMarAcertadas['numero_acertadas'] + $paramsDisneyMarFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsDisneyMarAcertadas['numero_acertadas'] + $paramsDisneyMarFalladas['numero_falladas'])){
+                                    echo number_format($paramsDisneyMarAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -287,7 +419,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsDisneyMonAcertadas['numero_acertadas']/($paramsDisneyMonAcertadas['numero_acertadas'] + $paramsDisneyMonFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsDisneyMonAcertadas['numero_acertadas'] + $paramsDisneyMonFalladas['numero_falladas'])){
+                                    echo number_format($paramsDisneyMonAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -310,7 +454,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsDisneyHerAcertadas['numero_acertadas']/($paramsDisneyHerAcertadas['numero_acertadas'] + $paramsDisneyHerFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsDisneyHerAcertadas['numero_acertadas'] + $paramsDisneyHerFalladas['numero_falladas'])){
+                                    echo number_format($paramsDisneyHerAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -333,7 +489,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsDisneyEstAcertadas['numero_acertadas']/($paramsDisneyEstAcertadas['numero_acertadas'] + $paramsDisneyEstFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsDisneyEstAcertadas['numero_acertadas'] + $paramsDisneyEstFalladas['numero_falladas'])){
+                                    echo number_format($paramsDisneyEstAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -356,7 +524,19 @@
                             </table>   
                         </div>
                         <div class="panel-footer">
-                            <h2><strong><?php echo number_format($paramsDisneyLugAcertadas['numero_acertadas']/($paramsDisneyLugAcertadas['numero_acertadas'] + $paramsDisneyLugFalladas['numero_falladas'])*100,0) ?> %</strong></h2>
+                            <h2>
+                            <strong>
+                            <?php
+                                if($total = ($paramsDisneyLugAcertadas['numero_acertadas'] + $paramsDisneyLugFalladas['numero_falladas'])){
+                                    echo number_format($paramsDisneyLugAcertadas['numero_acertadas']/$total*100,0);
+                            
+                                }else{
+                                    echo number_format($total);
+                                }
+                            ?>
+                            %
+                            </strong>
+                            </h2>
                         </div>
                     </div>
                 </div>                

@@ -24,6 +24,7 @@ if(!isset($_SESSION['username'])){
      $map = array(
          'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
          'stats' => array('controller' =>'Controller', 'action' =>'stats'),
+         'profile' => array('controller' =>'Controller', 'action' =>'profile'),
          'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
      );
 }

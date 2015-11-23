@@ -183,5 +183,23 @@
             require __DIR__ . '/templates/stats.php';
         }
 
+        public function profile(){
+            
+            $nick = $_SESSION['username'];
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $params = array(
+             'profile' => $m->infoProfile($nick),
+            );
+
+           // $profile = $m->infoProfile($nick);
+           // $paramsProfile = $profile;
+     
+            require __DIR__ . '/templates/profile.php';
+
+        }
+
  	}
  	
