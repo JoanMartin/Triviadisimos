@@ -51,7 +51,7 @@
 			$reslt = $m->getlogin($_POST['nickLogin'], $_POST['passwordLogin']);
             
             if($reslt == 'login'){ 	
-         		userHomePage();
+         		$this->userHomePage();
 			}
 			else{			
          		header("Location: ./"); 
