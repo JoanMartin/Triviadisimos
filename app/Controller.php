@@ -14,9 +14,8 @@
 
 	        $nick = $_SESSION["username"];
 
-			$params = array(
-				'myGames' => $m->myGames($nick),
-				'opponentGames' => $m->opponentGames($nick),
+	        $params = array(
+				'games' => $m->games($nick),
 			);
 
          	require __DIR__ . '/templates/user_home_page.php';
@@ -52,7 +51,7 @@
 			$reslt = $m->getlogin($_POST['nickLogin'], $_POST['passwordLogin']);
             
             if($reslt == 'login'){ 	
-         		require __DIR__ . '/templates/user_home_page.php';
+         		userHomePage();
 			}
 			else{			
          		header("Location: ./"); 
@@ -70,3 +69,4 @@
         	require __DIR__ . '/templates/home_page.php';
  		}
  	}
+?>

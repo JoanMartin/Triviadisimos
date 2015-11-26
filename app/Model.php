@@ -32,7 +32,7 @@ class Model
 
         //$sql = "INSERT INTO jugador (Nick, Nombre, Apellidos, Email) VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$email."')";
 
-        $sql = "INSERT INTO `bdtrivialisimos`.`jugador` (`Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_Imagen`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`) VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', '', '', '', '', '')";
+        $sql = "INSERT INTO `bdtriviadisimos`.`jugador` (`Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_Imagen`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`) VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', '', '', '', '', '')";
 
         $result = mysql_query($sql, $this->conexion);
 
@@ -46,7 +46,7 @@ class Model
         $passwordLogin = htmlspecialchars($passwordLogin);
 
         if(isset($nickLogin) && isset($passwordLogin)){
-            $sql = "SELECT `Id_Jugador` FROM `bdtrivialisimos`.`jugador` WHERE `Nick`='".$nickLogin."' AND `Contraseña`='".$passwordLogin."' LIMIT 1";     
+            $sql = "SELECT `Id_Jugador` FROM `bdtriviadisimos`.`jugador` WHERE `Nick`='".$nickLogin."' AND `Contraseña`='".$passwordLogin."' LIMIT 1";     
             $result = mysql_query($sql, $this->conexion);
 
             if (mysql_num_rows($result) > 0) {

@@ -5,77 +5,157 @@
 			<h2>Te toca jugar</h2>
 		</header>
 
-	     <?php foreach ($params['myGames'] as $myGames) :?>
-			<div class="row">
-				<div class="column col-2">
-					<section class="game-container game">
-					</section>
-				</div>
-				<div class="column col-5">
-					<section class="game-container game">
-						<div class="row">
-							<div class="column col-6">
-								<header>
-									<h3><?php echo $myGames['Nick']?></h3>
-								</header>
-	                		</div>
+		<?php 
+		$partida = 0;
+		foreach ($params['games'] as $games):
+			if (($games['TurnoJug1'] == 1) and ($partida != $games['Partida'])):
+				$partida = $games['Partida'];?>
 
-							<div class="column col-6">
-								<div class="row">
-									<div class="column col-12">
-				                    	<ul class="icons">			
-					                        <li class="icon circle cat1"></li>					
-					                        <li class="icon circle cat2"></li>					
-					                        <li class="icon circle cat3"></li>					
-					                    </ul>
-			                		</div>
-								</div>
-								<div class="row">
-									<div class="column col-12">
-				                    	<ul class="icons">			
-					                        <li class="icon circle cat4"></li>					
-					                        <li class="icon circle cat5"></li>					
-					                        <li class="icon circle cat6"></li>					
-					                    </ul>
-			                		</div>
-								</div>
-							</div>
-	            		</div>
-					</section>
-				</div>
-				<div class="column col-5">
-					<section class="game-container game">
-						<div class="row">
-							<div class="column col-6">
-								<header>
-									<h3>Joan Martín</h3>
-								</header>
-	                		</div>
+				<div class="row">
+					<div class="column col-2">
+						<section class="game-container game">
+						</section>
+					</div>
+					<div class="column col-5">
+						<section class="game-container game">
+							<div class="row">
+								<div class="column col-6">
+									<header>
+										<h3><?php echo $games['NomJug1']?></h3>
+									</header>
+		                		</div>
 
-							<div class="column col-6">
-								<div class="row">
-									<div class="column col-12">
-				                    	<ul class="icons">			
-					                        <li class="icon circle cat1"></li>					
-					                        <li class="icon circle cat2"></li>					
-					                        <li class="icon circle cat3"></li>					
-					                    </ul>
-			                		</div>
+		                		<?php 
+		                		$color = array(
+									'science' => '#C6C6C6',
+									'history' => '#C6C6C6',
+									'geography' => '#C6C6C6',
+									'art' => '#C6C6C6',
+									'performance' => '#C6C6C6',
+									'sports' => '#C6C6C6',
+								);
+								foreach ($params['games'] as $inter) {
+									if (($inter['InterJug'] == $inter['PartJug1']) and 
+										($partida == $inter['Partida']) and 
+										($inter['PregAcertada'] == 1)) {
+										switch ($inter['NomCat']) {
+										    case 'Ciencia':
+										        $color['science'] = '#00FF00';
+										        break;
+										    case 'Historia':
+										        $color['history'] = '#FFFF00';
+										        break;
+										    case 'Geografía':
+										        $color['geography'] = '#00FFF7';
+										        break;
+										    case 'Arte y literatura':
+										        $color['art'] = '#FF0000';
+										        break;
+										    case 'Espectáculos':
+										        $color['performance'] = '#FF00F3';
+										        break;
+										    case 'Deportes':
+										        $color['sports'] = '#FFAF00';
+										        break;
+										}
+									}
+								}
+								?>
+
+								<div class="column col-6">
+									<div class="row">
+										<div class="column col-12">
+					                    	<ul class="icons">			
+						                        <li class="icon circle" style="background:<?php echo $color['science']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['history']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['geography']?>"></li>		
+						                    </ul>
+				                		</div>
+									</div>
+									<div class="row">
+										<div class="column col-12">
+					                    	<ul class="icons">			
+						                        <li class="icon circle" style="background:<?php echo $color['art']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['performance']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['sports']?>"></li>					
+						                    </ul>
+				                		</div>
+									</div>
 								</div>
-								<div class="row">
-									<div class="column col-12">
-				                    	<ul class="icons">			
-					                        <li class="icon circle cat4"></li>					
-					                        <li class="icon circle cat5"></li>					
-					                        <li class="icon circle cat6"></li>					
-					                    </ul>
-			                		</div>
+		            		</div>
+						</section>
+					</div>
+					<div class="column col-5">
+						<section class="game-container game">
+							<div class="row">
+								<div class="column col-6">
+									<header>
+										<h3><?php echo $games['NomJug2']?></h3>
+									</header>
+		                		</div>
+
+		                		<?php 
+		                		$color = array(
+									'science' => '#C6C6C6',
+									'history' => '#C6C6C6',
+									'geography' => '#C6C6C6',
+									'art' => '#C6C6C6',
+									'performance' => '#C6C6C6',
+									'sports' => '#C6C6C6',
+								);
+								foreach ($params['games'] as $inter) {
+									if (($inter['InterJug'] == $inter['PartJug2']) and 
+										($partida == $inter['Partida']) and 
+										($inter['PregAcertada'] == 1)) {
+										switch ($inter['NomCat']) {
+										    case 'Ciencia':
+										        $color['science'] = '#00FF00';
+										        break;
+										    case 'Historia':
+										        $color['history'] = '#FFFF00';
+										        break;
+										    case 'Geografía':
+										        $color['geography'] = '#00FFF7';
+										        break;
+										    case 'Arte y literatura':
+										        $color['art'] = '#FF0000';
+										        break;
+										    case 'Espectáculos':
+										        $color['performance'] = '#FF00F3';
+										        break;
+										    case 'Deportes':
+										        $color['sports'] = '#FFAF00';
+										        break;
+										}
+									}
+								}
+								?>
+
+								<div class="column col-6">
+									<div class="row">
+										<div class="column col-12">
+					                    	<ul class="icons">			
+						                        <li class="icon circle" style="background:<?php echo $color['science']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['history']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['geography']?>"></li>		
+						                    </ul>
+				                		</div>
+									</div>
+									<div class="row">
+										<div class="column col-12">
+					                    	<ul class="icons">			
+						                        <li class="icon circle" style="background:<?php echo $color['art']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['performance']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['sports']?>"></li>					
+						                    </ul>
+				                		</div>
+									</div>
 								</div>
-							</div>
-	            		</div>
-					</section>
+		            		</div>
+						</section>
+					</div>
 				</div>
-			</div>
+			<?php endif; ?>
 		<?php endforeach; ?>
 	</section>
 
@@ -88,77 +168,157 @@
 			<h2>Le toca jugar</h2>
 		</header>
 
-	     <?php foreach ($params['opponentGames'] as $opponentGames) :?>
-			<div class="row">
-				<div class="column col-2">
-					<section class="game-container game">
-					</section>
-				</div>
-				<div class="column col-5">
-					<section class="game-container game">
-						<div class="row">
-							<div class="column col-6">
-								<header>
-									<h3><?php echo $opponentGames['Nick']?></h3>
-								</header>
-	                		</div>
+		<?php 
+		$partida = 0;
+		foreach ($params['games'] as $games):
+			if (($games['TurnoJug1'] == 0) and ($partida != $games['Partida'])):
+				$partida = $games['Partida'];?>
 
-							<div class="column col-6">
-								<div class="row">
-									<div class="column col-12">
-				                    	<ul class="icons">			
-					                        <li class="icon circle cat1"></li>					
-					                        <li class="icon circle cat2"></li>					
-					                        <li class="icon circle cat3"></li>					
-					                    </ul>
-			                		</div>
-								</div>
-								<div class="row">
-									<div class="column col-12">
-				                    	<ul class="icons">			
-					                        <li class="icon circle cat4"></li>					
-					                        <li class="icon circle cat5"></li>					
-					                        <li class="icon circle cat6"></li>					
-					                    </ul>
-			                		</div>
-								</div>
-							</div>
-	            		</div>
-					</section>
-				</div>
-				<div class="column col-5">
-					<section class="game-container game">
-						<div class="row">
-							<div class="column col-6">
-								<header>
-									<h3>Joan Martín</h3>
-								</header>
-	                		</div>
+				<div class="row">
+					<div class="column col-2">
+						<section class="game-container game">
+						</section>
+					</div>
+					<div class="column col-5">
+						<section class="game-container game">
+							<div class="row">
+								<div class="column col-6">
+									<header>
+										<h3><?php echo $games['NomJug1']?></h3>
+									</header>
+		                		</div>
 
-							<div class="column col-6">
-								<div class="row">
-									<div class="column col-12">
-				                    	<ul class="icons">			
-					                        <li class="icon circle cat1"></li>					
-					                        <li class="icon circle cat2"></li>					
-					                        <li class="icon circle cat3"></li>					
-					                    </ul>
-			                		</div>
+		                		<?php 
+		                		$color = array(
+									'science' => '#C6C6C6',
+									'history' => '#C6C6C6',
+									'geography' => '#C6C6C6',
+									'art' => '#C6C6C6',
+									'performance' => '#C6C6C6',
+									'sports' => '#C6C6C6',
+								);
+								foreach ($params['games'] as $inter) {
+									if (($inter['InterJug'] == $inter['PartJug1']) and 
+										($partida == $inter['Partida']) and 
+										($inter['PregAcertada'] == 1)) {
+										switch ($inter['NomCat']) {
+										    case 'Ciencia':
+										        $color['science'] = '#00FF00';
+										        break;
+										    case 'Historia':
+										        $color['history'] = '#FFFF00';
+										        break;
+										    case 'Geografía':
+										        $color['geography'] = '#00FFF7';
+										        break;
+										    case 'Arte y literatura':
+										        $color['art'] = '#FF0000';
+										        break;
+										    case 'Espectáculos':
+										        $color['performance'] = '#FF00F3';
+										        break;
+										    case 'Deportes':
+										        $color['sports'] = '#FFAF00';
+										        break;
+										}
+									}
+								}
+								?>
+
+								<div class="column col-6">
+									<div class="row">
+										<div class="column col-12">
+					                    	<ul class="icons">			
+						                        <li class="icon circle" style="background:<?php echo $color['science']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['history']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['geography']?>"></li>		
+						                    </ul>
+				                		</div>
+									</div>
+									<div class="row">
+										<div class="column col-12">
+					                    	<ul class="icons">			
+						                        <li class="icon circle" style="background:<?php echo $color['art']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['performance']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['sports']?>"></li>					
+						                    </ul>
+				                		</div>
+									</div>
 								</div>
-								<div class="row">
-									<div class="column col-12">
-				                    	<ul class="icons">			
-					                        <li class="icon circle cat4"></li>					
-					                        <li class="icon circle cat5"></li>					
-					                        <li class="icon circle cat6"></li>					
-					                    </ul>
-			                		</div>
+		            		</div>
+						</section>
+					</div>
+					<div class="column col-5">
+						<section class="game-container game">
+							<div class="row">
+								<div class="column col-6">
+									<header>
+										<h3><?php echo $games['NomJug2']?></h3>
+									</header>
+		                		</div>
+
+		                		<?php 
+		                		$color = array(
+									'science' => '#C6C6C6',
+									'history' => '#C6C6C6',
+									'geography' => '#C6C6C6',
+									'art' => '#C6C6C6',
+									'performance' => '#C6C6C6',
+									'sports' => '#C6C6C6',
+								);
+								foreach ($params['games'] as $inter) {
+									if (($inter['InterJug'] == $inter['PartJug2']) and 
+										($partida == $inter['Partida']) and 
+										($inter['PregAcertada'] == 1)) {
+										switch ($inter['NomCat']) {
+										    case 'Ciencia':
+										        $color['science'] = '#00FF00';
+										        break;
+										    case 'Historia':
+										        $color['history'] = '#FFFF00';
+										        break;
+										    case 'Geografía':
+										        $color['geography'] = '#00FFF7';
+										        break;
+										    case 'Arte y literatura':
+										        $color['art'] = '#FF0000';
+										        break;
+										    case 'Espectáculos':
+										        $color['performance'] = '#FF00F3';
+										        break;
+										    case 'Deportes':
+										        $color['sports'] = '#FFAF00';
+										        break;
+										}
+									}
+								}
+								?>
+
+								<div class="column col-6">
+									<div class="row">
+										<div class="column col-12">
+					                    	<ul class="icons">			
+						                        <li class="icon circle" style="background:<?php echo $color['science']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['history']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['geography']?>"></li>		
+						                    </ul>
+				                		</div>
+									</div>
+									<div class="row">
+										<div class="column col-12">
+					                    	<ul class="icons">			
+						                        <li class="icon circle" style="background:<?php echo $color['art']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['performance']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['sports']?>"></li>					
+						                    </ul>
+				                		</div>
+									</div>
 								</div>
-							</div>
-	            		</div>
-					</section>
+		            		</div>
+						</section>
+					</div>
 				</div>
-			</div>
+			<?php endif; ?>
 		<?php endforeach; ?>
 	</section>
 

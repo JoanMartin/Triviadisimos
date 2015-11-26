@@ -17,35 +17,42 @@ class UserGamesModel {
     }
 
 
-
-    public function myGames($nick) {
+    public function games($nick) {
         $nick = htmlspecialchars($nick);
 
-        $sql = "SELECT `ID_Partida`, `Nick` FROM `bdtrivialisimos`.`jugador` 
-                    INNER JOIN `bdtrivialisimos`.`participacion` 
-                    ON `jugador`.`Id_Jugador` = `participacion`.`Id_Jugador`
-                WHERE `Nick`='".$nick."' AND `Turno`=1";  
-        $result = mysql_query($sql, $this->conexion);
+        $sql = "SELECT 
+                part1.Turno as TurnoJug1,
+                part1.ID_Participacion as PartJug1,
+                jug1.Nick as NomJug1,
+                part2.ID_Participacion as PartJug2,
+                jug2.Nick as NomJug2, 
+                part1.ID_Partida as Partida,
+                inter.ID_Participacion as InterJug, 
+                cat.Nombre_Categoria as NomCat,
+                inter.Acertada as PregAcertada
 
-        $userGame = array();
-         while ($row = mysql_fetch_assoc($result))
-         {
-             $userGame[] = $row;
-         }
+                FROM jugador as jug1
+                    INNER JOIN participacion as part1
+                        ON part1.ID_Jugador = jug1.ID_Jugador
+                        
+                    INNER JOIN participacion as part2
+                        ON part1.ID_Partida = part2.ID_Partida AND part1.ID_Jugador != part2.ID_Jugador
+                        
+                    INNER JOIN jugador as jug2
+                        ON part2.ID_Jugador = jug2.ID_Jugador
 
-        return $userGame;
-    }
+                    LEFT OUTER JOIN intervencion as inter
+                        ON part1.ID_Participacion = inter.ID_Participacion OR part2.ID_Participacion = inter.ID_Participacion
+                        
+                    LEFT OUTER JOIN pregunta as preg
+                        ON inter.ID_Pregunta = preg.ID_Pregunta
+                        
+                    LEFT OUTER JOIN categoria as cat
+                        ON preg.ID_Categoria = cat.ID_Categoria
+                        
+                WHERE jug1.Nick = 'joan'
+                ORDER BY Partida";  
 
-
-
-
-    public function opponentGames($nick) {
-        $nick = htmlspecialchars($nick);
-
-        $sql = "SELECT `ID_Partida`, `Nick` FROM `bdtrivialisimos`.`jugador` 
-                    INNER JOIN `bdtrivialisimos`.`participacion` 
-                    ON `jugador`.`Id_Jugador` = `participacion`.`Id_Jugador`
-                WHERE `Nick`='".$nick."' AND `Turno`=0";  
         $result = mysql_query($sql, $this->conexion);
 
         $userGame = array();

@@ -4,7 +4,7 @@
 	{
 		//BD
 		static public $mvc_bd_hostname 		= "localhost";
-		static public $mvc_bd_nombre   		= "bdtrivilisimos";
+		static public $mvc_bd_nombre   		= "bdtriviadisimos";
 		static public $mvc_bd_usuario  		= "root";
 		static public $mvc_bd_clave    		= "";
 
