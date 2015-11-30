@@ -32,6 +32,7 @@ USE bdtriviadisimos;
 CREATE TABLE IF NOT EXISTS `mundo` (
   `ID_Mundo` int(15) NOT NULL AUTO_INCREMENT,
   `Nombre_Mundo` varchar(50) NOT NULL,
+  `URL_ImagenMundo` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_Mundo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -39,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `mundo` (
 -- Volcado de datos para la tabla `mundo`
 --
 
-INSERT INTO `mundo` (`ID_Mundo`, `Nombre_Mundo`) VALUES
-(NULL, 'Normal'),
-(NULL, 'Disney');
+INSERT INTO `mundo` (`ID_Mundo`, `Nombre_Mundo`, `URL_ImagenMundo`) VALUES
+(NULL, 'Normal', '/mundoNormal.png'),
+(NULL, 'Disney', '/mundoDisney.png');
 
 -- --------------------------------------------------------
 
@@ -192,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `jugador` (
   `Apellidos` varchar(50) NOT NULL,
   `Contraseña` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `URL_Imagen` varchar(255) NOT NULL,
+  `URL_ImagenJugador` varchar(255) NOT NULL,
   `Partidas_Ganadas` int(15) NOT NULL,
   `Partidas_Perdidas` int(15) NOT NULL,
   `ID_Privilegio` int(15) NOT NULL,
@@ -206,9 +207,10 @@ CREATE TABLE IF NOT EXISTS `jugador` (
 -- Volcado de datos para la tabla `jugador`
 --
 
-INSERT INTO `jugador` (`ID_Jugador`, `Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_Imagen`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`) VALUES
+INSERT INTO `jugador` (`ID_Jugador`, `Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_ImagenJugador`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`) VALUES
 (NULL, 'Carlos342', 'Carlos', 'Tenorio Pérez', 'carlos342admin', 'carlos342@gmail.com', '', 0, 0, 2, 4),
-(NULL, 'joan', 'joan', 'martin', 'hola', 'joan@hotmail.com', '', 0, 0, 2, 4);
+(NULL, 'joan', 'joan', 'martin', 'hola', 'joan@hotmail.com', '', 0, 0, 2, 4),
+(NULL, 'Espe22', 'Espe', 'espe', 'jaja', 'jaja@hotmail.com', '', 0, 0, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -239,7 +241,9 @@ CREATE TABLE IF NOT EXISTS `partida` (
 INSERT INTO `partida` (`ID_Partida`, `Fecha_Inicio`, `Fecha_Final`, `Hora_Inicio`, `Estado_Partida`, `ID_Mundo`) VALUES
 (NULL, '2015-11-09', '0000-00-00', '05:00:00', 1, 1),
 (NULL, '2015-11-09', '2015-11-11', '05:00:00', 1, 1),
-(NULL, '2015-11-09', '2015-11-11', '08:00:00', 0, 2);
+(NULL, '2015-11-09', '2015-11-11', '08:00:00', 0, 2),
+(NULL, '2015-11-26', '2015-11-27', '04:00:00', 1, 1),
+(NULL, '2015-11-27', '2015-11-28', '02:00:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -273,7 +277,11 @@ INSERT INTO `participacion` (`ID_Participacion`, `ID_Jugador`, `ID_Partida`, `Es
 (NULL, 2, 2, 1, 1),
 (NULL, 1, 2, 1, 0),
 (NULL, 2, 3, 1, 0),
-(NULL, 1, 3, 1, 1);
+(NULL, 1, 3, 1, 1),
+(NULL, 3, 4, 1, 1),
+(NULL, 2, 4, 1, 0),
+(NULL, 2, 5, 1, 0),
+(NULL, 1, 5, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -299,7 +307,8 @@ CREATE TABLE IF NOT EXISTS `pregunta` (
 
 INSERT INTO `pregunta` (`ID_Pregunta`, `Text_Pregunta`, `ID_Categoria`) VALUES
 (NULL, 'Conjunto de polvo, gas y estrellas de miles de parsecs de diámetro', 1),
-(NULL, 'Derivada de 100', 1);
+(NULL, 'Derivada de 100', 1),
+(NULL, '¿En qué año empezó la Guerra Civil Española?', 2);
 
 -- --------------------------------------------------------
 
@@ -332,7 +341,11 @@ INSERT INTO `respuesta` (`ID_Respuesta`, `ID_Pregunta`, `Texto_Respuesta`, `Corr
 (NULL, 2, '0', 1),
 (NULL, 2, 'x', 0),
 (NULL, 2, '10', 0),
-(NULL, 2, '-1', 0);
+(NULL, 2, '-1', 0),
+(NULL, 3, '1936', 1),
+(NULL, 3, '1939', 0),
+(NULL, 3, '1941', 0),
+(NULL, 3, '1937', 0);
 
 -- --------------------------------------------------------
 
@@ -350,5 +363,29 @@ CREATE TABLE IF NOT EXISTS `intervencion` (
   FOREIGN KEY (`ID_Participacion`) REFERENCES participacion(`ID_Participacion`),
   FOREIGN KEY (`ID_Pregunta`) REFERENCES pregunta(`ID_Pregunta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `intervencion`
+--
+
+INSERT INTO `intervencion` (`Acertada`, `ID_Participacion`, `ID_Pregunta`) VALUES
+(1, 1, 1),
+(1, 1, 1),
+(0, 2, 1),
+(1, 2, 2),
+(0, 2, 1),
+(1, 3, 1),
+(0, 3, 2),
+(1, 1, 2),
+(0, 4, 2),
+(1, 2, 2),
+(0, 3, 1),
+(1, 1, 2),
+(0, 1, 1),
+(1, 1, 1),
+(1, 7, 1),
+(1, 8, 2),
+(1, 7, 3),
+(1, 1, 3);
 
 -- --------------------------------------------------------

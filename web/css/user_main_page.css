@@ -20,3 +20,24 @@
 			background-color: orange;
 			margin: 0.1em;
 		}
+
+		a.fill-div {
+		    height: 100%;
+		    width: 100%;
+		    text-decoration: none;
+		}
+
+		.profile-image {
+			padding-left: 1.5em;
+			padding-top: 0.3em;
+		}
+
+			.profile-image img {
+				border: 2px solid #02CEFF;
+				margin: 0;
+				padding: 0;
+				border-radius: 800px;
+				overflow: hidden;
+				width: 8em;
+				height: 7em;
+			}

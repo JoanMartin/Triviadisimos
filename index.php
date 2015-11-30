@@ -7,7 +7,6 @@
     require_once (__DIR__.'/app/UserGamesModel.php');
     require_once (__DIR__.'/app/Controller.php');
 
-
     session_start();
         
     if(!isset($_SESSION['username'])){    
@@ -15,21 +14,22 @@
         //$sesion=0;
         session_destroy(); 
 
-         // enrutamiento
-         $map = array(
-             'homePage' => array('controller' =>'Controller', 'action' =>'homePage'),
-             'registerUser' => array('controller' =>'Controller', 'action' =>'registerUser'),
-             'loginUser' => array('controller' =>'Controller', 'action' =>'loginUser')
-         );           
+        // enrutamiento
+        $map = array(
+            'homePage' => array('controller' =>'Controller', 'action' =>'homePage'),
+            'registerUser' => array('controller' =>'Controller', 'action' =>'registerUser'),
+            'loginUser' => array('controller' =>'Controller', 'action' =>'loginUser')
+        );           
     } else { 
         //Sesión Iniciada
         //session_destroy();  
         
-         // enrutamiento
-         $map = array(
-             'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
-             'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
-         );
+        // enrutamiento
+        $map = array(
+            'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
+            'stats' => array('controller' =>'Controller', 'action' =>'stats'),
+            'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
+        );
     }
 
     // Parseo de la ruta
