@@ -25,6 +25,9 @@ if(!isset($_SESSION['username'])){
          'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
          'stats' => array('controller' =>'Controller', 'action' =>'stats'),
          'profile' => array('controller' =>'Controller', 'action' =>'profile'),
+         'editProfile' => array('controller' =>'Controller', 'action' =>'editProfile'),
+         'changePasswordProfile' => array('controller' =>'Controller', 'action' =>'changePasswordProfile'),
+         'imgProfile' => array('controller' =>'Controller', 'action' =>'imgProfile'),
          'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
      );
 }

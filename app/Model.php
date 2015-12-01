@@ -598,7 +598,7 @@ class Model
      public function infoProfile($nick){
         $nick = htmlspecialchars($nick);  
         
-        $sql = "SELECT *FROM `bdtriviadisimos`.`jugador`WHERE `Nick`='".$nick."'";
+        $sql = "SELECT * FROM `bdtriviadisimos`.`jugador`WHERE `Nick`='".$nick."'";
            
         $result = mysql_query($sql, $this->conexion);
 
@@ -609,6 +609,50 @@ class Model
         }
 
         return $profile;
+    }
+
+    public function editProfile($nick, $nombre, $apellidos, $email){
+        $nick = htmlspecialchars($nick);  
+
+        $sql = "UPDATE  `bdtriviadisimos`.`jugador` SET `Nombre`='".$nombre."', `Apellidos`='".$apellidos."', `Email`='".$email."' WHERE `Nick`='".$nick."'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'editChange';    
+    } 
+
+    public function confPasswordCurrent($nick, $passActual){
+        $nick = htmlspecialchars($nick);  
+
+        $sql = "SELECT * FROM `bdtriviadisimos`.`jugador` WHERE `Contraseña`='".$passActual."' AND `Nick`='".$nick."' ";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            return 'passConf';    
+        }else{
+            return 'passDen';  
+        }  
+    }
+
+    public function changePasswordProfile($nick, $passNuevo){
+        $nick = htmlspecialchars($nick);  
+
+        $sql = "UPDATE  `bdtriviadisimos`.`jugador` SET `Contraseña`='".$passNuevo."' WHERE `Nick`='".$nick."' ";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'passChange';    
+    }
+
+    public function imgProfile($nick, $fileImgProfile){
+        $nick = htmlspecialchars($nick);  
+
+        $sql = "UPDATE  `bdtriviadisimos`.`jugador` SET `URL_Imagen`='".$nick."' WHERE `Nick`='".$nick."' ";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'passChange';    
     }
 
 

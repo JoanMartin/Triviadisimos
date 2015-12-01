@@ -26,10 +26,12 @@
 	        }
 
             if($result == 'NickRepeated'){
-                require __DIR__ . '/templates/errorNickRepeated.php';
+                $text= "UPS! Este Nick ya est&aacute utilizado. Prueba otro!";
+                require __DIR__ . '/templates/errorAlertNoUser.php'; 
             }else{
                 if($result == 'EmailRepeated'){
-                require __DIR__ . '/templates/errorEmailRepeated.php';
+                    $text= "UPS! Este Email ya est&aacute utilizado. Prueba otro!";
+                    require __DIR__ . '/templates/errorAlertNoUser.php'; 
                 }else{
                     $reslt = $m->getlogin($_POST['nick'], $_POST['password']);
                     
@@ -54,7 +56,8 @@
          		require __DIR__ . '/templates/user_home_page.php';
 			}
 			else{
-                require __DIR__ . '/templates/errorUserNotFound.php'; 
+                $text= "UPS! El usuario o la contrase&ntildea no coinciden. Prueba otra vez!";
+                require __DIR__ . '/templates/errorAlertNoUser.php'; 
 			}  
  		} 
 
@@ -198,6 +201,76 @@
            // $paramsProfile = $profile;
      
             require __DIR__ . '/templates/profile.php';
+
+        }
+
+        public function editProfile(){
+            
+            $nick = $_SESSION['username'];
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $result = $m->editProfile($_POST['nick'], $_POST['nombre'],
+                            $_POST['apellidos'], $_POST['email']);
+            }
+
+            if($result == 'editChange'){  
+                header("Location: ./index.php?ctl=profile"); 
+            }
+            else{
+                header("Location: ./error"); 
+            } 
+        }
+
+        public function changePasswordProfile(){
+            
+            $nick = $_SESSION['username'];
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $result = $m->confPasswordCurrent($nick, $_POST['passActual']);
+                if($result == 'passConf'){  
+                    $result = $m->changePasswordProfile($nick, $_POST['passNuevo']);
+                    if($result == 'passChange'){  
+
+                        header("Location: ./index.php?ctl=profile"); 
+                    }
+                    else{
+                        header("Location: ./error"); 
+                    } 
+                }else{       
+                    $text= "UPS! La contrase&ntildea actual no es correcta";
+                    require __DIR__ . '/templates/errorAlertUser.php';
+                }
+            }
+
+        }
+
+        public function imgProfile(){
+            
+            $nick = $_SESSION['username'];
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+           
+           
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $result = $m->imgProfile($nick, $_FILES['fileImgProfile']);
+            }
+
+            $target_path = "web/images/users/";
+            $target_path = $target_path . basename($_FILES['fileImgProfile']['name']); 
+            $ext = pathinfo($target_path, PATHINFO_EXTENSION);
+
+            if(move_uploaded_file($_FILES["fileImgProfile"]["tmp_name"],'web/images/users/'.$_FILES['fileImgProfile']['name'])){
+                rename("$target_path", "web/images/users/".$nick.".$ext");                  
+            }
+
+            header("Location: ./index.php?ctl=profile"); 
 
         }
 

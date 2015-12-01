@@ -4,6 +4,15 @@
 }
 
 .profile-image{
-	height: 400px;
-	width:100%;
+	height: 220px;
+	width: 220px;
+}
+
+#fileImgProfile{
+	width: 250px;
+}
+
+#pAdvise{
+	width: 220px;
+	font-size: 12px;
 }
