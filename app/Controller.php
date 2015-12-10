@@ -211,17 +211,24 @@
             $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
             
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $result = $m->editProfile($_POST['nick'], $_POST['nombre'],
-                            $_POST['apellidos'], $_POST['email']);
-            }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
+                //$nick = $m-> replaceAccent($_POST['nick']);
+                //$nombre = $m-> replaceAccent($_POST['nombre']);
 
+                //header("Location: ./$nombre"); 
+                //$apellidos = $m-> replaceAccent($_POST['apellidos']);
+                //$email = $m-> replaceAccent($_POST['email']);
+
+                $result = $m->editProfile($_POST['nick'], $_POST['nombre'], $_POST['apellidos'], $_POST['email']);
+            }
+            
             if($result == 'editChange'){  
                 header("Location: ./index.php?ctl=profile"); 
             }
             else{
                 header("Location: ./error"); 
             } 
+            
         }
 
         public function changePasswordProfile(){
@@ -271,7 +278,6 @@
             }
 
             header("Location: ./index.php?ctl=profile"); 
-
         }
 
  	}

@@ -32,10 +32,10 @@
                     <input type="text" class="form-control" id="email" name="email" class"input" value="<?php echo $profile['Email'] ?>" readonly>
                     <br>
                     <a onclick="editar()" class="btn btn-success">Editar</a>
-                    <button onclick="replaceAccent(document.getElementById('apellidos').value)" class="btn btn-success">Guardar</button>
+                    <button class="btn btn-success">Guardar</button>
                     <br /><br/>
                 </form>
-
+                    
                 <?php endforeach; ?>
             </div>
 
@@ -57,7 +57,6 @@
         </div>
     </section>
 </div>
-
 
 <?php $contenido = ob_get_clean() ?>
 

@@ -48,11 +48,19 @@
     /***********************************/
      //Replace accent for upload  to DB
     /***********************************/        
+    /*
+    function replaceAccent() {
 
-    function replaceAccent(s) {
-        s = str.replace("á", "#225");
-        s = str.replace("é", "#233");
-        s = str.replace("í", "#227");
-        s = str.replace("ó", "#243");
-        s = str.replace("ú", "#250");
+        var apellidos = document.getElementById("apellidos").value;
+        //var demo = "asés";
+        //alert(apellidos);
+        var apellidos_decode =  html_entity_decode(apellidos);
+        alert(apellidos_decode);
+
+        var str = apellidos_decode.replace(/é/g, "&#233");
+
+        document.getElementById("apellidos").value = str;
+
+        document.getElementById("formEditProfile").submit();
     }
+    */
