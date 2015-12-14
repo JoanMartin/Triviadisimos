@@ -212,12 +212,6 @@
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
-                //$nick = $m-> replaceAccent($_POST['nick']);
-                //$nombre = $m-> replaceAccent($_POST['nombre']);
-
-                //header("Location: ./$nombre"); 
-                //$apellidos = $m-> replaceAccent($_POST['apellidos']);
-                //$email = $m-> replaceAccent($_POST['email']);
 
                 $result = $m->editProfile($_POST['nick'], $_POST['nombre'], $_POST['apellidos'], $_POST['email']);
             }
