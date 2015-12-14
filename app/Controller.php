@@ -33,6 +33,9 @@
                     $text= "UPS! Este Email ya est&aacute utilizado. Prueba otro!";
                     require __DIR__ . '/templates/errorAlertNoUser.php'; 
                 }else{
+                    copy('web/images/user.png', 'web/images/users/user.jpg');
+                    rename("web/images/users/user.jpg", "web/images/users/".$_POST['nick'].".jpg");
+
                     $reslt = $m->getlogin($_POST['nick'], $_POST['password']);
                     
                     if($reslt == 'login'){  

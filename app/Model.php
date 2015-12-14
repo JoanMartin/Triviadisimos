@@ -50,7 +50,7 @@ class Model
             }else{
 
                 $sql = "INSERT INTO `bdtriviadisimos`.`jugador` (`Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_Imagen`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`)
-                 VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', '', '', '', '2', '1')";
+                 VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', 'user', '', '', '2', '1')";
 
                 $result = mysql_query($sql, $this->conexion);
 
