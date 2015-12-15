@@ -30,7 +30,7 @@
 					                		</div>
 										</div>
 										<div class="row">
-											<div class="column col-12 profile-image">
+											<div class="column col-12 user-image">
 								 				<img class="img-responsive" src="web/images/users/<?php echo $games['ImagenJug1']?>">
 					                		</div>
 										</div>
@@ -108,7 +108,7 @@
 					                		</div>
 										</div>
 										<div class="row">
-											<div class="column col-12 profile-image">
+											<div class="column col-12 user-image">
 								 				<img class="img-responsive" src="web/images/users/<?php echo $games['ImagenJug2']?>">
 					                		</div>
 										</div>
@@ -214,7 +214,7 @@
 					                		</div>
 										</div>
 										<div class="row">
-											<div class="column col-12 profile-image">
+											<div class="column col-12 user-image">
 								 				<img class="img-responsive" src="web/images/users/<?php echo $games['ImagenJug1']?>">
 					                		</div>
 										</div>
@@ -292,7 +292,7 @@
 					                		</div>
 										</div>
 										<div class="row">
-											<div class="column col-12 profile-image">
+											<div class="column col-12 user-image">
 								 				<img class="img-responsive" src="web/images/users/<?php echo $games['ImagenJug2']?>">
 					                		</div>
 										</div>

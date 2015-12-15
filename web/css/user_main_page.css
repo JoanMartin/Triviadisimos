@@ -27,12 +27,12 @@
 		    text-decoration: none;
 		}
 
-		.profile-image {
+		.user-image {
 			padding-left: 1.5em;
 			padding-top: 0.3em;
 		}
 
-			.profile-image img {
+			.user-image img {
 				border: 2px solid #02CEFF;
 				margin: 0;
 				padding: 0;

@@ -825,48 +825,48 @@ hr {
 				top: -0.2em;
 			}
 
-			.icon.circle.fa-twitter {
+			.icon.circle.one {
 				background: #70aecd;
 				color: #fff;
 			}
 
-				.icon.circle.fa-twitter:hover {
+				.icon.circle.one:hover {
 					background: #7fb7d2;
 				}
 
-			.icon.circle.fa-facebook {
+			.icon.circle.two {
 				background: #7490c3;
 				color: #fff;
 			}
 
-				.icon.circle.fa-facebook:hover {
+				.icon.circle.two:hover {
 					background: #829bc9;
 				}
 
-			.icon.circle.fa-google-plus {
+			.icon.circle.three {
 				background: #db6b67;
 				color: #fff;
 			}
 
-				.icon.circle.fa-google-plus:hover {
+				.icon.circle.three:hover {
 					background: #df7b77;
 				}
 
-			.icon.circle.fa-github {
+			.icon.circle.four {
 				background: #dcad8b;
 				color: #fff;
 			}
 
-				.icon.circle.fa-github:hover {
+				.icon.circle.four:hover {
 					background: #e1b89b;
 				}
 
-			.icon.circle.fa-dribbble {
+			.icon.circle.five {
 				background: #da83ae;
 				color: #fff;
 			}
 
-				.icon.circle.fa-dribbble:hover {
+				.icon.circle.five:hover {
 					background: #df93b8;
 				}
 
@@ -1566,6 +1566,15 @@ input[type="button"].btn-block {
       .dropotron > li:first-child {
         border-top: 0;
       }
+
+
+
+
+/* Narrower */
+
+  #navPanel, #navButton {
+    display: none;
+  }
 
 
 /* Banner */

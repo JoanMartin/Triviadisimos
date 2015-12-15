@@ -22,7 +22,7 @@
         <div>
             <!-- Header -->
             <header id="header">
-                <h4 id="logo"><strong><a href="#">Triviad&iacutesimos</a></strong></h4>
+                <h1 id="logo"><a href="index.php">Triviadísimos</a></h1>
                 <nav id="nav">
                     <ul>
                         <li class="menu"><a href="#">Ayuda</a></li>
@@ -34,99 +34,99 @@
         </div>
 
 
-    <!--BLACK SCREEN TO LOGIN-->
-    <div class="row" id="divBlack" >
-    </div>
+        <!--BLACK SCREEN TO LOGIN-->
+        <div class="row" id="divBlack" >
+        </div>
 
-    <!--REGISTER FORM-->
-    <div class="container-login">
-        <div class="row centered-form">
-            <div class="col-md-6 col-sm-offset-2 col-md-offset-3">
-                <div class="panel panel-default" id="divRegister" name="divRegister">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Registro</h3>
-                    </div>
-                        <div class="panel-body">
-                        <form role="form" id="formRegister" name="formRegister" method="post" action="index.php?ctl=registerUser" >
-                            <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="nick" id="nick" class="form-control input-sm" placeholder="Nick" required>
-                                    </div>
-                                </div>                                
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre" required>
-                                    </div>
-                                </div>
-                                 <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="apellidos" id="apellidos" class="form-control input-sm" placeholder="Apellidos" required>
-                                    </div>
-                                </div>                               
-                            </div>
-
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email" required>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Contrase&#241a" required>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Contrase&#241a" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="submit" value="Registrarse" class="btn btn-info btn-block button special">
-                        
-                        </form>
+        <!--REGISTER FORM-->
+        <div class="container-login">
+            <div class="row centered-form">
+                <div class="col-md-6 col-sm-offset-2 col-md-offset-3">
+                    <div class="panel panel-default" id="divRegister" name="divRegister">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Registro</h3>
                         </div>
+                            <div class="panel-body">
+                            <form role="form" id="formRegister" name="formRegister" method="post" action="index.php?ctl=registerUser" >
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="nick" id="nick" class="form-control input-sm" placeholder="Nick" required>
+                                        </div>
+                                    </div>                                
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre" required>
+                                        </div>
+                                    </div>
+                                     <div class="col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="apellidos" id="apellidos" class="form-control input-sm" placeholder="Apellidos" required>
+                                        </div>
+                                    </div>                               
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email" required>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Contrase&#241a" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Contrase&#241a" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" value="Registrarse" class="btn btn-info btn-block button special">
+                            
+                            </form>
+                            </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <!--LOGIN FORM-->
-    <div class="container-login">
-        <div class="row centered-form">
-            <div class="col-md-4 col-sm-offset-2 col-md-offset-4">
-                <div class="panel panel-default" id="divLogin" name="divLogin">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Login</h3>
-                    </div>
-                        <div class="panel-body">
-                        <form role="form" method="post" action="index.php?ctl=loginUser" >
-                            <div class="row">
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" name="nickLogin" id="nickLogin" class="form-control input-sm" placeholder="Nick">
-                                    </div>
-                                </div>                                
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <input type="password" name="passwordLogin" id="passwordLogin" class="form-control input-sm" placeholder="Contrase&#241a">
+        <!--LOGIN FORM-->
+        <div class="container-login">
+            <div class="row centered-form">
+                <div class="col-md-4 col-sm-offset-2 col-md-offset-4">
+                    <div class="panel panel-default" id="divLogin" name="divLogin">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Login</h3>
+                        </div>
+                            <div class="panel-body">
+                            <form role="form" method="post" action="index.php?ctl=loginUser" >
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" name="nickLogin" id="nickLogin" class="form-control input-sm" placeholder="Nick">
+                                        </div>
+                                    </div>                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <input type="password" name="passwordLogin" id="passwordLogin" class="form-control input-sm" placeholder="Contrase&#241a">
+                                        </div>
                                     </div>
                                 </div>
+                                <input type="submit" value="Entrar" class="btn btn-info btn-block button special">
+                            
+                            </form>
                             </div>
-                            <input type="submit" value="Entrar" class="btn btn-info btn-block button special">
-                        
-                        </form>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <div id="contenido">
             <?php echo $contenido ?>
@@ -151,11 +151,11 @@
                 </div>
                 <div class="column col-4">
                     <ul class="icons">
-                        <li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
-                        <li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
-                        <li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+                        <li><a href="#" class="icon circle one"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon circle two"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon circle three"><span class="label">Google+</span></a></li>
+                        <li><a href="#" class="icon circle four"><span class="label">Github</span></a></li>
+                        <li><a href="#" class="icon circle five"><span class="label">Dribbble</span></a></li>
                     </ul>
                 </div>
                 <div class="column col-2">
@@ -174,8 +174,5 @@
                 </div>
             </div>
         </footer>
-
-     </body>
-
-
+    </body>
  </html>

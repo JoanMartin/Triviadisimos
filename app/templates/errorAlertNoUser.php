@@ -2,7 +2,7 @@
 
 <!--ALERT-->
 <div id="alert" class="alert alert-danger">
-  <strong>UPS! Este Email ya est&aacute utilizado. Prueba otro!</strong> 
+	<strong><?php echo $text ?></strong> 
 </div>
 
 

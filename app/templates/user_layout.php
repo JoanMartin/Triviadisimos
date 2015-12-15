@@ -6,12 +6,15 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_main_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_user_main_css ?>" />
-        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_mainlay_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_stats_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_profile_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_errRepeated_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_validate_css ?>" />
 
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_js1_js ?>"></script>
-        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq1_js ?>"></script>
+        <script src="<?php echo 'web/js/'.Config::$mvc_jq1_js ?>"></script>
+        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_validate_js ?>"></script>
 
         <script src="<?php echo 'web/js/'.Config::$mvc_jqmin_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_jqdropomin_js ?>"></script>
@@ -22,18 +25,19 @@
     </head>
 
     <body class="background-color-blue">
-        <div>
+        <div id="page-wrapper">
             <!-- Header -->
             <header id="header">
-                <h1 id="logo"><a href="#">Triviadísimos</a></h1>
+                <h1 id="logo"><a href="index.php">Triviadísimos</a></h1>
                 <nav id="nav">
                     <ul> 
                         <li class="submenu">
-                            <a href="#">Opciones</a>
+                            <a>Opciones</a>
                             <ul>
+                                <li><a href="index.php?ctl=stats">Estad&iacutesticas</a></li>
+                                <li><a href="index.php?ctl=profile">Perfil</a></li>
                                 <li><a href="#">Ayuda</a></li>
-                                <li class="menu"><a href="index.php?ctl=stats">Estad&iacutesticas</a></li>
-                                <li class="menu"><a href="index.php?ctl=closeSession">Cerrar sesi&oacuten</a></li>
+                                <li><a href="index.php?ctl=closeSession">Cerrar sesi&oacuten</a></li>
                             </ul>
                         </li>     
                         <li><a href="index.php">Principal</a></li>                  
@@ -44,6 +48,6 @@
 
         <div id="contenido">
             <?php echo $contenido ?>
-        </div>        
+        </div>     
      </body>
  </html>

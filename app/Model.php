@@ -32,6 +32,7 @@ class Model
 
         //Comprobar que el nick está diponible
         $sql = "SELECT `Id_Jugador` FROM `bdtriviadisimos`.`jugador` WHERE `Nick`='".$nick."'";
+
         $result = mysql_query($sql, $this->conexion);
 
         if (mysql_num_rows($result) > 0) {
@@ -44,7 +45,8 @@ class Model
             if (mysql_num_rows($result) > 0) {
                 return 'EmailRepeated';
             } else {
-                $sql = "INSERT INTO `bdtriviadisimos`.`jugador` (`Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_Imagen`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`) VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', '', '', '', '', '')";
+                $sql = "INSERT INTO `bdtriviadisimos`.`jugador` (`Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_ImagenJugador`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`)
+                 VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', 'user', '', '', '2', '1')";
 
                 $result = mysql_query($sql, $this->conexion);
 
@@ -54,12 +56,12 @@ class Model
     }
     
     public function getlogin($nickLogin, $passwordLogin){
-
         $nickLogin = htmlspecialchars($nickLogin);
         $passwordLogin = htmlspecialchars($passwordLogin);
 
         if(isset($nickLogin) && isset($passwordLogin)){
-            $sql = "SELECT `Id_Jugador` FROM `bdtriviadisimos`.`jugador` WHERE `Nick`='".$nickLogin."' AND `Contraseña`='".$passwordLogin."' LIMIT 1";     
+            $sql = "SELECT `Id_Jugador` FROM `bdtriviadisimos`.`jugador` WHERE `Nick`='".$nickLogin."' AND `Contraseña`='".$passwordLogin."' LIMIT 1";
+                  
             $result = mysql_query($sql, $this->conexion);
 
             if (mysql_num_rows($result) > 0) {
@@ -217,7 +219,7 @@ class Model
         INNER JOIN `bdtriviadisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
         INNER JOIN `bdtriviadisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
         INNER JOIN `bdtriviadisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
-        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal' AND `nombre_categoria`= 'Ciencias'";
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal' AND `nombre_categoria`= 'Ciencia'";
            
         $result = mysql_query($sql, $this->conexion);
 
@@ -234,7 +236,7 @@ class Model
         INNER JOIN `bdtriviadisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
         INNER JOIN `bdtriviadisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
         INNER JOIN `bdtriviadisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
-        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal' AND `nombre_categoria`= 'Ciencias'";
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal' AND `nombre_categoria`= 'Ciencia'";
            
         $result = mysql_query($sql, $this->conexion);
 
@@ -584,5 +586,66 @@ class Model
             $row = mysql_fetch_assoc($result);
             return $row;
         }
+    }
+
+    //PROFILE
+     public function infoProfile($nick){
+        $nick = htmlspecialchars($nick);  
+        
+        $sql = "SELECT * FROM `bdtriviadisimos`.`jugador`WHERE `Nick`='".$nick."'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        $profile = array();
+        while ($row = mysql_fetch_assoc($result))
+        {
+            $profile[] = $row;
+        }
+
+        return $profile;
+    }
+    
+    public function editProfile($nick, $nombre, $apellidos, $email){
+        $nick = htmlspecialchars($nick);  
+
+        $sql = "UPDATE  `bdtriviadisimos`.`jugador` SET `Nombre`='".$nombre."', `Apellidos`='".$apellidos."', `Email`='".$email."' WHERE `Nick`='".$nick."'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'editChange';    
+    } 
+
+    public function confPasswordCurrent($nick, $passActual){
+        $nick = htmlspecialchars($nick);  
+
+        $sql = "SELECT * FROM `bdtriviadisimos`.`jugador` WHERE `Contraseña`='".$passActual."' AND `Nick`='".$nick."' ";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            return 'passConf';    
+        }else{
+            return 'passDen';  
+        }  
+    }
+
+    public function changePasswordProfile($nick, $passNuevo){
+        $nick = htmlspecialchars($nick);  
+
+        $sql = "UPDATE  `bdtriviadisimos`.`jugador` SET `Contraseña`='".$passNuevo."' WHERE `Nick`='".$nick."' ";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'passChange';    
+    }
+
+    public function imgProfile($nick, $fileImgProfile){
+        $nick = htmlspecialchars($nick);  
+
+        $sql = "UPDATE  `bdtriviadisimos`.`jugador` SET `URL_ImagenJugador`='".$nick."' WHERE `Nick`='".$nick."' ";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'passChange';    
     }
 }

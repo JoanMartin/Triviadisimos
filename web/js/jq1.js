@@ -39,5 +39,24 @@
 	            }
         });
 	});
+
+    $(document).ready(function() {
+        jQuery.validator.setDefaults({
+          debug: true,
+          success: "valid"
+        });
+        $( "#changePasswordProfile" ).validate({
+          rules: {
+            passActual: "required",
+            passNuevoConf: {
+              equalTo: "#passNuevo"
+            }
+          },
+      submitHandler: function(form) {
+                  form.submit();
+              }
+        });
+  });
+
 	/********************************/
 	/********************************/

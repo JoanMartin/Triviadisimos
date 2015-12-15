@@ -282,6 +282,7 @@ INSERT INTO `participacion` (`ID_Participacion`, `ID_Jugador`, `ID_Partida`, `Es
 (NULL, 2, 4, 1, 0),
 (NULL, 2, 5, 1, 0),
 (NULL, 1, 5, 1, 1);
+(NULL, 1, 3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -387,5 +388,4 @@ INSERT INTO `intervencion` (`Acertada`, `ID_Participacion`, `ID_Pregunta`) VALUE
 (1, 8, 2),
 (1, 7, 3),
 (1, 1, 3);
-
 -- --------------------------------------------------------
