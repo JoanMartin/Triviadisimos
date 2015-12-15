@@ -269,10 +269,10 @@
 
             $target_path = "web/images/users/";
             $target_path = $target_path . basename($_FILES['fileImgProfile']['name']); 
-            $ext = pathinfo($target_path, PATHINFO_EXTENSION);
+            //$ext = pathinfo($target_path, PATHINFO_EXTENSION);
 
             if(move_uploaded_file($_FILES["fileImgProfile"]["tmp_name"],'web/images/users/'.$_FILES['fileImgProfile']['name'])){
-                rename("$target_path", "web/images/users/".$nick.".$ext");                  
+                rename("$target_path", "web/images/users/".$nick.".jpg");                  
             }
 
             header("Location: ./index.php?ctl=profile"); 

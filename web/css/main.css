@@ -1634,7 +1634,7 @@ input[type="button"].btn-block {
 /* Container */
 	.container{
 		background: #fff;	
-		padding: 10em;
+		padding: 10em 0em;
 	}
 
 	.container-login {
