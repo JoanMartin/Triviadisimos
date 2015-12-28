@@ -208,9 +208,9 @@ CREATE TABLE IF NOT EXISTS `jugador` (
 --
 
 INSERT INTO `jugador` (`ID_Jugador`, `Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_ImagenJugador`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`) VALUES
-(NULL, 'Carlos342', 'Carlos', 'Tenorio Pérez', 'carlos342admin', 'carlos342@gmail.com', '', 0, 0, 2, 4),
-(NULL, 'joan', 'joan', 'martin', 'hola', 'joan@hotmail.com', '', 0, 0, 2, 4),
-(NULL, 'Espe22', 'Espe', 'espe', 'jaja', 'jaja@hotmail.com', '', 0, 0, 2, 4);
+(NULL, 'Carlos342', 'Carlos', 'Tenorio Pérez', 'carlos342admin', 'carlos342@gmail.com', 'Carlos342', 0, 0, 2, 4),
+(NULL, 'joan', 'joan', 'martin', 'hola', 'joan@hotmail.com', 'joan', 0, 0, 2, 4),
+(NULL, 'Espe22', 'Espe', 'espe', 'jaja', 'jaja@hotmail.com', 'Espe22', 0, 0, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -281,7 +281,7 @@ INSERT INTO `participacion` (`ID_Participacion`, `ID_Jugador`, `ID_Partida`, `Es
 (NULL, 3, 4, 1, 1),
 (NULL, 2, 4, 1, 0),
 (NULL, 2, 5, 1, 0),
-(NULL, 1, 5, 1, 1);
+(NULL, 1, 5, 1, 1),
 (NULL, 1, 3, 1, 1);
 
 -- --------------------------------------------------------

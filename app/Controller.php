@@ -1,6 +1,25 @@
 <?php
 
 	class Controller {
+
+        public function game() {
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $_SESSION['game'] = $_POST['game'];
+            $game = $_POST['game'];
+            $nick = $_SESSION["username"];
+
+            $params = array(
+                'game' => $m->getGame($game, $nick),
+            );
+
+            require __DIR__ . '/templates/game.php';
+        }
+
+
+
+
 		public function homePage() {
 			require __DIR__ . '/templates/home_page.php';
 		}
@@ -275,7 +294,7 @@
                 rename("$target_path", "web/images/users/".$nick.".jpg");                  
             }
 
-            header("Location: ./index.php?ctl=profile"); 
+            header("Refresh:0; url=./index.php?ctl=profile");
         }
  	}
 ?>

@@ -12,22 +12,18 @@
 					<div class="container">
 					</div>
 				</div>
-				<div class="column col-4">
+				<div class="column col-4" style="padding: 3em 0em 0em 3em">
 					<header>
 						<h2>Los mejores jugadores de <strong>Triviadísimos</strong>!</h2>
 					</header>
 					<p>¿Quieres ser uno de ellos?</p>
 					<footer>
 						<ul class="buttons">
-							<li><a href="#" class="button">Juega ya</a></li>
+							<li><a onclick="RegisterFunction()" class="button">Juega ya</a></li>
 						</ul>
 					</footer>					
 				</div>
 			</div>
-		</section>
-
-	<!-- Two -->
-		<section class="wrapper style2">
 		</section>
 
 <?php $contenido = ob_get_clean() ?>

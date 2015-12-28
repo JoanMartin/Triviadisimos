@@ -151,11 +151,11 @@
                 </div>
                 <div class="column col-4">
                     <ul class="icons">
-                        <li><a href="#" class="icon circle one"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon circle two"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon circle three"><span class="label">Google+</span></a></li>
-                        <li><a href="#" class="icon circle four"><span class="label">Github</span></a></li>
-                        <li><a href="#" class="icon circle five"><span class="label">Dribbble</span></a></li>
+                        <li><a class="icon circle one"><span class="label">Twitter</span></a></li>
+                        <li><a class="icon circle two"><span class="label">Facebook</span></a></li>
+                        <li><a class="icon circle three"><span class="label">Google+</span></a></li>
+                        <li><a class="icon circle four"><span class="label">Github</span></a></li>
+                        <li><a class="icon circle five"><span class="label">Dribbble</span></a></li>
                     </ul>
                 </div>
                 <div class="column col-2">

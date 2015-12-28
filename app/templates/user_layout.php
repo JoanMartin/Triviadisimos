@@ -6,6 +6,7 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_main_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_user_main_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_game_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_stats_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_profile_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_errRepeated_css ?>" />
@@ -22,6 +23,8 @@
         <script src="<?php echo 'web/js/'.Config::$mvc_skelmin_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_util_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_main_js ?>"></script>
+        
+        <script src="<?php echo 'web/js/'.Config::$mvc_jq_transition ?>"></script>
     </head>
 
     <body class="background-color-blue">
