@@ -50,8 +50,7 @@
 										);
 										foreach ($params['games'] as $inter) {
 											if (($inter['InterJug'] == $inter['PartJug1']) and 
-												($partida == $inter['Partida']) and 
-												($inter['PregAcertada'] == 1)) {
+												($partida == $inter['Partida'])) {
 												switch ($inter['NomCat']) {
 												    case 'Ciencia':
 												        $color['science'] = '#00FF00';
@@ -128,8 +127,7 @@
 										);
 										foreach ($params['games'] as $inter) {
 											if (($inter['InterJug'] == $inter['PartJug2']) and 
-												($partida == $inter['Partida']) and 
-												($inter['PregAcertada'] == 1)) {
+												($partida == $inter['Partida'])) {
 												switch ($inter['NomCat']) {
 												    case 'Ciencia':
 												        $color['science'] = '#00FF00';
@@ -234,8 +232,7 @@
 								);
 								foreach ($params['games'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug1']) and 
-										($partida == $inter['Partida']) and 
-										($inter['PregAcertada'] == 1)) {
+										($partida == $inter['Partida'])) {
 										switch ($inter['NomCat']) {
 										    case 'Ciencia':
 										        $color['science'] = '#00FF00';
@@ -312,8 +309,7 @@
 								);
 								foreach ($params['games'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug2']) and 
-										($partida == $inter['Partida']) and 
-										($inter['PregAcertada'] == 1)) {
+										($partida == $inter['Partida'])) {
 										switch ($inter['NomCat']) {
 										    case 'Ciencia':
 										        $color['science'] = '#00FF00';

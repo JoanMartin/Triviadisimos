@@ -10,11 +10,15 @@
             $game = $_POST['game'];
             $nick = $_SESSION["username"];
 
-            $params = array(
-                'game' => $m->getGame($game, $nick),
-            );
+            $game = $m->getGame($game, $nick);
 
-            require __DIR__ . '/templates/game.php';
+            if($game == 'GameFinished'){
+                $text = "UPS! Esta partida ya no est&aacute en juego!";
+                require __DIR__ . '/templates/errorGameFinished.php'; 
+            } else {
+                require __DIR__ . '/templates/game.php';
+            }
+
         }
 
 

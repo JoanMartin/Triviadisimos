@@ -1,5 +1,6 @@
     
     var stop = false;  
+    var won;
 
     /*function cat1Up() {
         setTimeout(function(){
@@ -9,8 +10,8 @@
                 cat2Up();
             } else {
                 $('#cat1').css({'transform': 'scale(1.1)'});   
-                var str = $('#cat1').text();
-                searchQuestion(str);      
+                var category = $('#cat1').text();
+                searchQuestion(category);      
             }
         }, 100);
     }
@@ -24,8 +25,8 @@
                 cat3Up();
             } else {
                 $('#cat2').css({'transform': 'scale(1.1)'});   
-                var str = $('#cat2').text();
-                searchQuestion(str);                                  
+                var category = $('#cat2').text();
+                searchQuestion(category);                                  
             }
         }, 100);
     }
@@ -38,8 +39,8 @@
                 cat4Up();
             } else {
                 $('#cat3').css({'transform': 'scale(1.1)'});   
-                var str = $('#cat3').text();
-                searchQuestion(str);                                  
+                var category = $('#cat3').text();
+                searchQuestion(category);                                  
             }
         }, 100);
     }
@@ -53,8 +54,8 @@
                 cat5Up();
             } else {
                 $('#cat4').css({'transform': 'scale(1.1)'});   
-                var str = $('#cat4').text();
-                searchQuestion(str);                                  
+                var category = $('#cat4').text();
+                searchQuestion(category);                                  
             }
         }, 100);
     }
@@ -67,8 +68,8 @@
                 cat6Up();
             } else {
                 $('#cat5').css({'transform': 'scale(1.1)'});   
-                var str = $('#cat5').text(); 
-                searchQuestion(str);                                 
+                var category = $('#cat5').text(); 
+                searchQuestion(category);                                 
             }
         }, 100);
     }
@@ -82,8 +83,8 @@
                 cat1Up();
             } else {
                 $('#cat6').css({'transform': 'scale(1.1)'});   
-                var str = $('#cat6').text(); 
-                searchQuestion(str);                                 
+                var category = $('#cat6').text(); 
+                searchQuestion(category);                                 
             }
         }, 100);
     }*/
@@ -104,8 +105,8 @@
                 }
             } else {
                 $('#cat' + id_tag).css({'transform': 'scale(1.1)'});   
-                var str = $('#cat' + id_tag).text(); 
-                searchQuestion(str);                                 
+                var category = $('#cat' + id_tag).text(); 
+                searchQuestion(category);                                 
             }
         }, 100);
     }
@@ -120,10 +121,11 @@
 
 
 
-    function searchQuestion(str){
+    function searchQuestion(category){
         jQuery.post(
-            "app/game_lookforquestion.php", 
-            {category: str},
+            "app/GameController.php", 
+            {category: category,
+            functionname: 'lookForQuestion'},
             function(data, textStatus) {
                 var dataJson = JSON.parse(data);
 
@@ -134,52 +136,57 @@
                 $('#answer4').html(dataJson[3].resp);
 
                 $('#ans1').click(function (event) {
-                    answerClicked('#ans1', dataJson, 0);
+                    answerClicked('#ans1', dataJson, 0, category);
                 });
 
                 $('#ans2').click(function (event) {
-                    answerClicked('#ans2', dataJson, 1);
+                    answerClicked('#ans2', dataJson, 1, category);
                 });
 
                 $('#ans3').click(function (event) {
-                    answerClicked('#ans3', dataJson, 2);
+                    answerClicked('#ans3', dataJson, 2, category);
                 });
 
                 $('#ans4').click(function (event) {
-                    answerClicked('#ans4', dataJson, 3);
+                    answerClicked('#ans4', dataJson, 3, category);
                 });
             });
     }
 
 
-    function answerClicked(tag, dataJson, idJson) {
+    function answerClicked(tag, dataJson, idJson, category) {
+        insertIntervention(dataJson[idJson].correcta, dataJson[0].id_question, category);
+        checkWon();
         if (dataJson[idJson].correcta == 1) {
             $(tag).css({'background': 'green'});
-            getNextQuestion(tag);
+
+            setTimeout(function(){ 
+                if (!won) {
+                    getNextQuestion(tag);
+                } else {
+                    $('#question').css({'background': 'red'});
+
+                    jQuery.post(
+                        "app/GameController.php", 
+                        {functionname: 'finishGame'});
+                }
+            }, 300);
         } else {
             lookForCorrectAnswer(dataJson);
             $(tag).css({'background': 'red'}); 
-            invertTurn();
+            //invertTurn();
         }
-        insertIntervention(dataJson[idJson].correcta, dataJson[0].id_question);
         unbindClickFunction();
     }
 
 
-    function lookForCorrectAnswer (dataJson) {
-        $.each(dataJson, function(i, item){
-            if (dataJson[i].correcta == 1){
-                $('#ans' + (i + 1)).css({'background': 'green'});                             
-            }
-        })
-    }
-
-
-    function insertIntervention (correct, id_question) {
+    function insertIntervention (correct, id_question, category) {
         jQuery.post(
-            "app/game_insertIntervention.php", 
+            "app/GameController.php", 
             {correct: correct,
-            id_question: id_question});
+            id_question: id_question,
+            category: category,
+            functionname: 'insertIntervention'});
 
         setTimeout(function(){ 
             if (correct == 1) {
@@ -189,8 +196,18 @@
     }
 
 
-    function invertTurn () {
-        jQuery.post("app/game_invertTurn.php");
+    function checkWon () {
+        var won;
+        jQuery.post(
+            "app/GameController.php", 
+            {functionname: 'checkWon'},
+            function(data, textStatus) {
+                setWon(data);
+            });
+    }
+
+    function setWon(data) {
+        won = data;
     }
 
 
@@ -199,10 +216,25 @@
             stop = false;
             $(tag).css({'background': 'white'});
             catUp(1);
-            $('#hola').click(function (event) {
+            $('#btnStop').click(function (event) {
                 stop = true;
             });
         }, 2000);        
+    }
+
+
+    function lookForCorrectAnswer (dataJson) {
+        $.each(dataJson, function(i, item) {
+            if (dataJson[i].correcta == 1) {
+                $('#ans' + (i + 1)).css({'background': 'green'});                             
+            }
+        })
+    }
+
+
+    function invertTurn () {
+        jQuery.post("app/GameController.php", 
+            {functionname: 'invertTurn'});
     }
 
 
@@ -218,7 +250,7 @@
     $(document).ready(function() {
         catUp(1);  
         
-        $('#hola').click(function (event) {
+        $('#btnStop').click(function (event) {
             stop = true;
         });
     });

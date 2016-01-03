@@ -31,7 +31,6 @@ class UserGamesModel {
                 part1.ID_Partida as Partida,
                 inter.ID_Participacion as InterJug, 
                 cat.Nombre_Categoria as NomCat,
-                inter.Acertada as PregAcertada,
                 mundo.URL_ImagenMundo as ImagenMundo
 
                 FROM jugador as jug1
@@ -59,7 +58,8 @@ class UserGamesModel {
                     LEFT OUTER JOIN categoria as cat
                         ON preg.ID_Categoria = cat.ID_Categoria
                         
-                WHERE jug1.Nick ='".$nick."'
+                WHERE jug1.Nick ='".$nick."' AND partida.Estado_Partida = 'Iniciada' AND (inter.Acertada = 1 OR inter.Acertada IS NULL)
+                GROUP BY Partida, InterJug, NomCat
                 ORDER BY Partida";  
 
         $result = mysql_query($sql, $this->conexion);
@@ -77,10 +77,15 @@ class UserGamesModel {
         $nick = htmlspecialchars($nick);
         $game = htmlspecialchars($game);
 
+        //Comprobar que el nick está diponible
+        $sql = "SELECT ID_Partida FROM partida WHERE ID_Partida = '".$game."' AND Estado_Partida = 'Finalizada'";
+        $result = mysql_query($sql, $this->conexion);
+        if (mysql_num_rows($result) > 0) {
+            return 'GameFinished';
+        }
+
         $sql = "SELECT 
-                Nombre_Categoria as categoria,
-                Acertada as PregAcertada,
-                Nick as nick
+                Nombre_Categoria as categoria
 
                 FROM partida
                     INNER JOIN participacion
@@ -98,7 +103,8 @@ class UserGamesModel {
                     INNER JOIN categoria
                     ON pregunta.ID_Categoria = categoria.ID_Categoria
 
-                WHERE partida.ID_Partida = '".$game."' AND Nick = '".$nick."'";  
+                WHERE partida.ID_Partida = '".$game."' AND Nick = '".$nick."' AND Acertada = 1
+                GROUP BY Nombre_Categoria";  
 
         $result = mysql_query($sql, $this->conexion);
 
@@ -160,7 +166,7 @@ class UserGamesModel {
         $nick = htmlspecialchars($nick);
         $game = htmlspecialchars($game);
 
-        $sql = "UPDATE participacion SET Turno=1 WHERE ID_Partida='".$game."' AND Turno=0";
+        $sql = "UPDATE participacion SET Turno = 1 WHERE ID_Partida='".$game."' AND Turno=0";
         $result = mysql_query($sql, $this->conexion);
 
         $sql = "SELECT ID_Jugador FROM jugador WHERE Nick='".$nick."'";
@@ -168,7 +174,7 @@ class UserGamesModel {
         $row = mysql_fetch_array($result);
         $id_nick = $row[0];
 
-        $sql = "UPDATE participacion SET Turno=0 WHERE ID_Partida='".$game."' AND ID_Jugador='".$id_nick."'";
+        $sql = "UPDATE participacion SET Turno = 0 WHERE ID_Partida='".$game."' AND ID_Jugador='".$id_nick."'";
         $result = mysql_query($sql, $this->conexion);        
     }
 
@@ -179,9 +185,8 @@ class UserGamesModel {
         $correct = htmlspecialchars($correct);
         $id_question = htmlspecialchars($id_question);
 
-        $sql = "SELECT 
-                    participacion.ID_Participacion as participacion
 
+        $sql = "SELECT participacion.ID_Participacion as participacion
                     FROM partida
                         INNER JOIN participacion
                         ON partida.ID_Partida = participacion.ID_Partida
@@ -191,13 +196,52 @@ class UserGamesModel {
 
                     WHERE partida.ID_Partida = '".$game."' AND Nick = '".$nick."'"; 
 
-
         $result = mysql_query($sql, $this->conexion);
         $row = mysql_fetch_array($result);
         $id_participacion = $row[0];
 
         $sql = "INSERT INTO intervencion (Acertada, ID_Participacion, ID_Pregunta) VALUES 
                 ('".$correct."', '".$id_participacion."', '".$id_question."')";
-        $result = mysql_query($sql, $this->conexion);        
+        $result = mysql_query($sql, $this->conexion);         
+    }
+
+
+    public function updateStats ($nick, $category, $correct) {
+        $nick = htmlspecialchars($nick);
+        $category = htmlspecialchars($category);
+        $correct = htmlspecialchars($correct);
+
+
+        $sql = "SELECT categoria.ID_Categoria FROM categoria 
+                WHERE categoria.Nombre_Categoria = '".$category."'"; 
+        $result = mysql_query($sql, $this->conexion);
+        $row = mysql_fetch_array($result);
+        $id_category = $row[0];
+
+        $sql = "SELECT jugador.ID_Jugador FROM jugador 
+                WHERE jugador.Nick = '".$nick."'"; 
+        $result = mysql_query($sql, $this->conexion);
+        $row = mysql_fetch_array($result);
+        $id_player = $row[0];
+
+        if ($correct == 1) {
+            $sql = "INSERT INTO estadistica VALUES 
+                ('".$id_player."', '".$id_category."', 1, 0)
+                ON DUPLICATE KEY UPDATE Numero_Acertadas = Numero_Acertadas + 1";
+        } else {
+            $sql = "INSERT INTO estadistica VALUES 
+                ('".$id_player."', '".$id_category."', 0, 1)
+                ON DUPLICATE KEY UPDATE Numero_Falladas = Numero_Falladas + 1";
+        }
+        $result = mysql_query($sql, $this->conexion); 
+    }
+
+
+    public function finishGame ($game) {
+        $game = htmlspecialchars($game);
+
+        $sql = "UPDATE partida SET Estado_Partida = 'Finalizada' WHERE ID_Partida='".$game."'";
+        $result = mysql_query($sql, $this->conexion); 
+
     }
 }

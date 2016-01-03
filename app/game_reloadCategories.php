@@ -1,5 +1,4 @@
 <?php
-
     
     require_once (__DIR__.'/Config.php');
     require_once (__DIR__.'/UserGamesModel.php');
@@ -26,46 +25,44 @@
         'orange' => '#C6C6C6',
     );
     foreach ($params['game'] as $game) {
-        if ($game['PregAcertada'] == 1) {
-            switch ($game['categoria']) {
-                case 'Ciencia':
-                    $color['green'] = '#00FF00';
-                    break;
-                case 'Historia':
-                    $color['yellow'] = '#FFFF00';
-                    break;
-                case 'Geografía':
-                    $color['blue'] = '#00FFF7';
-                    break;
-                case 'Arte y literatura':
-                    $color['red'] = '#FF0000';
-                    break;
-                case 'Espectáculos':
-                    $color['purple'] = '#FF00F3';
-                    break;
-                case 'Deportes':
-                    $color['orange'] = '#FFAF00';
-                    break;
+        switch ($game['categoria']) {
+            case 'Ciencia':
+                $color['green'] = '#00FF00';
+                break;
+            case 'Historia':
+                $color['yellow'] = '#FFFF00';
+                break;
+            case 'Geografía':
+                $color['blue'] = '#00FFF7';
+                break;
+            case 'Arte y literatura':
+                $color['red'] = '#FF0000';
+                break;
+            case 'Espectáculos':
+                $color['purple'] = '#FF00F3';
+                break;
+            case 'Deportes':
+                $color['orange'] = '#FFAF00';
+                break;
 
-                case 'Maravilloso mundo de Disney':
-                    $color['green'] = '#00FF00';
-                    break;
-                case 'Monstruos y villanos':
-                    $color['yellow'] = '#FFFF00';
-                    break;
-                case 'Había una vez':
-                    $color['blue'] = '#00FFF7';
-                    break;
-                case 'Lugares y objetos':
-                    $color['red'] = '#FF0000';
-                    break;
-                case 'Estrellas secundarias':
-                    $color['purple'] = '#FF00F3';
-                    break;
-                case 'Héroes y heroínas':
-                    $color['orange'] = '#FFAF00';
-                    break;
-            }
+            case 'Maravilloso mundo de Disney':
+                $color['green'] = '#00FF00';
+                break;
+            case 'Monstruos y villanos':
+                $color['yellow'] = '#FFFF00';
+                break;
+            case 'Había una vez':
+                $color['blue'] = '#00FFF7';
+                break;
+            case 'Lugares y objetos':
+                $color['red'] = '#FF0000';
+                break;
+            case 'Estrellas secundarias':
+                $color['purple'] = '#FF00F3';
+                break;
+            case 'Héroes y heroínas':
+                $color['orange'] = '#FFAF00';
+                break;
         }
     }
     ?>
@@ -74,7 +71,7 @@
 
 
         <div class="row">
-            <div id="hola" class="category-container first" style="background-color:<?php echo $color['green']?>">
+            <div id="btnStop" class="category-container first" style="background-color:<?php echo $color['green']?>">
                 <p>parame</p>
             </div>
         </div>

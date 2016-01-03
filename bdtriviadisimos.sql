@@ -208,9 +208,9 @@ CREATE TABLE IF NOT EXISTS `jugador` (
 --
 
 INSERT INTO `jugador` (`ID_Jugador`, `Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_ImagenJugador`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`) VALUES
-(NULL, 'Carlos342', 'Carlos', 'Tenorio Pérez', 'carlos342admin', 'carlos342@gmail.com', 'Carlos342', 0, 0, 2, 4),
-(NULL, 'joan', 'joan', 'martin', 'hola', 'joan@hotmail.com', 'joan', 0, 0, 2, 4),
-(NULL, 'Espe22', 'Espe', 'espe', 'jaja', 'jaja@hotmail.com', 'Espe22', 0, 0, 2, 4);
+(1, 'Carlos342', 'Carlos', 'Tenorio Pérez', 'carlos342admin', 'carlos342@gmail.com', 'Carlos342', 0, 0, 2, 4),
+(2, 'joan', 'joan', 'martin', 'hola', 'joan@hotmail.com', 'joan', 0, 0, 2, 4),
+(3, 'Espe22', 'Espe', 'espe', 'jaja', 'jaja@hotmail.com', 'Espe22', 0, 0, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -272,17 +272,16 @@ CREATE TABLE IF NOT EXISTS `participacion` (
 --
 
 INSERT INTO `participacion` (`ID_Participacion`, `ID_Jugador`, `ID_Partida`, `Estado_Participacion`, `Turno`) VALUES
-(NULL, 2, 1, 1, 1),
-(NULL, 1, 1, 1, 0),
-(NULL, 2, 2, 1, 1),
-(NULL, 1, 2, 1, 0),
-(NULL, 2, 3, 1, 0),
-(NULL, 1, 3, 1, 1),
-(NULL, 3, 4, 1, 1),
-(NULL, 2, 4, 1, 0),
-(NULL, 2, 5, 1, 0),
-(NULL, 1, 5, 1, 1),
-(NULL, 1, 3, 1, 1);
+(1, 2, 1, 1, 1),
+(2, 1, 1, 1, 0),
+(3, 2, 2, 1, 0),
+(4, 1, 2, 1, 1),
+(5, 2, 3, 1, 0),
+(6, 1, 3, 1, 1),
+(7, 3, 4, 1, 1),
+(8, 2, 4, 1, 0),
+(9, 2, 5, 1, 0),
+(10, 1, 5, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -307,9 +306,29 @@ CREATE TABLE IF NOT EXISTS `pregunta` (
 --
 
 INSERT INTO `pregunta` (`ID_Pregunta`, `Text_Pregunta`, `ID_Categoria`) VALUES
-(NULL, 'Conjunto de polvo, gas y estrellas de miles de parsecs de diámetro', 1),
-(NULL, 'Derivada de 100', 1),
-(NULL, '¿En qué año empezó la Guerra Civil Española?', 2);
+(1, 'Conjunto de polvo, gas y estrellas de miles de parsecs de diámetro', 1),
+(2, 'Derivada de 100', 1),
+(3, 'Filósofo griego fundador de la filosofía científica', 1),
+(4, 'Inventor del pararrayos', 1),
+(5, 'Número siguiente a la sucesión: 1-1-2-3-5-8-13', 1),
+(6, '¿En qué mes se produce el equinoccio de primavera?', 1),
+(7, '¿Qué planeta del Sistema Solar es el cuarto más cercano al Sol?', 1),
+(8, '¿Qué fenómeno atmosférico es el que se produce más frecuentemente en la Luna?', 1),
+(9, '¿A dónde fueron deportados los judíos tras la conquista de Jerusalén por Nabucodonosor?', 2),
+(10, '¿A dónde se traslada la Casa de la Contratación en 1717 desde Sevilla?', 2),
+(11, '¿A qué ciudad actual corresponde la romana Gades?', 2),
+(12, '¿Qué faraón murió en el año 1325 a.C.?', 2),
+(13, '¿A quién era atribuido "El coloso"?', 3),
+(14, '¿A qué estilo pertenecen San Salvador de Valdediós y San Miguel de Lillo?', 3),
+(15, '¿En qué destacó Filippo Brunelleschi?', 3),
+(16, '¿Cómo se llama la película dirigida por Kubrick ambientada en la I Guerra Mundial?', 4),
+(17, '¿Cómo se llama la primera película de Harry Potter?', 4),
+(18, '¿En qué película Julia Roberts ejerce la profesión "más antigua del mundo"?', 4),
+(19, '¿Quién ganó el trofeo Zamora en la temporada 1986/87?', 5),
+(20, '¿A qué jugador del Madrid partió por la mitad Romario con su regate de cola de vaca?', 5),
+(21, '¡¡¡Vacaciones en Polinesia!!! ¿En qué continente estoy?', 6),
+(22, '¿A cuántos países pertenece la selva del Amazonas?', 6),
+(23, '¿A dónde llegó el explorador noruego Roald Amundsen en 1911?', 6);
 
 -- --------------------------------------------------------
 
@@ -335,18 +354,98 @@ CREATE TABLE IF NOT EXISTS `respuesta` (
 --
 
 INSERT INTO `respuesta` (`ID_Respuesta`, `ID_Pregunta`, `Texto_Respuesta`, `Correcta`) VALUES
-(NULL, 1, 'Galaxia', 1),
-(NULL, 1, 'Sistema solar', 0),
-(NULL, 1, 'Cinturón de asteroides', 0),
-(NULL, 1, 'Nebulosa', 0),
-(NULL, 2, '0', 1),
-(NULL, 2, 'x', 0),
-(NULL, 2, '10', 0),
-(NULL, 2, '-1', 0),
-(NULL, 3, '1936', 1),
-(NULL, 3, '1939', 0),
-(NULL, 3, '1941', 0),
-(NULL, 3, '1937', 0);
+(1, 1, 'Galaxia', 1),
+(2, 1, 'Sistema solar', 0),
+(3, 1, 'Cinturón de asteroides', 0),
+(4, 1, 'Nebulosa', 0),
+(5, 2, '0', 1),
+(6, 2, 'x', 0),
+(7, 2, '10', 0),
+(8, 2, '-1', 0),
+(9, 3, 'Aristóteles', 1),
+(10, 3, 'Platón', 0),
+(11, 3, 'Kant', 0),
+(12, 3, 'Sócrates', 0),
+(13, 4, 'Benjamin Franklin', 1),
+(14, 4, 'Isaac Newton', 0),
+(15, 4, 'Albert Einstein', 0),
+(16, 4, 'Nikola Tesla', 0),
+(17, 5, '21', 1),
+(18, 5, '13', 0),
+(19, 5, '14', 0),
+(20, 5, '16', 0),
+(21, 6, 'Marzo', 1),
+(22, 6, 'Abril', 0),
+(23, 6, 'Mayo', 0),
+(24, 6, 'Diciembre', 0),
+(25, 7, 'Marte', 1),
+(26, 7, 'La Tierra', 0),
+(27, 7, 'Júpiter', 0),
+(28, 7, 'Mercurio', 0),
+(29, 8, 'Ninguno', 1),
+(30, 8, 'Viento', 0),
+(31, 8, 'Lluvia', 0),
+(32, 8, 'Colisión de meteoritos', 0),
+(33, 9, 'Babilonia', 1),
+(34, 9, 'Asiria', 0),
+(35, 9, 'Egipto', 0),
+(36, 9, 'Mesopotamia', 0),
+(37, 10, 'Cádiz', 1),
+(38, 10, 'Málaga', 0),
+(39, 10, 'Almería', 0),
+(40, 10, 'Badajoz', 0),
+(41, 11, 'Cádiz', 1),
+(42, 11, 'Málaga', 0),
+(43, 11, 'Sevilla', 0),
+(44, 11, 'Segovia', 0),
+(45, 12, 'Tutankamon', 1),
+(46, 12, 'Cleopatra', 0),
+(47, 12, 'Ramses II', 0),
+(48, 12, 'Nefertiti', 0),
+(49, 13, 'Francisco de Goya', 1),
+(50, 13, 'Pablo Picasso', 0),
+(51, 13, 'José Domínguez Bécquer', 0),
+(52, 13, 'Federico Madrazo', 0),
+(53, 14, 'Prerrománico', 1),
+(54, 14, 'Románico', 0),
+(55, 14, 'Gótico', 0),
+(56, 14, 'Islámico', 0),
+(57, 15, 'Arquitectura', 1),
+(58, 15, 'Pintura', 0),
+(59, 15, 'Música', 0),
+(60, 15, 'Escritura', 0),
+(61, 16, 'Senderos de gloria', 1),
+(62, 16, 'La gran ilusion', 0),
+(63, 16, 'El sargento York', 0),
+(64, 16, 'Capitán Conan', 0),
+(65, 17, 'Harry Potter y la priedra filosofal', 1),
+(66, 17, 'Harry Potter', 0),
+(67, 17, 'Harry Potter y la cámara secreta', 0),
+(68, 17, 'Harry Potter y el cáliz de fuego', 0),
+(69, 18, 'Pretty Woman', 1),
+(70, 18, 'Secret in their eyes', 0),
+(71, 18, 'Nothing Hill', 0),
+(72, 18, 'Come, reza, ama', 0),
+(73, 19, 'Andoni Zubizarreta', 1),
+(74, 19, 'Juan Carlos Ablanedo', 0),
+(75, 19, 'Paco Buyo', 0),
+(76, 19, 'Abel Resino', 0),
+(77, 20, 'Rafael Alkorta', 1),
+(78, 20, 'Sergio Ramos', 0),
+(79, 20, 'Fernando Hierro', 0),
+(80, 20, 'Mikel Goikoetxea', 0),
+(81, 21, 'Oceanía', 1),
+(82, 21, 'Europa', 0),
+(83, 21, 'Asia', 0),
+(84, 21, 'América', 0),
+(85, 22, '8', 1),
+(86, 22, '1', 0),
+(87, 22, '6', 0),
+(88, 22, '5', 0),
+(89, 23, 'Polo Sur', 1),
+(90, 23, 'Polo Norte', 0),
+(91, 23, 'Australia', 0),
+(92, 23, 'A la cima del Monte Everest', 0);
 
 -- --------------------------------------------------------
 
@@ -370,22 +469,24 @@ CREATE TABLE IF NOT EXISTS `intervencion` (
 --
 
 INSERT INTO `intervencion` (`Acertada`, `ID_Participacion`, `ID_Pregunta`) VALUES
-(1, 1, 1),
-(1, 1, 1),
 (0, 2, 1),
 (1, 2, 2),
 (0, 2, 1),
 (1, 3, 1),
 (0, 3, 2),
-(1, 1, 2),
 (0, 4, 2),
 (1, 2, 2),
 (0, 3, 1),
-(1, 1, 2),
-(0, 1, 1),
-(1, 1, 1),
 (1, 7, 1),
 (1, 8, 2),
 (1, 7, 3),
-(1, 1, 3);
+(0, 3, 16),
+(1, 1, 19),
+(1, 1, 20),
+(1, 1, 7),
+(1, 1, 19),
+(1, 1, 23),
+(1, 1, 4),
+(1, 1, 16),
+(0, 1, 16);
 -- --------------------------------------------------------
