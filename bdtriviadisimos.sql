@@ -225,8 +225,8 @@ INSERT INTO `jugador` (`ID_Jugador`, `Nick`, `Nombre`, `Apellidos`, `Contraseña
 
 CREATE TABLE IF NOT EXISTS `partida` (
   `ID_Partida` int(15) NOT NULL AUTO_INCREMENT,
-  `Fecha_Inicio` date NOT NULL,
-  `Fecha_Final` date NOT NULL,
+  `Fecha_Inicio` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `Fecha_Final` timestamp DEFAULT NULL,
   `Hora_Inicio` time NOT NULL,
   `Estado_Partida` int(1) NOT NULL COMMENT 'Pendiente(0) / Finalizado(1)',
   `ID_Mundo` int(15) NOT NULL,

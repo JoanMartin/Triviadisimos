@@ -2,7 +2,7 @@
 		color: black;
 		text-align: center;
 		border-radius: 10px;
-		margin: 0em 0em 0.4em 8em;
+		margin: 0em 0em 0.4em 5em;
 	}
 
 	  	.category-container p {
@@ -14,6 +14,18 @@
 			margin-top: 12em;
 		}
 
+	#btnStop {
+		margin-top: 12em;	
+		width: 20em;
+		height: 20em;	
+		position: absolute;
+	    top: 0; bottom:0; left:37em; right:0;
+	}
+
+
+	#questionDiv {
+		visibility: hidden;
+	}
 
 
 	.question-container {
@@ -42,3 +54,56 @@
 			margin: 0em 0em 0em 0em;
 			padding: 1em 0em 1em 0em;
 		}
+
+
+
+	.outer {
+		width: 3em;
+		height: 25em;
+		border: 2px solid #fff;
+		overflow: hidden;
+		margin: 12em 0em 0.4em 3.7em;
+		border-radius: 4px;
+	}
+
+	.inner, .inner div {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.inner {
+		border-top-width: 0;
+		background-color: orange;
+		bottom: 0;
+		height: 0em;
+	}
+
+
+
+	#blackDiv {
+		position: fixed;
+		top: 0px; 
+		height:100vh; 
+		width: 100vw; 
+		background-color: black;
+		opacity: 0.85; 
+		visibility: hidden;
+	}
+
+	#congratulationsImgLeft {
+		position: fixed;
+		top: 150px; 
+		position: absolute;
+	    top: 0; bottom:0; left:0; right:15em;
+	    margin: auto;
+		visibility: hidden;
+	}
+
+	#congratulationsImgRight {
+		position: fixed;
+		top: 150px; 
+		position: absolute;
+	    top: 0; bottom:0; left: 15em; right:0;
+	    margin: auto;
+		visibility: hidden;
+	}

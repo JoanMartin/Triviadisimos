@@ -40,37 +40,57 @@
 				                		</div>
 
 				                		<?php 
-				                		$color = array(
-											'science' => '#C6C6C6',
-											'history' => '#C6C6C6',
-											'geography' => '#C6C6C6',
-											'art' => '#C6C6C6',
-											'performance' => '#C6C6C6',
-											'sports' => '#C6C6C6',
-										);
+								        $color = array(
+								            'green' => '#C6C6C6',
+								            'yellow' => '#C6C6C6',
+								            'blue' => '#C6C6C6',
+								            'red' => '#C6C6C6',
+								            'purple' => '#C6C6C6',
+								            'orange' => '#C6C6C6',
+								        );
 										foreach ($params['games'] as $inter) {
 											if (($inter['InterJug'] == $inter['PartJug1']) and 
-												($partida == $inter['Partida'])) {
+												($partida == $inter['Partida']) and 
+												($inter['PregAcertada'] == 1)) {
 												switch ($inter['NomCat']) {
-												    case 'Ciencia':
-												        $color['science'] = '#00FF00';
-												        break;
-												    case 'Historia':
-												        $color['history'] = '#FFFF00';
-												        break;
-												    case 'Geografía':
-												        $color['geography'] = '#00FFF7';
-												        break;
-												    case 'Arte y literatura':
-												        $color['art'] = '#FF0000';
-												        break;
-												    case 'Espectáculos':
-												        $color['performance'] = '#FF00F3';
-												        break;
-												    case 'Deportes':
-												        $color['sports'] = '#FFAF00';
-												        break;
-												}
+									                case 'Ciencia':
+									                    $color['green'] = '#00FF00';
+									                    break;
+									                case 'Historia':
+									                    $color['yellow'] = '#FFFF00';
+									                    break;
+									                case 'Geografía':
+									                    $color['blue'] = '#00FFF7';
+									                    break;
+									                case 'Arte y literatura':
+									                    $color['red'] = '#FF0000';
+									                    break;
+									                case 'Espectáculos':
+									                    $color['purple'] = '#FF00F3';
+									                    break;
+									                case 'Deportes':
+									                    $color['orange'] = '#FFAF00';
+									                    break;
+
+									                case 'Maravilloso mundo de Disney':
+									                    $color['green'] = '#00FF00';
+									                    break;
+									                case 'Monstruos y villanos':
+									                    $color['yellow'] = '#FFFF00';
+									                    break;
+									                case 'Había una vez':
+									                    $color['blue'] = '#00FFF7';
+									                    break;
+									                case 'Lugares y objetos':
+									                    $color['red'] = '#FF0000';
+									                    break;
+									                case 'Estrellas secundarias':
+									                    $color['purple'] = '#FF00F3';
+									                    break;
+									                case 'Héroes y heroínas':
+									                    $color['orange'] = '#FFAF00';
+									                    break;
+									            }
 											}
 										}
 										?>
@@ -79,18 +99,18 @@
 											<div class="row">
 												<div class="column col-12">
 							                    	<ul class="icons">			
-								                        <li class="icon circle" style="background:<?php echo $color['science']?>"></li>	
-								                        <li class="icon circle" style="background:<?php echo $color['history']?>"></li>	
-								                        <li class="icon circle" style="background:<?php echo $color['geography']?>"></li>		
+								                        <li class="icon circle" style="background:<?php echo $color['green']?>"></li>	
+								                        <li class="icon circle" style="background:<?php echo $color['yellow']?>"></li>	
+								                        <li class="icon circle" style="background:<?php echo $color['blue']?>"></li>		
 								                    </ul>
 						                		</div>
 											</div>
 											<div class="row">
 												<div class="column col-12">
 							                    	<ul class="icons">			
-								                        <li class="icon circle" style="background:<?php echo $color['art']?>"></li>	
-								                        <li class="icon circle" style="background:<?php echo $color['performance']?>"></li>	
-								                        <li class="icon circle" style="background:<?php echo $color['sports']?>"></li>					
+								                        <li class="icon circle" style="background:<?php echo $color['red']?>"></li>	
+								                        <li class="icon circle" style="background:<?php echo $color['purple']?>"></li>	
+								                        <li class="icon circle" style="background:<?php echo $color['orange']?>"></li>					
 								                    </ul>
 						                		</div>
 											</div>
@@ -117,37 +137,57 @@
 				                		</div>
 
 				                		<?php 
-				                		$color = array(
-											'science' => '#C6C6C6',
-											'history' => '#C6C6C6',
-											'geography' => '#C6C6C6',
-											'art' => '#C6C6C6',
-											'performance' => '#C6C6C6',
-											'sports' => '#C6C6C6',
-										);
+								        $color = array(
+								            'green' => '#C6C6C6',
+								            'yellow' => '#C6C6C6',
+								            'blue' => '#C6C6C6',
+								            'red' => '#C6C6C6',
+								            'purple' => '#C6C6C6',
+								            'orange' => '#C6C6C6',
+								        );
 										foreach ($params['games'] as $inter) {
 											if (($inter['InterJug'] == $inter['PartJug2']) and 
-												($partida == $inter['Partida'])) {
+												($partida == $inter['Partida']) and 
+												($inter['PregAcertada'] == 1)) {
 												switch ($inter['NomCat']) {
-												    case 'Ciencia':
-												        $color['science'] = '#00FF00';
-												        break;
-												    case 'Historia':
-												        $color['history'] = '#FFFF00';
-												        break;
-												    case 'Geografía':
-												        $color['geography'] = '#00FFF7';
-												        break;
-												    case 'Arte y literatura':
-												        $color['art'] = '#FF0000';
-												        break;
-												    case 'Espectáculos':
-												        $color['performance'] = '#FF00F3';
-												        break;
-												    case 'Deportes':
-												        $color['sports'] = '#FFAF00';
-												        break;
-												}
+									                case 'Ciencia':
+									                    $color['green'] = '#00FF00';
+									                    break;
+									                case 'Historia':
+									                    $color['yellow'] = '#FFFF00';
+									                    break;
+									                case 'Geografía':
+									                    $color['blue'] = '#00FFF7';
+									                    break;
+									                case 'Arte y literatura':
+									                    $color['red'] = '#FF0000';
+									                    break;
+									                case 'Espectáculos':
+									                    $color['purple'] = '#FF00F3';
+									                    break;
+									                case 'Deportes':
+									                    $color['orange'] = '#FFAF00';
+									                    break;
+
+									                case 'Maravilloso mundo de Disney':
+									                    $color['green'] = '#00FF00';
+									                    break;
+									                case 'Monstruos y villanos':
+									                    $color['yellow'] = '#FFFF00';
+									                    break;
+									                case 'Había una vez':
+									                    $color['blue'] = '#00FFF7';
+									                    break;
+									                case 'Lugares y objetos':
+									                    $color['red'] = '#FF0000';
+									                    break;
+									                case 'Estrellas secundarias':
+									                    $color['purple'] = '#FF00F3';
+									                    break;
+									                case 'Héroes y heroínas':
+									                    $color['orange'] = '#FFAF00';
+									                    break;
+									            }
 											}
 										}
 										?>
@@ -156,18 +196,18 @@
 											<div class="row">
 												<div class="column col-12">
 							                    	<ul class="icons">			
-								                        <li class="icon circle" style="background:<?php echo $color['science']?>"></li>	
-								                        <li class="icon circle" style="background:<?php echo $color['history']?>"></li>	
-								                        <li class="icon circle" style="background:<?php echo $color['geography']?>"></li>		
+								                        <li class="icon circle" style="background:<?php echo $color['green']?>"></li>	
+								                        <li class="icon circle" style="background:<?php echo $color['yellow']?>"></li>	
+								                        <li class="icon circle" style="background:<?php echo $color['blue']?>"></li>		
 								                    </ul>
 						                		</div>
 											</div>
 											<div class="row">
 												<div class="column col-12">
 							                    	<ul class="icons">			
-								                        <li class="icon circle" style="background:<?php echo $color['art']?>"></li>	
-								                        <li class="icon circle" style="background:<?php echo $color['performance']?>"></li>	
-								                        <li class="icon circle" style="background:<?php echo $color['sports']?>"></li>					
+								                        <li class="icon circle" style="background:<?php echo $color['red']?>"></li>	
+								                        <li class="icon circle" style="background:<?php echo $color['purple']?>"></li>	
+								                        <li class="icon circle" style="background:<?php echo $color['orange']?>"></li>					
 								                    </ul>
 						                		</div>
 											</div>
@@ -222,37 +262,57 @@
 		                		</div>
 
 		                		<?php 
-		                		$color = array(
-									'science' => '#C6C6C6',
-									'history' => '#C6C6C6',
-									'geography' => '#C6C6C6',
-									'art' => '#C6C6C6',
-									'performance' => '#C6C6C6',
-									'sports' => '#C6C6C6',
-								);
+						        $color = array(
+						            'green' => '#C6C6C6',
+						            'yellow' => '#C6C6C6',
+						            'blue' => '#C6C6C6',
+						            'red' => '#C6C6C6',
+						            'purple' => '#C6C6C6',
+						            'orange' => '#C6C6C6',
+						        );
 								foreach ($params['games'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug1']) and 
-										($partida == $inter['Partida'])) {
+										($partida == $inter['Partida']) and 
+										($inter['PregAcertada'] == 1)) {
 										switch ($inter['NomCat']) {
-										    case 'Ciencia':
-										        $color['science'] = '#00FF00';
-										        break;
-										    case 'Historia':
-										        $color['history'] = '#FFFF00';
-										        break;
-										    case 'Geografía':
-										        $color['geography'] = '#00FFF7';
-										        break;
-										    case 'Arte y literatura':
-										        $color['art'] = '#FF0000';
-										        break;
-										    case 'Espectáculos':
-										        $color['performance'] = '#FF00F3';
-										        break;
-										    case 'Deportes':
-										        $color['sports'] = '#FFAF00';
-										        break;
-										}
+							                case 'Ciencia':
+							                    $color['green'] = '#00FF00';
+							                    break;
+							                case 'Historia':
+							                    $color['yellow'] = '#FFFF00';
+							                    break;
+							                case 'Geografía':
+							                    $color['blue'] = '#00FFF7';
+							                    break;
+							                case 'Arte y literatura':
+							                    $color['red'] = '#FF0000';
+							                    break;
+							                case 'Espectáculos':
+							                    $color['purple'] = '#FF00F3';
+							                    break;
+							                case 'Deportes':
+							                    $color['orange'] = '#FFAF00';
+							                    break;
+
+							                case 'Maravilloso mundo de Disney':
+							                    $color['green'] = '#00FF00';
+							                    break;
+							                case 'Monstruos y villanos':
+							                    $color['yellow'] = '#FFFF00';
+							                    break;
+							                case 'Había una vez':
+							                    $color['blue'] = '#00FFF7';
+							                    break;
+							                case 'Lugares y objetos':
+							                    $color['red'] = '#FF0000';
+							                    break;
+							                case 'Estrellas secundarias':
+							                    $color['purple'] = '#FF00F3';
+							                    break;
+							                case 'Héroes y heroínas':
+							                    $color['orange'] = '#FFAF00';
+							                    break;
+							            }
 									}
 								}
 								?>
@@ -261,18 +321,18 @@
 									<div class="row">
 										<div class="column col-12">
 					                    	<ul class="icons">			
-						                        <li class="icon circle" style="background:<?php echo $color['science']?>"></li>	
-						                        <li class="icon circle" style="background:<?php echo $color['history']?>"></li>	
-						                        <li class="icon circle" style="background:<?php echo $color['geography']?>"></li>		
+						                        <li class="icon circle" style="background:<?php echo $color['green']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['yellow']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['blue']?>"></li>		
 						                    </ul>
 				                		</div>
 									</div>
 									<div class="row">
 										<div class="column col-12">
 					                    	<ul class="icons">			
-						                        <li class="icon circle" style="background:<?php echo $color['art']?>"></li>	
-						                        <li class="icon circle" style="background:<?php echo $color['performance']?>"></li>	
-						                        <li class="icon circle" style="background:<?php echo $color['sports']?>"></li>					
+						                        <li class="icon circle" style="background:<?php echo $color['red']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['purple']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['orange']?>"></li>					
 						                    </ul>
 				                		</div>
 									</div>
@@ -299,37 +359,57 @@
 		                		</div>
 
 		                		<?php 
-		                		$color = array(
-									'science' => '#C6C6C6',
-									'history' => '#C6C6C6',
-									'geography' => '#C6C6C6',
-									'art' => '#C6C6C6',
-									'performance' => '#C6C6C6',
-									'sports' => '#C6C6C6',
-								);
+						        $color = array(
+						            'green' => '#C6C6C6',
+						            'yellow' => '#C6C6C6',
+						            'blue' => '#C6C6C6',
+						            'red' => '#C6C6C6',
+						            'purple' => '#C6C6C6',
+						            'orange' => '#C6C6C6',
+						        );
 								foreach ($params['games'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug2']) and 
-										($partida == $inter['Partida'])) {
+										($partida == $inter['Partida']) and 
+										($inter['PregAcertada'] == 1)) {
 										switch ($inter['NomCat']) {
-										    case 'Ciencia':
-										        $color['science'] = '#00FF00';
-										        break;
-										    case 'Historia':
-										        $color['history'] = '#FFFF00';
-										        break;
-										    case 'Geografía':
-										        $color['geography'] = '#00FFF7';
-										        break;
-										    case 'Arte y literatura':
-										        $color['art'] = '#FF0000';
-										        break;
-										    case 'Espectáculos':
-										        $color['performance'] = '#FF00F3';
-										        break;
-										    case 'Deportes':
-										        $color['sports'] = '#FFAF00';
-										        break;
-										}
+							                case 'Ciencia':
+							                    $color['green'] = '#00FF00';
+							                    break;
+							                case 'Historia':
+							                    $color['yellow'] = '#FFFF00';
+							                    break;
+							                case 'Geografía':
+							                    $color['blue'] = '#00FFF7';
+							                    break;
+							                case 'Arte y literatura':
+							                    $color['red'] = '#FF0000';
+							                    break;
+							                case 'Espectáculos':
+							                    $color['purple'] = '#FF00F3';
+							                    break;
+							                case 'Deportes':
+							                    $color['orange'] = '#FFAF00';
+							                    break;
+
+							                case 'Maravilloso mundo de Disney':
+							                    $color['green'] = '#00FF00';
+							                    break;
+							                case 'Monstruos y villanos':
+							                    $color['yellow'] = '#FFFF00';
+							                    break;
+							                case 'Había una vez':
+							                    $color['blue'] = '#00FFF7';
+							                    break;
+							                case 'Lugares y objetos':
+							                    $color['red'] = '#FF0000';
+							                    break;
+							                case 'Estrellas secundarias':
+							                    $color['purple'] = '#FF00F3';
+							                    break;
+							                case 'Héroes y heroínas':
+							                    $color['orange'] = '#FFAF00';
+							                    break;
+							            }
 									}
 								}
 								?>
@@ -338,18 +418,18 @@
 									<div class="row">
 										<div class="column col-12">
 					                    	<ul class="icons">			
-						                        <li class="icon circle" style="background:<?php echo $color['science']?>"></li>	
-						                        <li class="icon circle" style="background:<?php echo $color['history']?>"></li>	
-						                        <li class="icon circle" style="background:<?php echo $color['geography']?>"></li>		
+						                        <li class="icon circle" style="background:<?php echo $color['green']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['yellow']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['blue']?>"></li>		
 						                    </ul>
 				                		</div>
 									</div>
 									<div class="row">
 										<div class="column col-12">
 					                    	<ul class="icons">			
-						                        <li class="icon circle" style="background:<?php echo $color['art']?>"></li>	
-						                        <li class="icon circle" style="background:<?php echo $color['performance']?>"></li>	
-						                        <li class="icon circle" style="background:<?php echo $color['sports']?>"></li>					
+						                        <li class="icon circle" style="background:<?php echo $color['red']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['purple']?>"></li>	
+						                        <li class="icon circle" style="background:<?php echo $color['orange']?>"></li>					
 						                    </ul>
 				                		</div>
 									</div>

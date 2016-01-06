@@ -66,44 +66,46 @@
 	        'orange' => false,
 	    );
 	    foreach ($game as $g) {
-            switch ($g['categoria']) {
-                case 'Ciencia':
-                    $color['green'] = true;
-                    break;
-                case 'Historia':
-                    $color['yellow'] = true;
-                    break;
-                case 'Geografía':
-                    $color['blue'] = true;
-                    break;
-                case 'Arte y literatura':
-                    $color['red'] = true;
-                    break;
-                case 'Espectáculos':
-                    $color['purple'] = true;
-                    break;
-                case 'Deportes':
-                    $color['orange'] = true;
-                    break;
+            if ($g['PregAcertada'] == 1) {
+                switch ($g['categoria']) {
+                    case 'Ciencia':
+                        $color['green'] = true;
+                        break;
+                    case 'Historia':
+                        $color['yellow'] = true;
+                        break;
+                    case 'Geografía':
+                        $color['blue'] = true;
+                        break;
+                    case 'Arte y literatura':
+                        $color['red'] = true;
+                        break;
+                    case 'Espectáculos':
+                        $color['purple'] = true;
+                        break;
+                    case 'Deportes':
+                        $color['orange'] = true;
+                        break;
 
-                case 'Maravilloso mundo de Disney':
-                    $color['green'] = true;
-                    break;
-                case 'Monstruos y villanos':
-                    $color['yellow'] = true;
-                    break;
-                case 'Había una vez':
-                    $color['blue'] = true;
-                    break;
-                case 'Lugares y objetos':
-                    $color['red'] = true;
-                    break;
-                case 'Estrellas secundarias':
-                    $color['purple'] = true;
-                    break;
-                case 'Héroes y heroínas':
-                    $color['orange'] = true;
-                    break;
+                    case 'Maravilloso mundo de Disney':
+                        $color['green'] = true;
+                        break;
+                    case 'Monstruos y villanos':
+                        $color['yellow'] = true;
+                        break;
+                    case 'Había una vez':
+                        $color['blue'] = true;
+                        break;
+                    case 'Lugares y objetos':
+                        $color['red'] = true;
+                        break;
+                    case 'Estrellas secundarias':
+                        $color['purple'] = true;
+                        break;
+                    case 'Héroes y heroínas':
+                        $color['orange'] = true;
+                        break;
+                }
             }
 	    }
 
@@ -124,9 +126,10 @@
                     Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
         session_start();
+        $nick = $_SESSION["username"];
         $game = $_SESSION["game"];
 
-        $m->finishGame ($game, $nick, $correct, $id_question, $category);
+        $m->finishGame ($nick, $game);
     }
 
     

@@ -10,15 +10,20 @@
             $game = $_POST['game'];
             $nick = $_SESSION["username"];
 
-            $game = $m->getGame($game, $nick);
+            $params = array(
+                'game' => $m->getGame($game, $nick),
+                'world' => $m->getWorld($game),
+            );
 
-            if($game == 'GameFinished'){
+            if ($params['game'] == 'GameFinished'){
                 $text = "UPS! Esta partida ya no est&aacute en juego!";
-                require __DIR__ . '/templates/errorGameFinished.php'; 
+                require __DIR__ . '/templates/errorGame.php'; 
+            } else if ($params['game'] == 'NotYourTurn') {
+                $text = "UPS! No es tu turno en esta partida!";
+                require __DIR__ . '/templates/errorGame.php'; 
             } else {
-                require __DIR__ . '/templates/game.php';
+                require __DIR__ . '/templates/game.php';                
             }
-
         }
 
 

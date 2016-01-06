@@ -1,96 +1,8 @@
     
     var stop = false;  
     var won;
-
-    /*function cat1Up() {
-        setTimeout(function(){
-            if (stop == false) {
-                $('#cat1').css({'transform': 'scale(1.1)'});
-                catDown('#cat1');
-                cat2Up();
-            } else {
-                $('#cat1').css({'transform': 'scale(1.1)'});   
-                var category = $('#cat1').text();
-                searchQuestion(category);      
-            }
-        }, 100);
-    }
-
-
-    function cat2Up() {
-        setTimeout(function(){
-            if (stop == false) {
-                $('#cat2').css({'transform': 'scale(1.1)'});
-                catDown('#cat2');
-                cat3Up();
-            } else {
-                $('#cat2').css({'transform': 'scale(1.1)'});   
-                var category = $('#cat2').text();
-                searchQuestion(category);                                  
-            }
-        }, 100);
-    }
-
-    function cat3Up() {
-        setTimeout(function(){
-            if (stop == false) {
-                $('#cat3').css({'transform': 'scale(1.1)'});
-                catDown('#cat3');
-                cat4Up();
-            } else {
-                $('#cat3').css({'transform': 'scale(1.1)'});   
-                var category = $('#cat3').text();
-                searchQuestion(category);                                  
-            }
-        }, 100);
-    }
-
-
-    function cat4Up() {
-        setTimeout(function(){
-            if (stop == false) {
-                $('#cat4').css({'transform': 'scale(1.1)'});
-                catDown('#cat4');
-                cat5Up();
-            } else {
-                $('#cat4').css({'transform': 'scale(1.1)'});   
-                var category = $('#cat4').text();
-                searchQuestion(category);                                  
-            }
-        }, 100);
-    }
-
-    function cat5Up() {
-        setTimeout(function(){
-            if (stop == false) {
-                $('#cat5').css({'transform': 'scale(1.1)'});
-                catDown('#cat5');
-                cat6Up();
-            } else {
-                $('#cat5').css({'transform': 'scale(1.1)'});   
-                var category = $('#cat5').text(); 
-                searchQuestion(category);                                 
-            }
-        }, 100);
-    }
-
-
-    function cat6Up() {
-        setTimeout(function(){
-            if (stop == false) {
-                $('#cat6').css({'transform': 'scale(1.1)'});
-                catDown('#cat6');
-                cat1Up();
-            } else {
-                $('#cat6').css({'transform': 'scale(1.1)'});   
-                var category = $('#cat6').text(); 
-                searchQuestion(category);                                 
-            }
-        }, 100);
-    }*/
-
-
-
+    var data_aux;
+    var category;
 
     function catUp(id_tag) {
         setTimeout(function(){
@@ -105,29 +17,30 @@
                 }
             } else {
                 $('#cat' + id_tag).css({'transform': 'scale(1.1)'});   
-                var category = $('#cat' + id_tag).text(); 
-                searchQuestion(category);                                 
+                category = $('#cat' + id_tag).text(); 
+                searchQuestion();                                 
             }
-        }, 100);
+        }, 85);
     }
 
 
     function catDown(tag) {
         setTimeout(function(){
             $(tag).css({'transform': 'scale(1)'});
-        }, 100);
+        }, 85);
     }
 
 
 
 
-    function searchQuestion(category){
+    function searchQuestion(){
         jQuery.post(
             "app/GameController.php", 
             {category: category,
             functionname: 'lookForQuestion'},
             function(data, textStatus) {
                 var dataJson = JSON.parse(data);
+                data_aux = dataJson;
 
                 $('#question').html(dataJson[0].preg);
                 $('#answer1').html(dataJson[0].resp);
@@ -135,52 +48,59 @@
                 $('#answer3').html(dataJson[2].resp);
                 $('#answer4').html(dataJson[3].resp);
 
+                $('#questionDiv').css({'visibility': 'visible'}); 
+
                 $('#ans1').click(function (event) {
-                    answerClicked('#ans1', dataJson, 0, category);
+                    answerClicked('#ans1', dataJson, 0);
                 });
 
                 $('#ans2').click(function (event) {
-                    answerClicked('#ans2', dataJson, 1, category);
+                    answerClicked('#ans2', dataJson, 1);
                 });
 
                 $('#ans3').click(function (event) {
-                    answerClicked('#ans3', dataJson, 2, category);
+                    answerClicked('#ans3', dataJson, 2);
                 });
 
                 $('#ans4').click(function (event) {
-                    answerClicked('#ans4', dataJson, 3, category);
+                    answerClicked('#ans4', dataJson, 3);
                 });
             });
     }
 
 
-    function answerClicked(tag, dataJson, idJson, category) {
-        insertIntervention(dataJson[idJson].correcta, dataJson[0].id_question, category);
+    function answerClicked(tag, dataJson, idJson) {
+        $('#progressBar').stop();
+
+        insertIntervention(dataJson[idJson].correcta, dataJson[0].id_question);
         checkWon();
         if (dataJson[idJson].correcta == 1) {
             $(tag).css({'background': 'green'});
 
             setTimeout(function(){ 
                 if (!won) {
+                    $('#progressBar').css({'height': '0em'});
                     getNextQuestion(tag);
                 } else {
-                    $('#question').css({'background': 'red'});
+                    $('#blackDiv').css({'visibility': 'visible'}); 
+                    $('#congratulationsImgLeft').css({'visibility': 'visible'}); 
+                    $('#congratulationsImgRight').css({'visibility': 'visible'}); 
 
                     jQuery.post(
                         "app/GameController.php", 
                         {functionname: 'finishGame'});
                 }
-            }, 300);
+            }, 1000);
         } else {
             lookForCorrectAnswer(dataJson);
             $(tag).css({'background': 'red'}); 
-            //invertTurn();
+            invertTurn();
         }
         unbindClickFunction();
     }
 
 
-    function insertIntervention (correct, id_question, category) {
+    function insertIntervention (correct, id_question) {
         jQuery.post(
             "app/GameController.php", 
             {correct: correct,
@@ -197,7 +117,6 @@
 
 
     function checkWon () {
-        var won;
         jQuery.post(
             "app/GameController.php", 
             {functionname: 'checkWon'},
@@ -214,12 +133,24 @@
     function getNextQuestion(tag){
         setTimeout(function(){
             stop = false;
+
             $(tag).css({'background': 'white'});
+            $('#questionDiv').css({'visibility': 'hidden'});
+            $('#btnStop').css({'visibility': 'visible'});
+
             catUp(1);
             $('#btnStop').click(function (event) {
-                stop = true;
+                $('#btnStop').unbind("click");
+                $('#btnStop').css({'visibility': 'hidden'});
+                stop = true; 
+
+                $('#progressBar').animate({
+                    height: "100%"
+                }, {duration: 10000,     
+                    complete: questionNotAnswered
+                });
             });
-        }, 2000);        
+        }, 2000);       
     }
 
 
@@ -246,11 +177,26 @@
     }
 
 
+    function questionNotAnswered(){
+        insertIntervention(0, data_aux[0].id_question);
+        lookForCorrectAnswer(data_aux);
+        invertTurn();
+        unbindClickFunction();
+    }
+
 
     $(document).ready(function() {
         catUp(1);  
         
         $('#btnStop').click(function (event) {
+            $('#btnStop').unbind("click");
+            $('#btnStop').css({'visibility': 'hidden'});
             stop = true;
+
+            $('#progressBar').animate({
+                height: "100%"
+            }, {duration: 10000,     
+                complete: questionNotAnswered
+            });
         });
     });
