@@ -27,6 +27,21 @@
      	}
 
 
+        public function finishedGames() {
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $nick = $_SESSION["username"];
+
+            $params = array(
+                'games' => $m->finishedGames($nick),
+                'level' => $m->getLevel($nick),
+            );
+
+            require __DIR__ . '/templates/finished_games.php';
+        }
+
+
         public function game() {
             $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                         Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
