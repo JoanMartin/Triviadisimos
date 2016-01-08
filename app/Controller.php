@@ -2,6 +2,46 @@
 
     class Controller {
 
+		public function homePage() {
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $bestUsers = $m->bestUsers();
+
+			require __DIR__ . '/templates/home_page.php';
+		}
+
+
+     	public function userHomePage() {
+	        $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+	                    Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+	        $nick = $_SESSION["username"];
+
+	        $params = array(
+				'games' => $m->games($nick),
+                'level' => $m->getLevel($nick),
+			);
+
+         	require __DIR__ . '/templates/user_home_page.php';
+     	}
+
+
+        public function finishedGames() {
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $nick = $_SESSION["username"];
+
+            $params = array(
+                'games' => $m->finishedGames($nick),
+                'level' => $m->getLevel($nick),
+            );
+
+            require __DIR__ . '/templates/finished_games.php';
+        }
+
+
         public function game() {
             $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                         Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
@@ -13,6 +53,7 @@
             $params = array(
                 'game' => $m->getGame($game, $nick),
                 'world' => $m->getWorld($game),
+                'level' => $m->getLevel($nick),
             );
 
             if ($params['game'] == 'GameFinished'){
@@ -27,30 +68,9 @@
         }
 
 
-
-
-        public function homePage() {
-            require __DIR__ . '/templates/home_page.php';
-        }
-
-
-        public function userHomePage() {
-            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
-                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
-
-            $nick = $_SESSION["username"];
-
-            $params = array(
-                'games' => $m->games($nick),
-            );
-
-            require __DIR__ . '/templates/user_home_page.php';
-        }
-
-
-        public function registerUser() {            
-            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
-                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+     	public function registerUser() {			
+	        $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+	                    Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = $m->registerUser($_POST['nick'], $_POST['nombre'],
@@ -85,10 +105,10 @@
                     Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
             $reslt = $m->getlogin($_POST['nickLogin'], $_POST['passwordLogin']);
-            
-            if ($reslt == 'login') {    
-                $this->userHomePage();
-            } else {
+
+            if ($reslt == 'login') { 	
+                header("Refresh:0; url=./index.php");
+			} else {
                 $text= "UPS! El usuario o la contrase&ntildea no coinciden. Prueba otra vez!";
                 require __DIR__ . '/templates/errorAlertNoUser.php'; 
             }  
@@ -100,21 +120,22 @@
                     Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
             $reslt = $m->closeSession();
-            
-            require __DIR__ . '/templates/home_page.php';
-        }
+            header("Refresh:0; url=./index.php");
+ 		}
 
 
         public function stats() {
             $nick = $_SESSION['username'];
 
-            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-            /*$params=array(
-                'TotalesAcertadas' => $m->statTotalesAcertadas($nick),
+            $params = array(
+                'level' => $m->getLevel($nick),
             );
-            */
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
             //Normales
 
@@ -220,14 +241,17 @@
         }
 
         public function profile(){
-            
             $nick = $_SESSION['username'];
 
             $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
+            $um = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
             $params = array(
-             'profile' => $m->infoProfile($nick),
+                'profile' => $m->infoProfile($nick),
+                'level' => $um->getLevel($nick),
             );
 
            // $profile = $m->infoProfile($nick);
@@ -250,7 +274,7 @@
             }
             
             if($result == 'editChange'){  
-                header("Location: ./index.php?ctl=profile"); 
+                header("Location: ./profile"); 
             }
             else{
                 header("Location: ./error"); 
@@ -271,7 +295,7 @@
                     $result = $m->changePasswordProfile($nick, $_POST['passNuevo']);
                     
                     if($result == 'passChange'){  
-                        header("Location: ./index.php?ctl=profile"); 
+                        header("Location: ./profile"); 
                     } else {
                         header("Location: ./error"); 
                     } 
@@ -303,7 +327,7 @@
                 rename("$target_path", "web/images/users/".$nick.".jpg");                  
             }
 
-            header("Refresh:0; url=./index.php?ctl=profile");
+            header("Refresh:0; url=./profile");
         }
     }
 ?>
