@@ -27,6 +27,7 @@
         // enrutamiento
         $map = array(
             'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
+            'finishedGames' => array('controller' =>'Controller', 'action' =>'finishedGames'),
             'game' => array('controller' =>'Controller', 'action' =>'game'),
             'stats' => array('controller' =>'Controller', 'action' =>'stats'),
             'profile' => array('controller' =>'Controller', 'action' =>'profile'),

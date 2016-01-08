@@ -196,8 +196,8 @@ CREATE TABLE IF NOT EXISTS `jugador` (
   `URL_ImagenJugador` varchar(255) NOT NULL,
   `Partidas_Ganadas` int(15) NOT NULL,
   `Partidas_Perdidas` int(15) NOT NULL,
-  `ID_Privilegio` int(15) NOT NULL,
-  `ID_Nivel` int(15) NOT NULL,
+  `ID_Privilegio` int(15) NOT NULL  DEFAULT '2',
+  `ID_Nivel` int(15) NOT NULL DEFAULT '4',
   PRIMARY KEY (`ID_Jugador`),
   FOREIGN KEY (`ID_Privilegio`) REFERENCES privilegio(`ID_Privilegio`),
   FOREIGN KEY (`ID_Nivel`) REFERENCES nivel(`ID_Nivel`)

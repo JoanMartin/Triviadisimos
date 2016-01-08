@@ -1,6 +1,6 @@
 <?php
 
-	class Controller {
+    class Controller {
 
         public function game() {
             $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
@@ -29,33 +29,33 @@
 
 
 
-		public function homePage() {
-			require __DIR__ . '/templates/home_page.php';
-		}
+        public function homePage() {
+            require __DIR__ . '/templates/home_page.php';
+        }
 
 
-     	public function userHomePage() {
-	        $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
-	                    Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+        public function userHomePage() {
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-	        $nick = $_SESSION["username"];
+            $nick = $_SESSION["username"];
 
-	        $params = array(
-				'games' => $m->games($nick),
-			);
+            $params = array(
+                'games' => $m->games($nick),
+            );
 
-         	require __DIR__ . '/templates/user_home_page.php';
-     	}
+            require __DIR__ . '/templates/user_home_page.php';
+        }
 
 
-     	public function registerUser() {			
-	        $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
-	                    Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+        public function registerUser() {            
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-	        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = $m->registerUser($_POST['nick'], $_POST['nombre'],
-	                        $_POST['apellidos'], $_POST['email'], $_POST['password']);
-	        }
+                            $_POST['apellidos'], $_POST['email'], $_POST['password']);
+            }
 
             if($result == 'NickRepeated'){
                 $text= "UPS! Este Nick ya est&aacute utilizado. Prueba otro!";
@@ -76,33 +76,33 @@
                         header("Location: ./usuario y password no coinciden"); 
                     }
                 }
-            }	         
-	    }
+            }            
+        }
 
-	    
-	    public function loginUser() {
-    	    $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+        
+        public function loginUser() {
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                     Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-			$reslt = $m->getlogin($_POST['nickLogin'], $_POST['passwordLogin']);
+            $reslt = $m->getlogin($_POST['nickLogin'], $_POST['passwordLogin']);
             
-            if ($reslt == 'login') { 	
-         		$this->userHomePage();
-			} else {
+            if ($reslt == 'login') {    
+                $this->userHomePage();
+            } else {
                 $text= "UPS! El usuario o la contrase&ntildea no coinciden. Prueba otra vez!";
                 require __DIR__ . '/templates/errorAlertNoUser.php'; 
-			}  
- 		} 
+            }  
+        } 
 
 
- 		public function closeSession() {
- 			$m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+        public function closeSession() {
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                     Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-			$reslt = $m->closeSession();
+            $reslt = $m->closeSession();
             
-        	require __DIR__ . '/templates/home_page.php';
- 		}
+            require __DIR__ . '/templates/home_page.php';
+        }
 
 
         public function stats() {
@@ -305,5 +305,5 @@
 
             header("Refresh:0; url=./index.php?ctl=profile");
         }
- 	}
+    }
 ?>

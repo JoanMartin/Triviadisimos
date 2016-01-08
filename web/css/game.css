@@ -11,11 +11,11 @@
 		}
 
 		.category-container.first {
-			margin-top: 12em;
+			margin-top: 1em;
 		}
 
 	#btnStop {
-		margin-top: 12em;	
+		margin-top: 14em;	
 		width: 20em;
 		height: 20em;	
 		position: absolute;
@@ -32,7 +32,7 @@
 		color: black;
 		text-align: center;
 		border-radius: 10px;
-		margin: 12em 0em 0.4em 4em;
+		margin: 1em 0em 0.4em 4em;
 		font-style: italic;
 		background-color: white;
 	}
@@ -62,7 +62,7 @@
 		height: 25em;
 		border: 2px solid #fff;
 		overflow: hidden;
-		margin: 12em 0em 0.4em 3.7em;
+		margin: 1em 0em 0.4em 3.7em;
 		border-radius: 4px;
 	}
 

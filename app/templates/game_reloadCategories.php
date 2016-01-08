@@ -1,7 +1,7 @@
 <?php
     
-    require_once (__DIR__.'/Config.php');
-    require_once (__DIR__.'/UserGamesModel.php');
+    require_once ('../Config.php');
+    require_once ('../UserGamesModel.php');
 
     $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                 Config::$mvc_bd_clave, Config::$mvc_bd_hostname);

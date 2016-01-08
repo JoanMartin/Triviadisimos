@@ -15,10 +15,11 @@
 			background-color: orange;
 		}
 
-		.game-container.imageProfile {
+		.game-container.worldImage {
 			background-color: orange;
 			margin: 0.1em;
 			padding-top: 0.7em; 
+			height:10.2em;
 		}
 
 		.game-container.game {
