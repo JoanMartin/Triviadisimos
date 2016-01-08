@@ -29,7 +29,6 @@
 
     <body class="background-color-blue">
         <div id="page-wrapper">
-            <!-- Header -->
             <header id="header">
                 <h1 id="logo"><a href="index.php">Triviadísimos</a></h1>
                 <nav id="nav">
@@ -37,8 +36,8 @@
                         <li class="submenu">
                             <a>Opciones</a>
                             <ul>
-                                <li><a href="index.php?ctl=stats">Estad&iacutesticas</a></li>
-                                <li><a href="index.php?ctl=profile">Perfil</a></li>
+                                <li><a href="stats">Estad&iacutesticas</a></li>
+                                <li><a href="profile">Perfil</a></li>
                                 <li><a href="#">Ayuda</a></li>
                                 <li><a href="index.php?ctl=closeSession">Cerrar sesi&oacuten</a></li>
                             </ul>

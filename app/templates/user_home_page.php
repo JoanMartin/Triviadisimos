@@ -1,5 +1,16 @@
 <?php ob_start() ?>
 
+    <div class="container-level userPage">
+        <div class="row">
+            <div class="column col-5">
+                <h3><?php echo $params['level']['nivel'] ?></h3>
+            </div>
+            <div class="column col-7 level-image">
+                <img class="img-responsive" src="web/images/levels/<?php echo $params['level']['img'] ?>">
+            </div>
+        </div>
+    </div>
+
 	<section class="wrapper style4 first">
 		<header class="game-container title-blue">
 			<h2>Te toca jugar</h2>
@@ -12,12 +23,12 @@
 				$partida = $games['Partida'];?>
 
 				<div class="row">
-					<form action="index.php?ctl=game" method="POST">
+					<form action="game" method="POST">
 						<input type="hidden" name="game" value="<?php echo $games['Partida']?>" />
 						<a href="#" class="fill-div" onclick="this.parentNode.submit()">
 
 							<div class="column col-2">
-								<section class="game-container imageProfile" style="height:10.2em">
+								<section class="game-container worldImage">
 									<img class="img-responsive" src="web/images/<?php echo $games['ImagenMundo']?>">
 								</section>
 							</div>
@@ -239,7 +250,7 @@
 
 				<div class="row">
 					<div class="column col-2">
-						<section class="game-container imageProfile" style="height:10.2em">
+						<section class="game-container worldImage">
 							 <img class="img-responsive" src="web/images/<?php echo $games['ImagenMundo']?>">
 						</section>
 					</div>

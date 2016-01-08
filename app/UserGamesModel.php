@@ -17,6 +17,20 @@ class UserGamesModel {
     }
 
 
+    public function getLevel ($nick) {
+        $nick = htmlspecialchars($nick);
+
+        $sql = "SELECT Tipo_Nivel as nivel, URL_Imagen as img FROM jugador
+                    INNER JOIN nivel
+                    ON jugador.ID_Nivel = nivel.ID_Nivel
+                WHERE Nick = '".$nick."'";  
+
+        $result = mysql_query($sql, $this->conexion);
+        
+        return mysql_fetch_assoc($result);
+    }
+
+
     public function games($nick) {
         $nick = htmlspecialchars($nick);
 

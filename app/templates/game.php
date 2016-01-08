@@ -55,8 +55,16 @@
 		?>
 
 
-
-
+        <div class="container-level userPage">
+            <div class="row">
+                <div class="column col-5">
+                    <h3><?php echo $params['level']['nivel'] ?></h3>
+                </div>
+                <div class="column col-7 level-image">
+                    <img class="img-responsive" src="web/images/levels/<?php echo $params['level']['img'] ?>">
+                </div>
+            </div>
+        </div>
 
 		<div class="row" id="blackDiv"></div>
 		<center>

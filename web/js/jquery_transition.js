@@ -110,7 +110,7 @@
 
         setTimeout(function(){ 
             if (correct == 1) {
-                $("#categories").load("app/game_reloadCategories.php");
+                $("#categories").load("app/templates/game_reloadCategories.php");
             }
         }, 1000);
     }

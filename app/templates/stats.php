@@ -2,7 +2,18 @@
 
     <!--PANELS NORMAL, DINEY AND TOTALES -->
         <div class="container">
-           <div class="row" style="padding-top:40px;">
+            <div class="container-level stats">
+                <div class="row">
+                    <div class="column col-5">
+                        <h3><?php echo $params['level']['nivel'] ?></h3>
+                    </div>
+                    <div class="column col-7 level-image">
+                        <img class="img-responsive" src="web/images/levels/<?php echo $params['level']['img'] ?>">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top:3em;">
                 <div class="col-md-4 col-sm-4 col-xs-6">
                     <div class="panel panel-default boxWhite">
                             <div class="panel-heading">
@@ -113,7 +124,7 @@
 
     <!--PANELS CATEGORYS NORMAL -->
         <div class="container">
-           <div class="row" style="margin-top:-175px;">
+           <div class="row" style="padding-top:10em;">
                 <div class="col-md-4 col-sm-4 col-xs-6">
                         <div class="panel boxBlueTitle">
                             <div class="panel-heading">
@@ -329,7 +340,7 @@
 
     <!--PANELS CATEGORYS DINEY -->
         <div class="container">
-           <div class="row" style="margin-top:-175px;">
+           <div class="row" style="padding-top:10em;">
                 <div class="col-md-4 col-sm-4 col-xs-6">
                         <div class="panel boxBlueTitle">
                             <div class="panel-heading">

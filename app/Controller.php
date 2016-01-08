@@ -2,34 +2,12 @@
 
 	class Controller {
 
-        public function game() {
-            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+		public function homePage() {
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                         Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-            $_SESSION['game'] = $_POST['game'];
-            $game = $_POST['game'];
-            $nick = $_SESSION["username"];
+            $bestUsers = $m->bestUsers();
 
-            $params = array(
-                'game' => $m->getGame($game, $nick),
-                'world' => $m->getWorld($game),
-            );
-
-            if ($params['game'] == 'GameFinished'){
-                $text = "UPS! Esta partida ya no est&aacute en juego!";
-                require __DIR__ . '/templates/errorGame.php'; 
-            } else if ($params['game'] == 'NotYourTurn') {
-                $text = "UPS! No es tu turno en esta partida!";
-                require __DIR__ . '/templates/errorGame.php'; 
-            } else {
-                require __DIR__ . '/templates/game.php';                
-            }
-        }
-
-
-
-
-		public function homePage() {
 			require __DIR__ . '/templates/home_page.php';
 		}
 
@@ -42,10 +20,37 @@
 
 	        $params = array(
 				'games' => $m->games($nick),
+                'level' => $m->getLevel($nick),
 			);
 
          	require __DIR__ . '/templates/user_home_page.php';
      	}
+
+
+        public function game() {
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $_SESSION['game'] = $_POST['game'];
+            $game = $_POST['game'];
+            $nick = $_SESSION["username"];
+
+            $params = array(
+                'game' => $m->getGame($game, $nick),
+                'world' => $m->getWorld($game),
+                'level' => $m->getLevel($nick),
+            );
+
+            if ($params['game'] == 'GameFinished'){
+                $text = "UPS! Esta partida ya no est&aacute en juego!";
+                require __DIR__ . '/templates/errorGame.php'; 
+            } else if ($params['game'] == 'NotYourTurn') {
+                $text = "UPS! No es tu turno en esta partida!";
+                require __DIR__ . '/templates/errorGame.php'; 
+            } else {
+                require __DIR__ . '/templates/game.php';                
+            }
+        }
 
 
      	public function registerUser() {			
@@ -87,7 +92,7 @@
 			$reslt = $m->getlogin($_POST['nickLogin'], $_POST['passwordLogin']);
             
             if ($reslt == 'login') { 	
-         		$this->userHomePage();
+                header("Refresh:0; url=./index.php");
 			} else {
                 $text= "UPS! El usuario o la contrase&ntildea no coinciden. Prueba otra vez!";
                 require __DIR__ . '/templates/errorAlertNoUser.php'; 
@@ -101,20 +106,22 @@
 
 			$reslt = $m->closeSession();
             
-        	require __DIR__ . '/templates/home_page.php';
+            header("Refresh:0; url=./index.php");
  		}
 
 
         public function stats() {
             $nick = $_SESSION['username'];
 
-            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-            /*$params=array(
-                'TotalesAcertadas' => $m->statTotalesAcertadas($nick),
+            $params = array(
+                'level' => $m->getLevel($nick),
             );
-            */
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
             //Normales
 
@@ -220,14 +227,17 @@
         }
 
         public function profile(){
-            
             $nick = $_SESSION['username'];
 
             $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
+            $um = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
             $params = array(
-             'profile' => $m->infoProfile($nick),
+                'profile' => $m->infoProfile($nick),
+                'level' => $um->getLevel($nick),
             );
 
            // $profile = $m->infoProfile($nick);
@@ -250,7 +260,7 @@
             }
             
             if($result == 'editChange'){  
-                header("Location: ./index.php?ctl=profile"); 
+                header("Location: ./profile"); 
             }
             else{
                 header("Location: ./error"); 
@@ -271,7 +281,7 @@
                     $result = $m->changePasswordProfile($nick, $_POST['passNuevo']);
                     
                     if($result == 'passChange'){  
-                        header("Location: ./index.php?ctl=profile"); 
+                        header("Location: ./profile"); 
                     } else {
                         header("Location: ./error"); 
                     } 
@@ -303,7 +313,7 @@
                 rename("$target_path", "web/images/users/".$nick.".jpg");                  
             }
 
-            header("Refresh:0; url=./index.php?ctl=profile");
+            header("Refresh:0; url=./profile");
         }
  	}
 ?>
