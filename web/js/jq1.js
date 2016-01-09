@@ -59,6 +59,21 @@ $(document).ready(function () {
         });
   });
 
+
+/********************************/
+ //main_layout
+/********************************/
+    
+    //SHOW OF ADD QUESTION FORM
+    $(document).click(function() {
+      $("#divBlack").click(function(){
+          $('#divEdition').css('visibility', 'hidden');
+          $('#divBlack').css('visibility', 'hidden');
+      
+      });
+    });
+
+
 /***********************************/
 //Toogle View List
 /***********************************/        

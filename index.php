@@ -35,6 +35,7 @@
             'edition' => array('controller' =>'Controller', 'action' =>'edition'),
             'question' => array('controller' =>'Controller', 'action' =>'question'),
             'editQuestion' => array('controller' =>'Controller', 'action' =>'editQuestion'),
+            'addQuestion' => array('controller' =>'Controller', 'action' =>'addQuestion'),
             'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
         );
     }

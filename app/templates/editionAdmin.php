@@ -1,8 +1,80 @@
 <?php ob_start() ?>
 
+<!--BLACK SCREEN TO ADD QUESTION FORM-->
+<div class="row" id="divBlack" >
+</div>
+
+<!--ADD QUESTION FORM-->
+        <div class="container-login">
+            <div class="row centered-form">
+                <div class="col-md-4 col-lg-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <div class="panel panel-default" id="divEdition" name="divEdition">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">A&ntildeadir pregunta</h3>
+                        </div>
+                            <div class="panel-body">
+                            <form role="form" id="formRegister" name="formRegister" method="post" action="index.php?ctl=addQuestion" >                            
+                                
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <select class="form-control" id="mundo" name="mundo"></select>
+                                    </div>
+                                </div>  
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <select class="form-control" id="categoria" name="categoria"></select>
+                                    </div>
+                                </div>  
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" name="titulo" id="titulo" class="form-control input-sm" placeholder="T&#237tulo de la pregunta" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" name="respCorrecta" id="respCorrecta" class="form-control input-sm" placeholder="Respuesta Correcta" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" name="resp1" id="resp1" class="form-control input-sm" placeholder="Respuesta1" required>
+                                    </div>
+                                </div> 
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" name="resp2" id="resp2" class="form-control input-sm" placeholder="Respuesta2" required>
+                                    </div>
+                                </div>   
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" name="resp3" id="resp3" class="form-control input-sm" placeholder="Respuesta3" required>
+                                    </div>
+                                </div>   
+
+                                <input type="submit" value="A&#241adir" class="btn btn-info btn-block button special">
+                            
+                            </form>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <div class="container">
-        <h3 class="text-center">Normal</h3>               
+        <div class="row">
+            <div class="col-md-6 col-md-offset-10 col-lg-offset-10 ">
+                <button type="button" onclick="addQuestionFunction()" class="btn btn-info">A&ntildeadir pregunta</button>
+            </div>
+        </div>    
+        <br>  
+        <div class="col-md-6 col-md-offset-3 col-lg-offset-3 ">
+            <div class="panel boxPrincipalTitle">
+                <div class="panel-heading">
+                    <h3 class= "fontTitlePrincipal">Normal</h3>
+                </div>  
+            </div>    
+        </div>   
+        <br>            
         <div class="row">
             <div class="col-md-12">
                 <div class="panel boxBlueTitle">
@@ -38,8 +110,12 @@
                     <div class="panel-body boxGreenBody">
                         <?php 
                         if (is_array($params['listadoPreguntasCiencias']) || is_object($params['listadoPreguntasCiencias'])){
-                             foreach ($params['listadoPreguntasCiencias'] as $listadoPreguntas) :?>
-                            <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
+                            foreach ($params['listadoPreguntasCiencias'] as $listadoPreguntas) :?>
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
                             <?php endforeach;
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
@@ -59,8 +135,12 @@
                     <div class="panel-body boxYellowBody">
                         <?php 
                         if (is_array($params['listadoPreguntasHistoria']) || is_object($params['listadoPreguntasHistoria'])){
-                             foreach ($params['listadoPreguntasHistoria'] as $listadoPreguntas) :?>
-                            <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
+                            foreach ($params['listadoPreguntasHistoria'] as $listadoPreguntas) :?>
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
                             <?php endforeach;
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
@@ -81,7 +161,11 @@
                         <?php 
                         if (is_array($params['listadoPreguntasArteyLiteratura']) || is_object($params['listadoPreguntasArteyLiteratura'])){
                             foreach ($params['listadoPreguntasArteyLiteratura'] as $listadoPreguntas) :?>
-                            <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
                             <?php endforeach;
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
@@ -102,7 +186,11 @@
                         <?php 
                         if (is_array($params['listadoPreguntasEspectaculos']) || is_object($params['listadoPreguntasEspectaculos'])){
                             foreach ($params['listadoPreguntasEspectaculos'] as $listadoPreguntas) :?>
-                            <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
                             <?php endforeach;
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
@@ -123,7 +211,11 @@
                         <?php 
                         if (is_array($params['listadoPreguntasDeportes']) || is_object($params['listadoPreguntasDeportes'])){
                             foreach ($params['listadoPreguntasDeportes'] as $listadoPreguntas) :?>
-                            <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
                             <?php endforeach;
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
@@ -134,7 +226,18 @@
             </div>
         </div>
         
-        <h3 class="text-center">Disney</h3>               
+        <br>
+        <br>
+        <br>
+
+        <div class="col-md-6 col-md-offset-3 col-lg-offset-3 ">
+            <div class="panel boxPrincipalTitle">
+                <div class="panel-heading">
+                    <h3 class= "fontTitlePrincipal">Disney</h3>
+                </div>  
+            </div>    
+        </div>   
+        <br>           
         <div class="row">
             <div class="col-md-12">
                 <div class="panel boxBlueTitle">
@@ -146,7 +249,11 @@
                         <?php 
                         if (is_array($params['listadoPreguntasHabiaUnaVez']) || is_object($params['listadoPreguntasHabiaUnaVez'])){
                             foreach ($params['listadoPreguntasHabiaUnaVez'] as $listadoPreguntas) :?>
-                                 <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
                              <?php endforeach; 
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
@@ -167,8 +274,12 @@
                         <?php 
                         if (is_array($params['listadoPreguntasMarMundoDisney']) || is_object($params['listadoPreguntasMarMundoDisney'])){
                             foreach ($params['listadoPreguntasMarMundoDisney'] as $listadoPreguntas) :?>
-                                 <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
-                             <?php endforeach; 
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
+                            <?php endforeach; 
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
                         }
@@ -188,8 +299,12 @@
                         <?php 
                         if (is_array($params['listadoPreguntasMonstruosYVillanos']) || is_object($params['listadoPreguntasMonstruosYVillanos'])){
                             foreach ($params['listadoPreguntasMonstruosYVillanos'] as $listadoPreguntas) :?>
-                                 <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
-                             <?php endforeach; 
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
+                            <?php endforeach; 
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
                         }
@@ -209,8 +324,12 @@
                         <?php 
                         if (is_array($params['listadoPreguntasLugaresYObjetos']) || is_object($params['listadoPreguntasLugaresYObjetos'])){
                             foreach ($params['listadoPreguntasLugaresYObjetos'] as $listadoPreguntas) :?>
-                                 <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
-                             <?php endforeach; 
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
+                            <?php endforeach; 
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
                         }
@@ -230,8 +349,12 @@
                         <?php 
                         if (is_array($params['listadoPreguntasEstSecundarias']) || is_object($params['listadoPreguntasEstSecundarias'])){
                             foreach ($params['listadoPreguntasEstSecundarias'] as $listadoPreguntas) :?>
-                                 <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
-                             <?php endforeach; 
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
+                            <?php endforeach; 
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php
                         }
@@ -250,7 +373,11 @@
                         <?php 
                         if (is_array($params['listadoPreguntasHerYHer']) || is_object($params['listadoPreguntasHerYHer'])){
                             foreach ($params['listadoPreguntasHerYHer'] as $listadoPreguntas) :?>
-                                 <p><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></p>
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                                <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
+                                <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
+                                <br>
+                            </form>
                              <?php endforeach; 
                         }else{?>
                         <p><?php echo "- No hay preguntas en esta categor&iacutea" ?></p><?php

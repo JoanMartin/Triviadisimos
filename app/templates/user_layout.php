@@ -17,6 +17,8 @@
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_js1_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_jq1_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_validate_js ?>"></script>
+        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_editAdmin_js ?>"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
         <script src="<?php echo 'web/js/'.Config::$mvc_jqmin_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_jqdropomin_js ?>"></script>

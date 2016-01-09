@@ -23,6 +23,7 @@
 		static public $mvc_jq1_js	   		= "jq1.js";
 		static public $mvc_validate_js	   	= "jquery.validate.min.js";
 		static public $mvc_valadmet_js	  	= "additional-methods.min.js";	
+		static public $mvc_editAdmin_js	  	= "editionAdmin.js";	
 
 		static public $mvc_jqmin_js	  		= "jquery.min.js";
 		static public $mvc_jqdropomin_js	= "jquery.dropotron.min.js";

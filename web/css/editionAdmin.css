@@ -23,6 +23,18 @@ a{
 	z-index: 2;
 }
 
+#divBlack {
+	position: fixed;
+	top: 0px; 
+	height:100vh; 
+	width: 100vw; 
+	background-color: black;
+	opacity: 0.75; 
+	filter: alpha(opacity=40); 
+	visibility: hidden;
+	z-index: 1;
+}
+
 .clickable
 {
     cursor: pointer;
@@ -44,3 +56,4 @@ a{
 }
 a.clickable { color: inherit; }
 a.clickable:hover { text-decoration:none; }
+

@@ -40,3 +40,21 @@
         document.getElementById("apellidos").style.borderWidth= "2px";
         document.getElementById("email").style.borderWidth= "2px";
     }
+
+/********************************/
+ //editionQuestion.php
+/********************************/
+    function cancelar() {
+        location.href = "./index.php?ctl=edition";
+
+    }
+
+/********************************/
+//editionAdmin.php
+/********************************/
+
+    //SHOW OF ADD QUESTION FORM
+    function addQuestionFunction() {
+        document.getElementById("divEdition").style.visibility="visible";
+        document.getElementById("divBlack").style.visibility="visible";
+    }

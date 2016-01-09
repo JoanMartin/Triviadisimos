@@ -907,7 +907,7 @@ class Model
     
     public function editQuestion1($idPregunta, $textPregunta){
 
-        $sql = "UPDATE  `bdtriviadisimos`.`pregunta` SET `Text_Pregunta`='".$textPregunta."' WHERE `ID_Pregunta`='".$idPregunta."'";
+        $sql = "UPDATE `bdtriviadisimos`.`pregunta` SET `Text_Pregunta`='".$textPregunta."' WHERE `ID_Pregunta`='".$idPregunta."'";
            
         $result = mysql_query($sql, $this->conexion);
 
@@ -916,10 +916,20 @@ class Model
 
     public function editQuestion2($idPregunta, $idRespuesta, $textRespuesta){
         
-        $sql = "UPDATE  `bdtriviadisimos`.`respuesta` SET `Texto_Respuesta`='".$textRespuesta."' WHERE `ID_Respuesta`='21' AND `ID_Pregunta`='83";
-           
+        $sql = "UPDATE `bdtriviadisimos`.`respuesta` SET `Texto_Respuesta`='".$textRespuesta."' WHERE `ID_Respuesta`='".$idRespuesta."' AND `ID_Pregunta`='".$idPregunta."' ";
+    
         $result = mysql_query($sql, $this->conexion);
 
         return 'editChange';    
     } 
+
+    public function addQuestion(){
+
+        $sql = "UPDATE `bdtriviadisimos`.`pregunta` SET `Text_Pregunta`='".$textRespuesta."' WHERE `ID_Respuesta`='".$idRespuesta."' AND `ID_Pregunta`='".$idPregunta."' ";
+    
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'editChange';
+        
+    }
 }

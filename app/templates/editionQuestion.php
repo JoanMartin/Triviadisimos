@@ -13,16 +13,25 @@
                     <br>   
                     <?php                     
                     $x=1;
-                    foreach ($params['listadoRespuestas'] as $listadoRespuestas) :?>
-                        <input type="hidden" class="form-control" id="<?php 'ID_Respuesta'.$x?>"  name="<?php 'ID_Respuesta'.$x?>" value="<?php echo $listadoRespuestas['ID_Respuesta'] ?>" > 
-                        <input type="text" class="form-control" id="<?php 'Text_Respuesta'.$x?>" name="<?php 'Text_Respuesta'.$x?>" value=<?php echo $listadoRespuestas['Texto_Respuesta'] ?>> 
-                    <?php
+                    foreach ($params['listadoRespuestas'] as $listadoRespuestas) :
+                        //Si es correcta marcarla en verde
+                        if ($listadoRespuestas['Correcta']) { ?>                            
+                        <input type="text" class="form-control correct" id="<?php echo 'Text_Respuesta'.$x?>" name="<?php echo 'Text_Respuesta'.$x?>" value="<?php echo $listadoRespuestas['Texto_Respuesta'] ?>" > 
+                        <?php
+                        }else{  
+                        ?> 
+                        <input type="text" class="form-control" id="<?php echo 'Text_Respuesta'.$x?>" name="<?php echo 'Text_Respuesta'.$x?>" value="<?php echo $listadoRespuestas['Texto_Respuesta'] ?>" > 
+                        <?php
+                        }
+                        ?>
+                        <input type="hidden" class="form-control" id="<?php echo "ID_Respuesta".$x?>"  name="<?php echo "ID_Respuesta".$x?>" value="<?php echo $listadoRespuestas['ID_Respuesta'] ?>" >
+                        <?php
                     $x= $x + 1;
                     endforeach; ?>
-                    <button class="btn btn-success">Cancelar</button>
                     <button class="btn btn-success">Guardar</button>
                     <br /><br/>
-                </form>                    
+                </form>  
+                <button onclick="cancelar()" class="btn btn-success">Cancelar</button>                  
             </div>
         </div>
     </section>

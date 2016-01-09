@@ -320,8 +320,6 @@
         }
 
         public function editQuestion(){
-            
-            $nick = $_SESSION['username'];
 
             $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
@@ -329,7 +327,10 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
 
                 $result1 = $m->editQuestion1($_POST['ID_Pregunta'], $_POST['Text_Pregunta']);
-                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta'], $_POST['Text_Respuesta']);
+                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta1'], $_POST['Text_Respuesta1']);
+                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta2'], $_POST['Text_Respuesta2']);
+                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta3'], $_POST['Text_Respuesta3']);
+                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta4'], $_POST['Text_Respuesta4']);
             }
             
             if($result1 == 'editChange' && $result2 == 'editChange'){  
@@ -340,5 +341,18 @@
             } 
             
         }
+
+        public function addQuestion(){
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
+
+                $result = $m->addQuestion($_POST['mundo']);
+            }
+            
+        }
+
  	}
 ?>
