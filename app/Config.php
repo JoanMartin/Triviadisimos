@@ -15,6 +15,8 @@
 		static public $mvc_errRepeated_css 	= "errorRepeated.css";
 		static public $mvc_stats_css 		= "stats.css";
 		static public $mvc_profile_css 		= "profile.css";		
+		static public $mvc_editAdmin_css 	= "editionAdmin.css";	
+		static public $mvc_editQuestion_css = "editionQuestion.css";		
 		//JQ
 		static public $mvc_jq_js	   		= "jquery.js";
 		static public $mvc_js1_js	   		= "js1.js";

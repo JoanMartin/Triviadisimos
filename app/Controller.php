@@ -277,5 +277,68 @@
 
             header("Location: ./index.php?ctl=profile"); 
         }
+
+        public function edition(){
+            
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $params = array(
+             'listadoPreguntasGeografia' => $m->editionAdminListarPreguntasGeografia(),
+             'listadoPreguntasCiencias' => $m->editionAdminListarPreguntasCiencias(),
+             'listadoPreguntasHistoria' => $m->editionAdminListarPreguntasHistoria(),
+             'listadoPreguntasArteyLiteratura' => $m->editionAdminListarPreguntasArteyLiteratura(),
+             'listadoPreguntasEspectaculos' => $m->editionAdminListarPreguntasEspectaculos(),
+             'listadoPreguntasDeportes' => $m->editionAdminListarPreguntasDeportes(),
+             'listadoPreguntasHabiaUnaVez' => $m->editionAdminListarPreguntasHabiaUnaVez(),
+             'listadoPreguntasMarMundoDisney' => $m->editionAdminListarPreguntasMarMundoDisney(),
+             'listadoPreguntasMonstruosYVillanos' => $m->editionAdminListarPreguntasMonstruosYVillanos(),
+             'listadoPreguntasLugaresYObjetos' => $m->editionAdminListarPreguntasLugaresYObjetos(),
+             'listadoPreguntasEstSecundarias' => $m->editionAdminListarPreguntasEstSecundarias(),
+             'listadoPreguntasHerYHer' => $m->editionAdminListarPreguntasHerYHer(),
+            );
+                 
+            require __DIR__ . '/templates/editionAdmin.php';
+                       
+        }
+
+        public function question(){
+            
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
+
+                $result = $m->question($_POST['ID_Pregunta']);
+                $params = array(
+                    'listadoRespuestas' => $m->answers($_POST['ID_Pregunta']),
+                );
+            }
+                 
+            require __DIR__ . '/templates/editionQuestion.php';
+                       
+        }
+
+        public function editQuestion(){
+            
+            $nick = $_SESSION['username'];
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
+
+                $result1 = $m->editQuestion1($_POST['ID_Pregunta'], $_POST['Text_Pregunta']);
+                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta'], $_POST['Text_Respuesta']);
+            }
+            
+            if($result1 == 'editChange' && $result2 == 'editChange'){  
+                header("Location: ./index.php?ctl=edition"); 
+            }
+            else{
+                header("Location: ./error"); 
+            } 
+            
+        }
  	}
 ?>

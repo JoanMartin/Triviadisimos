@@ -1,0 +1,46 @@
+#divBlackEdition {
+	position: fixed;
+	top: 0px; 
+	height:100vh; 
+	width: 100vw; 
+	background-color: black;
+	opacity: 0.75; 
+	filter: alpha(opacity=40); 
+	visibility: hidden;
+    z-index: 1;
+}
+
+a{
+	text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#divEdition{
+	position: fixed; 
+	top: 100px; 
+	visibility: hidden;
+	z-index: 2;
+}
+
+.clickable
+{
+    cursor: pointer;
+}
+
+.clickable .glyphicon
+{
+    background: rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px
+}
+
+.panel-heading span
+{
+    margin-top: -23px;
+    font-size: 15px;
+    margin-right: -9px;
+}
+a.clickable { color: inherit; }
+a.clickable:hover { text-decoration:none; }

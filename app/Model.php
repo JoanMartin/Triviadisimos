@@ -648,4 +648,278 @@ class Model
 
         return 'passChange';    
     }
+
+    public function editionAdminListarPreguntasGeografia(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Geografía'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasCiencias(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Ciencia'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasHistoria(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Historia'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasArteyLiteratura(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Arte y Literatura'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasEspectaculos(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Espectáculos'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasDeportes(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Deportes'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasHabiaUnaVez(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Había una vez'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasMarMundoDisney(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Maravilloso mundo de Disney'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasMonstruosYVillanos(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Monstruos y villanos'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasLugaresYObjetos(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Lugares y objetos'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasEstSecundarias(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Estrellas secundarias'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function editionAdminListarPreguntasHerYHer(){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` 
+        INNER JOIN `bdtriviadisimos`.`categoria` ON `pregunta`.`id_categoria` = `categoria`.`id_categoria`
+        WHERE `nombre_categoria`= 'Héroes y heroínas'";
+                   
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+
+    public function question($id){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`pregunta` WHERE `ID_Pregunta`= '".$id."'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }
+    }
+
+    public function answers($id){
+        $sql = "SELECT * FROM `bdtriviadisimos`.`respuesta` WHERE `ID_Pregunta`= '".$id."'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        if (mysql_num_rows($result) > 0) {
+            $params = array();
+            while ($row = mysql_fetch_assoc($result))
+            {
+                $params[] = $row;
+            }
+            return $params;
+        }else{
+            return 'den';  
+        }
+    }
+    
+    public function editQuestion1($idPregunta, $textPregunta){
+
+        $sql = "UPDATE  `bdtriviadisimos`.`pregunta` SET `Text_Pregunta`='".$textPregunta."' WHERE `ID_Pregunta`='".$idPregunta."'";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'editChange';    
+    } 
+
+    public function editQuestion2($idPregunta, $idRespuesta, $textRespuesta){
+        
+        $sql = "UPDATE  `bdtriviadisimos`.`respuesta` SET `Texto_Respuesta`='".$textRespuesta."' WHERE `ID_Respuesta`='21' AND `ID_Pregunta`='83";
+           
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'editChange';    
+    } 
 }

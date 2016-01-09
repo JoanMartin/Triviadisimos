@@ -32,6 +32,9 @@
             'editProfile' => array('controller' =>'Controller', 'action' =>'editProfile'),
             'changePasswordProfile' => array('controller' =>'Controller', 'action' =>'changePasswordProfile'),
             'imgProfile' => array('controller' =>'Controller', 'action' =>'imgProfile'),
+            'edition' => array('controller' =>'Controller', 'action' =>'edition'),
+            'question' => array('controller' =>'Controller', 'action' =>'question'),
+            'editQuestion' => array('controller' =>'Controller', 'action' =>'editQuestion'),
             'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
         );
     }

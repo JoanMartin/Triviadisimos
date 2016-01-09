@@ -10,6 +10,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_profile_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_errRepeated_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_validate_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_editAdmin_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_editQuestion_css ?>" />
 
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_js1_js ?>"></script>
@@ -36,6 +38,7 @@
                             <ul>
                                 <li><a href="index.php?ctl=stats">Estad&iacutesticas</a></li>
                                 <li><a href="index.php?ctl=profile">Perfil</a></li>
+                                <li><a href="index.php?ctl=edition">Edici&oacuten Admin</a></li>
                                 <li><a href="#">Ayuda</a></li>
                                 <li><a href="index.php?ctl=closeSession">Cerrar sesi&oacuten</a></li>
                             </ul>
