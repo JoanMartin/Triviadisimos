@@ -956,11 +956,17 @@ class Model
         }        
     }
 
-    public function addAnswers($idPregunta, $respCorrecta){
+    public function addAnswers($idPregunta, $respCorrecta, $resp1, $resp2, $resp3){
        
         $sql = "INSERT INTO `bdtriviadisimos`.`respuesta` (`ID_Pregunta`, `Texto_Respuesta`, `Correcta`) VALUES ('".$idPregunta."', '".$respCorrecta."', '1')";
-
+        $sql1 = "INSERT INTO `bdtriviadisimos`.`respuesta` (`ID_Pregunta`, `Texto_Respuesta`, `Correcta`) VALUES ('".$idPregunta."', '".$resp1."', '0')";
+        $sql2 = "INSERT INTO `bdtriviadisimos`.`respuesta` (`ID_Pregunta`, `Texto_Respuesta`, `Correcta`) VALUES ('".$idPregunta."', '".$resp2."', '0')";
+        $sql3 = "INSERT INTO `bdtriviadisimos`.`respuesta` (`ID_Pregunta`, `Texto_Respuesta`, `Correcta`) VALUES ('".$idPregunta."', '".$resp3."', '0')";
+        
         $result = mysql_query($sql, $this->conexion);
+        $result1 = mysql_query($sql1, $this->conexion);
+        $result2 = mysql_query($sql2, $this->conexion);
+        $result3 = mysql_query($sql3, $this->conexion);
 
         return 'insertCorrect';        
     }

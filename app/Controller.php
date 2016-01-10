@@ -352,7 +352,7 @@
                 $result = $m->searchCategory($_POST['categoria']);                
                 $result1 = $m->addQuestion($result['ID_Categoria'], $_POST['titulo']);
                 $result2 = $m->searchQuestion($_POST['titulo']);
-                $result3 = $m->addAnswers($result2['ID_Pregunta'], $_POST['respCorrecta']);
+                $result3 = $m->addAnswers($result2['ID_Pregunta'], $_POST['respCorrecta'], $_POST['resp1'], $_POST['resp2'], $_POST['resp3']);
             }
 
             if($result1 == 'insertCorrect'){  
