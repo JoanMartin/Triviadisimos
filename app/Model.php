@@ -46,7 +46,7 @@ class Model
                 return 'EmailRepeated';
             } else {
                 $sql = "INSERT INTO `bdtriviadisimos`.`jugador` (`Nick`, `Nombre`, `Apellidos`, `Contraseña`, `Email`, `URL_ImagenJugador`, `Partidas_Ganadas`, `Partidas_Perdidas`, `ID_Privilegio`, `ID_Nivel`)
-                 VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', 'user', '', '', '2', '1')";
+                 VALUES ('".$nick."', '".$nombre."', '".$apellidos."', '".$password."', '".$email."', '".$nick."', '', '', '2', '4')";
 
                 $result = mysql_query($sql, $this->conexion);
 
@@ -72,6 +72,23 @@ class Model
                 return 'invalid user';
             }
         }
+    }
+
+
+    public function bestUsers(){
+        $sql = "SELECT (Partidas_Ganadas - Partidas_Perdidas) AS puntuacion, Nick, URL_ImagenJugador 
+                FROM jugador 
+                ORDER BY puntuacion desc";  
+
+        $result = mysql_query($sql, $this->conexion);
+
+        $bestUsers = array();
+        for ($i = 0; $i < 3; $i++) {
+            $row = mysql_fetch_assoc($result);
+            $bestUsers[] = $row;
+        }
+
+        return $bestUsers;
     }
 
     //Close Session

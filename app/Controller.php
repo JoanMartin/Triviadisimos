@@ -1,7 +1,13 @@
 <?php
 
-	class Controller {
+    class Controller {
+
 		public function homePage() {
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $bestUsers = $m->bestUsers();
+
 			require __DIR__ . '/templates/home_page.php';
 		}
 
@@ -14,20 +20,62 @@
 
 	        $params = array(
 				'games' => $m->games($nick),
+                'level' => $m->getLevel($nick),
 			);
 
          	require __DIR__ . '/templates/user_home_page.php';
      	}
 
 
+        public function finishedGames() {
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $nick = $_SESSION["username"];
+
+            $params = array(
+                'games' => $m->finishedGames($nick),
+                'level' => $m->getLevel($nick),
+            );
+
+            require __DIR__ . '/templates/finished_games.php';
+        }
+
+
+        public function game() {
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                        Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $_SESSION['game'] = $_POST['game'];
+            $game = $_POST['game'];
+            $nick = $_SESSION["username"];
+
+            $params = array(
+                'game' => $m->getGame($game, $nick),
+                'world' => $m->getWorld($game),
+                'level' => $m->getLevel($nick),
+            );
+
+            if ($params['game'] == 'GameFinished'){
+                $text = "UPS! Esta partida ya no est&aacute en juego!";
+                require __DIR__ . '/templates/errorGame.php'; 
+            } else if ($params['game'] == 'NotYourTurn') {
+                $text = "UPS! No es tu turno en esta partida!";
+                require __DIR__ . '/templates/errorGame.php'; 
+            } else {
+                require __DIR__ . '/templates/game.php';                
+            }
+        }
+
+
      	public function registerUser() {			
 	        $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
 	                    Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-	        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = $m->registerUser($_POST['nick'], $_POST['nombre'],
-	                        $_POST['apellidos'], $_POST['email'], $_POST['password']);
-	        }
+                            $_POST['apellidos'], $_POST['email'], $_POST['password']);
+            }
 
             if($result == 'NickRepeated'){
                 $text= "UPS! Este Nick ya est&aacute utilizado. Prueba otro!";
@@ -48,45 +96,46 @@
                         header("Location: ./usuario y password no coinciden"); 
                     }
                 }
-            }	         
-	    }
+            }            
+        }
 
-	    
-	    public function loginUser() {
-    	    $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+        
+        public function loginUser() {
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                     Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-			$reslt = $m->getlogin($_POST['nickLogin'], $_POST['passwordLogin']);
-            
+            $reslt = $m->getlogin($_POST['nickLogin'], $_POST['passwordLogin']);
+
             if ($reslt == 'login') { 	
-         		$this->userHomePage();
+                header("Refresh:0; url=./index.php");
 			} else {
                 $text= "UPS! El usuario o la contrase&ntildea no coinciden. Prueba otra vez!";
                 require __DIR__ . '/templates/errorAlertNoUser.php'; 
-			}  
- 		} 
+            }  
+        } 
 
 
- 		public function closeSession() {
- 			$m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+        public function closeSession() {
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                     Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-			$reslt = $m->closeSession();
-            
-        	require __DIR__ . '/templates/home_page.php';
+            $reslt = $m->closeSession();
+            header("Refresh:0; url=./index.php");
  		}
 
 
         public function stats() {
             $nick = $_SESSION['username'];
 
-            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+            $m = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
-            /*$params=array(
-                'TotalesAcertadas' => $m->statTotalesAcertadas($nick),
+            $params = array(
+                'level' => $m->getLevel($nick),
             );
-            */
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
             //Normales
 
@@ -192,14 +241,17 @@
         }
 
         public function profile(){
-            
             $nick = $_SESSION['username'];
 
             $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
+            $um = new UserGamesModel(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
             $params = array(
-             'profile' => $m->infoProfile($nick),
+                'profile' => $m->infoProfile($nick),
+                'level' => $um->getLevel($nick),
             );
 
            // $profile = $m->infoProfile($nick);
@@ -222,7 +274,7 @@
             }
             
             if($result == 'editChange'){  
-                header("Location: ./index.php?ctl=profile"); 
+                header("Location: ./profile"); 
             }
             else{
                 header("Location: ./error"); 
@@ -243,7 +295,7 @@
                     $result = $m->changePasswordProfile($nick, $_POST['passNuevo']);
                     
                     if($result == 'passChange'){  
-                        header("Location: ./index.php?ctl=profile"); 
+                        header("Location: ./profile"); 
                     } else {
                         header("Location: ./error"); 
                     } 
@@ -275,7 +327,7 @@
                 rename("$target_path", "web/images/users/".$nick.".jpg");                  
             }
 
-            header("Location: ./index.php?ctl=profile"); 
+            header("Refresh:0; url=./profile");
         }
 
         public function edition(){

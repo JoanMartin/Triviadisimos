@@ -14,10 +14,15 @@
 		static public $mvc_validate_css		= "jqueryvalidation.css";
 		static public $mvc_errRepeated_css 	= "errorRepeated.css";
 		static public $mvc_stats_css 		= "stats.css";
+
 		static public $mvc_profile_css 		= "profile.css";		
 		static public $mvc_editAdmin_css 	= "editionAdmin.css";	
-		static public $mvc_editQuestion_css = "editionQuestion.css";		
+		static public $mvc_editQuestion_css = "editionQuestion.css";	
+		static public $mvc_game_css 		= "game.css";		
+		
 		//JQ
+		static public $mvc_jq_transition	= "jquery_transition.js";
+
 		static public $mvc_jq_js	   		= "jquery.js";
 		static public $mvc_js1_js	   		= "js1.js";
 		static public $mvc_jq1_js	   		= "jq1.js";

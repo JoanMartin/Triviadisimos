@@ -196,8 +196,8 @@ CREATE TABLE IF NOT EXISTS `jugador` (
   `URL_ImagenJugador` varchar(255) NOT NULL,
   `Partidas_Ganadas` int(15) NOT NULL,
   `Partidas_Perdidas` int(15) NOT NULL,
-  `ID_Privilegio` int(15) NOT NULL,
-  `ID_Nivel` int(15) NOT NULL,
+  `ID_Privilegio` int(15) NOT NULL  DEFAULT '2',
+  `ID_Nivel` int(15) NOT NULL DEFAULT '4',
   PRIMARY KEY (`ID_Jugador`),
   FOREIGN KEY (`ID_Privilegio`) REFERENCES privilegio(`ID_Privilegio`),
   FOREIGN KEY (`ID_Nivel`) REFERENCES nivel(`ID_Nivel`)
@@ -225,8 +225,8 @@ INSERT INTO `jugador` (`ID_Jugador`, `Nick`, `Nombre`, `Apellidos`, `Contraseña
 
 CREATE TABLE IF NOT EXISTS `partida` (
   `ID_Partida` int(15) NOT NULL AUTO_INCREMENT,
-  `Fecha_Inicio` date NOT NULL,
-  `Fecha_Final` date NOT NULL,
+  `Fecha_Inicio` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `Fecha_Final` timestamp DEFAULT NULL,
   `Hora_Inicio` time NOT NULL,
   `Estado_Partida` int(1) NOT NULL COMMENT 'Pendiente(0) / Finalizado(1)',
   `ID_Mundo` int(15) NOT NULL,
