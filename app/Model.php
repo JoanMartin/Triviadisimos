@@ -923,13 +923,46 @@ class Model
         return 'editChange';    
     } 
 
-    public function addQuestion(){
+    public function searchCategory($categoria){
 
-        $sql = "UPDATE `bdtriviadisimos`.`pregunta` SET `Text_Pregunta`='".$textRespuesta."' WHERE `ID_Respuesta`='".$idRespuesta."' AND `ID_Pregunta`='".$idPregunta."' ";
-    
+        $sql = "SELECT `ID_Categoria` FROM `bdtriviadisimos`.`categoria` WHERE `Nombre_Categoria`= '".$categoria."'";
+
         $result = mysql_query($sql, $this->conexion);
 
-        return 'editChange';
-        
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }        
     }
+
+    public function addQuestion($idcategoria, $titulo){
+       
+        $sql = "INSERT INTO `bdtriviadisimos`.`pregunta` (`Text_Pregunta`, `ID_Categoria`) VALUES ('".$titulo."', '".$idcategoria."')";
+
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'insertCorrect';        
+    }
+
+    public function searchQuestion($titulo){
+
+        $sql = "SELECT `ID_Pregunta` FROM `bdtriviadisimos`.`pregunta` WHERE `Text_Pregunta`= '".$titulo."'";
+
+        $result = mysql_query($sql, $this->conexion);
+
+        if ($result) {
+            $row = mysql_fetch_assoc($result);
+            return $row;
+        }        
+    }
+
+    public function addAnswers($idPregunta, $respCorrecta){
+       
+        $sql = "INSERT INTO `bdtriviadisimos`.`respuesta` (`ID_Pregunta`, `Texto_Respuesta`, `Correcta`) VALUES ('".$idPregunta."', '".$respCorrecta."', '1')";
+
+        $result = mysql_query($sql, $this->conexion);
+
+        return 'insertCorrect';        
+    }
+
 }

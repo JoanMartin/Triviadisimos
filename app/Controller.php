@@ -345,12 +345,22 @@
         public function addQuestion(){
 
             $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
-                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
-            
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);            
+
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
 
-                $result = $m->addQuestion($_POST['mundo']);
+                $result = $m->searchCategory($_POST['categoria']);                
+                $result1 = $m->addQuestion($result['ID_Categoria'], $_POST['titulo']);
+                $result2 = $m->searchQuestion($_POST['titulo']);
+                $result3 = $m->addAnswers($result2['ID_Pregunta'], $_POST['respCorrecta']);
             }
+
+            if($result1 == 'insertCorrect'){  
+                header("Location: ./index.php?ctl=edition"); 
+            }
+            else{
+                header("Location: ./error"); 
+            } 
             
         }
 
