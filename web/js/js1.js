@@ -23,9 +23,6 @@
     }
 
     /********************************/
-    /********************************/
-
-    /********************************/
      //perfil
     /********************************/
 
@@ -49,24 +46,21 @@
         document.getElementById("apellidos").style.borderWidth= "2px";
         document.getElementById("email").style.borderWidth= "2px";
     }
-        
-    
-    /***********************************/
-     //Replace accent for upload  to DB
-    /***********************************/        
-    /*
-    function replaceAccent() {
 
-        var apellidos = document.getElementById("apellidos").value;
-        //var demo = "asés";
-        //alert(apellidos);
-        var apellidos_decode =  html_entity_decode(apellidos);
-        alert(apellidos_decode);
+/********************************/
+ //editionQuestion.php
+/********************************/
+    function cancelar() {
+        location.href = "./index.php?ctl=edition";
 
-        var str = apellidos_decode.replace(/é/g, "&#233");
-
-        document.getElementById("apellidos").value = str;
-
-        document.getElementById("formEditProfile").submit();
     }
-    */
+
+/********************************/
+//editionAdmin.php
+/********************************/
+
+    //SHOW OF ADD QUESTION FORM
+    function addQuestionFunction() {
+        document.getElementById("divEdition").style.visibility="visible";
+        document.getElementById("divBlack").style.visibility="visible";
+    }

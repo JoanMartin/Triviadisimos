@@ -353,5 +353,92 @@
 
             header("Refresh:0; url=./profile");
         }
-    }
+
+        public function edition(){
+            
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            $params = array(
+             'listadoPreguntasGeografia' => $m->editionAdminListarPreguntasGeografia(),
+             'listadoPreguntasCiencias' => $m->editionAdminListarPreguntasCiencias(),
+             'listadoPreguntasHistoria' => $m->editionAdminListarPreguntasHistoria(),
+             'listadoPreguntasArteyLiteratura' => $m->editionAdminListarPreguntasArteyLiteratura(),
+             'listadoPreguntasEspectaculos' => $m->editionAdminListarPreguntasEspectaculos(),
+             'listadoPreguntasDeportes' => $m->editionAdminListarPreguntasDeportes(),
+             'listadoPreguntasHabiaUnaVez' => $m->editionAdminListarPreguntasHabiaUnaVez(),
+             'listadoPreguntasMarMundoDisney' => $m->editionAdminListarPreguntasMarMundoDisney(),
+             'listadoPreguntasMonstruosYVillanos' => $m->editionAdminListarPreguntasMonstruosYVillanos(),
+             'listadoPreguntasLugaresYObjetos' => $m->editionAdminListarPreguntasLugaresYObjetos(),
+             'listadoPreguntasEstSecundarias' => $m->editionAdminListarPreguntasEstSecundarias(),
+             'listadoPreguntasHerYHer' => $m->editionAdminListarPreguntasHerYHer(),
+            );
+                 
+            require __DIR__ . '/templates/editionAdmin.php';
+                       
+        }
+
+        public function question(){
+            
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
+
+                $result = $m->question($_POST['ID_Pregunta']);
+                $params = array(
+                    'listadoRespuestas' => $m->answers($_POST['ID_Pregunta']),
+                );
+            }
+                 
+            require __DIR__ . '/templates/editionQuestion.php';
+                       
+        }
+
+        public function editQuestion(){
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
+
+                $result1 = $m->editQuestion1($_POST['ID_Pregunta'], $_POST['Text_Pregunta']);
+                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta1'], $_POST['Text_Respuesta1']);
+                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta2'], $_POST['Text_Respuesta2']);
+                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta3'], $_POST['Text_Respuesta3']);
+                $result2 = $m->editQuestion2($_POST['ID_Pregunta'], $_POST['ID_Respuesta4'], $_POST['Text_Respuesta4']);
+            }
+            
+            if($result1 == 'editChange' && $result2 == 'editChange'){  
+                header("Location: ./edition"); 
+            }
+            else{
+                header("Location: ./error"); 
+            } 
+            
+        }
+
+        public function addQuestion(){
+
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);            
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
+
+                $result = $m->searchCategory($_POST['categoria']);                
+                $result1 = $m->addQuestion($result['ID_Categoria'], $_POST['titulo']);
+                $result2 = $m->searchQuestion($_POST['titulo']);
+                $result3 = $m->addAnswers($result2['ID_Pregunta'], $_POST['respCorrecta'], $_POST['resp1'], $_POST['resp2'], $_POST['resp3']);
+            }
+
+            if($result1 == 'insertCorrect'){  
+                header("Location: ./edition"); 
+            }
+            else{
+                header("Location: ./error"); 
+            } 
+            
+        }
+
+ 	}
 ?>
