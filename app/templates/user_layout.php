@@ -40,12 +40,18 @@
                         <li class="submenu">
                             <a>Opciones</a>
                             <ul>
-                                <li><a href="index.php?ctl=edition">Edici&oacuten Admin</a></li>
+                            <?php                           
+                            if($_SESSION['privilegio']=='admin'){  
+                            ?>
+                                <li><a href="edition">Edici&oacuten Preguntas</a></li>
+                            <?php
+                            }
+                            ?>
                                 <li><a href="finishedGames">Partidas finalizadas</a></li>
                                 <li><a href="stats">Estad&iacutesticas</a></li>
                                 <li><a href="profile">Perfil</a></li>
                                 <li><a href="#">Ayuda</a></li>
-                                <li><a href="index.php?ctl=closeSession">Cerrar sesi&oacuten</a></li>
+                                <li><a href="closeSession">Cerrar sesi&oacuten</a></li>
                             </ul>
                         </li>     
                         <li><a href="index.php">Principal</a></li>                  

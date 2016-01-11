@@ -12,7 +12,7 @@
     if(!isset($_SESSION['username'])){    
         //Sesión No iniciada
         //$sesion=0;
-        session_destroy(); 
+        session_destroy();  
 
         // enrutamiento
         $map = array(
@@ -23,7 +23,7 @@
     } else { 
         //Sesión Iniciada
         //session_destroy();  
-        
+
         // enrutamiento
         $map = array(
             'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
@@ -34,12 +34,22 @@
             'editProfile' => array('controller' =>'Controller', 'action' =>'editProfile'),
             'changePasswordProfile' => array('controller' =>'Controller', 'action' =>'changePasswordProfile'),
             'imgProfile' => array('controller' =>'Controller', 'action' =>'imgProfile'),
-            'edition' => array('controller' =>'Controller', 'action' =>'edition'),
-            'question' => array('controller' =>'Controller', 'action' =>'question'),
-            'editQuestion' => array('controller' =>'Controller', 'action' =>'editQuestion'),
-            'addQuestion' => array('controller' =>'Controller', 'action' =>'addQuestion'),
             'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
         );
+
+        if($_SESSION['privilegio']=='admin'){  
+        
+            // enrutamiento
+            $map1 = array(
+                'edition' => array('controller' =>'Controller', 'action' =>'edition'),
+                'question' => array('controller' =>'Controller', 'action' =>'question'),
+                'editQuestion' => array('controller' =>'Controller', 'action' =>'editQuestion'),
+                'addQuestion' => array('controller' =>'Controller', 'action' =>'addQuestion')
+
+            );
+            $map = array_merge($map, $map1);
+
+        }
     }
 
     // Parseo de la ruta

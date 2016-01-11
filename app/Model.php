@@ -60,13 +60,21 @@ class Model
         $passwordLogin = htmlspecialchars($passwordLogin);
 
         if(isset($nickLogin) && isset($passwordLogin)){
-            $sql = "SELECT `Id_Jugador` FROM `bdtriviadisimos`.`jugador` WHERE `Nick`='".$nickLogin."' AND `Contraseña`='".$passwordLogin."' LIMIT 1";
+            $sql = "SELECT `Id_Jugador`, `Tipo_Privilegio` FROM `bdtriviadisimos`.`jugador`
+            INNER JOIN `bdtriviadisimos`.`privilegio` ON `jugador`.`ID_Privilegio` = `privilegio`.`ID_Privilegio`
+            WHERE `Nick`='".$nickLogin."' AND `Contraseña`='".$passwordLogin."' LIMIT 1";
                   
             $result = mysql_query($sql, $this->conexion);
 
             if (mysql_num_rows($result) > 0) {
+
+                $row = mysql_fetch_array($result);
+                $privilegio = $row[1];
+
                 session_start();
                 $_SESSION['username'] = $nickLogin; 
+                $_SESSION['privilegio'] = $privilegio; 
+
                 return 'login';
             }else{
                 return 'invalid user';

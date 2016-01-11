@@ -61,7 +61,7 @@ $(document).ready(function () {
 
 
 /********************************/
- //main_layout
+ //editionAdmin
 /********************************/
     
     //SHOW OF ADD QUESTION FORM

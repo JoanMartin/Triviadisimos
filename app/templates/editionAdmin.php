@@ -5,9 +5,9 @@
 </div>
 
 <!--ADD QUESTION FORM-->
-        <div class="container-login">
+        <div class="container-addQuestion">
             <div class="row centered-form">
-                <div class="col-md-4 col-lg-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                <div class="col-md-10 col-lg-10 col-sm-offset-6 col-md-offset-4">
                     <div class="panel panel-default" id="divEdition" name="divEdition">
                         <div class="panel-heading">
                             <h3 class="panel-title">A&ntildeadir pregunta</h3>
@@ -15,41 +15,50 @@
                             <div class="panel-body">
                             <form role="form" id="formRegister" name="formRegister" method="post" action="index.php?ctl=addQuestion" >                            
                                 
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <select class="form-control" id="mundo" name="mundo"></select>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                            <div class="form-group">
+                                                <select class="form-control" id="mundo" name="mundo"></select>
+                                            </div>  
+                                        </div>         
+                                        <div class="col-sm-12 col-md-12">                          
+                                            <div class="form-group">
+                                                <select class="form-control" id="categoria" name="categoria"></select>
+                                            </div>                                        
+                                        </div>       
                                     </div>
-                                </div>  
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <select class="form-control" id="categoria" name="categoria"></select>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" name="titulo" id="titulo" class="form-control input-sm" placeholder="T&#237tulo de la pregunta" required>
+                                            </div>                                       
+                                        </div>       
+                                    </div>  
+
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" name="respCorrecta" id="respCorrecta" class="form-control input-sm" placeholder="Respuesta Correcta" required>
+                                            </div>                                      
+                                        </div>  
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" name="resp1" id="resp1" class="form-control input-sm" placeholder="Respuesta Incorrecta" required>
+                                            </div>
+                                        </div>       
                                     </div>
-                                </div>  
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" name="titulo" id="titulo" class="form-control input-sm" placeholder="T&#237tulo de la pregunta" required>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" name="resp2" id="resp2" class="form-control input-sm" placeholder="Respuesta Incorrecta" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" name="resp3" id="resp3" class="form-control input-sm" placeholder="Respuesta Incorrecta" required>
+                                            </div>
+                                        </div>       
                                     </div>
-                                </div>
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" name="respCorrecta" id="respCorrecta" class="form-control input-sm" placeholder="Respuesta Correcta" required>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" name="resp1" id="resp1" class="form-control input-sm" placeholder="Respuesta1" required>
-                                    </div>
-                                </div> 
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" name="resp2" id="resp2" class="form-control input-sm" placeholder="Respuesta2" required>
-                                    </div>
-                                </div>   
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" name="resp3" id="resp3" class="form-control input-sm" placeholder="Respuesta3" required>
-                                    </div>
-                                </div>   
 
                                 <input type="submit" value="A&#241adir" class="btn btn-info btn-block button special">
                             
@@ -63,7 +72,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-10 col-lg-offset-10 ">
-                <button type="button" onclick="addQuestionFunction()" class="btn btn-info">A&ntildeadir pregunta</button>
+                <button id="top" type="button" onclick="addQuestionFunction()" class="btn btn-info">A&ntildeadir pregunta</button>
             </div>
         </div>    
         <br>  
