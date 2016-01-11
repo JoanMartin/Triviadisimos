@@ -29,6 +29,8 @@
             'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
             'finishedGames' => array('controller' =>'Controller', 'action' =>'finishedGames'),
             'game' => array('controller' =>'Controller', 'action' =>'game'),
+            'createNormalGame' => array('controller' =>'Controller', 'action' =>'createNormalGame'),
+            'createDisneyGame' => array('controller' =>'Controller', 'action' =>'createDisneyGame'),
             'stats' => array('controller' =>'Controller', 'action' =>'stats'),
             'profile' => array('controller' =>'Controller', 'action' =>'profile'),
             'editProfile' => array('controller' =>'Controller', 'action' =>'editProfile'),

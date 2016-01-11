@@ -1029,6 +1029,11 @@ hr {
 			padding: 0.5em 0;
 		}
 
+
+        .buttonPointer {
+            cursor: pointer;
+        }
+
 		/*BUTTON BOOTSTRAP*/
 		.btn {
   display: inline-block;
@@ -1709,7 +1714,6 @@ input[type="button"].btn-block {
     .container-level {
         color: inherit;
         margin: 3em 28em 0em 28em;
-        position: relative;
         border-radius: 10px;
     }
 

@@ -453,9 +453,6 @@
 		<?php endforeach; ?>
 	</section>
 
-	<section class="wrapper style4">
-	</section>
-
 <?php $contenido = ob_get_clean() ?>
 
 <?php include 'user_layout.php' ?>

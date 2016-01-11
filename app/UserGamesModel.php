@@ -17,6 +17,63 @@ class UserGamesModel {
     }
 
 
+    public function createGame ($nick, $world) {
+        $nick = htmlspecialchars($nick);
+        $world = htmlspecialchars($world);
+
+        $sql = "SELECT ID_Nivel as id FROM jugador
+                WHERE Nick = '".$nick."'"; 
+        $result = mysql_query($sql, $this->conexion);
+        $row = mysql_fetch_array($result);
+        $id_level = $row[0];
+
+        $sql = "SELECT ID_Mundo FROM mundo WHERE Nombre_Mundo = '".$world."'"; 
+        $result = mysql_query($sql, $this->conexion);
+        $row = mysql_fetch_array($result);
+        $id_world = $row[0];
+
+        $sql = "SELECT ID_Jugador FROM jugador WHERE Nick = '".$nick."'"; 
+        $result = mysql_query($sql, $this->conexion);
+        $row = mysql_fetch_array($result);
+        $id_user = $row[0];
+
+        $sql = "SELECT partida.ID_Partida FROM partida 
+                    INNER JOIN participacion
+                    ON partida.ID_Partida = participacion.ID_Partida
+                    
+                    INNER JOIN jugador
+                    ON participacion.ID_Jugador = jugador.ID_Jugador
+
+                WHERE partida.Estado_Partida = 'En espera' AND 
+                jugador.ID_Nivel = '".$id_level."' AND 
+                partida.ID_Mundo = '".$id_world."' AND
+                participacion.ID_Jugador != '".$id_user."'
+                ORDER BY partida.ID_Partida";  
+
+        $result = mysql_query($sql, $this->conexion);
+        if (mysql_num_rows($result) > 0) {
+            $row = mysql_fetch_array($result);
+            $id_game = $row[0];
+
+            $sql = "INSERT INTO participacion VALUES 
+                    (NULL, '".$id_user."', '".$id_game."', 0)";
+            $result = mysql_query($sql, $this->conexion); 
+
+            $sql = "UPDATE partida SET Estado_Partida = 'Iniciada', Fecha_Inicio = now() WHERE ID_Partida = '".$id_game."'";
+            $result = mysql_query($sql, $this->conexion);
+        } else {
+            $sql = "INSERT INTO partida VALUES 
+                    (NULL, NULL, NULL, 'En espera', '".$id_world."')";
+            $result = mysql_query($sql, $this->conexion); 
+            $id_game = mysql_insert_id();
+
+            $sql = "INSERT INTO participacion VALUES 
+                    (NULL, '".$id_user."', '".$id_game."', 1)";
+            $result = mysql_query($sql, $this->conexion); 
+        }
+    }
+
+
     public function getLevel ($nick) {
         $nick = htmlspecialchars($nick);
 

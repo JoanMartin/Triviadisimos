@@ -26,7 +26,7 @@
                 <nav id="nav">
                     <ul>
                         <li class="menu"><a href="#">Ayuda</a></li>
-                        <li class="menu"><a onclick="LoginFunction()">Iniciar sesi&oacuten</a></li>
+                        <li class="buttonPointer"><a onclick="LoginFunction()">Iniciar sesi&oacuten</a></li>
                         <li><a onclick="RegisterFunction()" class="button special">Registrarse</a></li>
                     </ul>
                 </nav>
@@ -35,8 +35,7 @@
 
 
         <!--BLACK SCREEN TO LOGIN-->
-        <div class="row" id="divBlack" >
-        </div>
+        <div class="row" id="divBlack"></div>
 
         <!--REGISTER FORM-->
         <div class="container-login">
@@ -46,8 +45,8 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">Registro</h3>
                         </div>
-                            <div class="panel-body">
-                            <form role="form" id="formRegister" name="formRegister" method="post" action="index.php?ctl=registerUser" >
+                        <div class="panel-body">
+                            <form role="form" id="formRegister" name="formRegister" method="post" action="registerUser" >
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6">
                                         <div class="form-group">
@@ -62,15 +61,19 @@
                                             <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre" required>
                                         </div>
                                     </div>
-                                     <div class="col-sm-6 col-md-6">
+                                    <div class="col-sm-6 col-md-6">
                                         <div class="form-group">
                                             <input type="text" name="apellidos" id="apellidos" class="form-control input-sm" placeholder="Apellidos" required>
                                         </div>
                                     </div>                               
                                 </div>
 
-                                <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email" required>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email" required>
+                                        </div>
+                                    </div>                               
                                 </div>
 
                                 <div class="row">
@@ -86,9 +89,8 @@
                                     </div>
                                 </div>
                                 <input type="submit" value="Registrarse" class="btn btn-info btn-block button special">
-                            
                             </form>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,8 +105,8 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">Login</h3>
                         </div>
-                            <div class="panel-body">
-                            <form role="form" method="post" action="index.php?ctl=loginUser" >
+                        <div class="panel-body">
+                            <form role="form" method="post" action="loginUser" >
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12">
                                         <div class="form-group">
@@ -122,7 +124,7 @@
                                 <input type="submit" value="Entrar" class="btn btn-info btn-block button special">
                             
                             </form>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

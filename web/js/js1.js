@@ -16,6 +16,12 @@
         document.getElementById("divRegister").style.visibility="hidden";
     }
 
+    function CreateGameFunction() {
+        document.getElementById("divBlack").style.visibility="visible";
+        document.getElementById("divCreateGame").style.visibility="visible";
+
+    }
+
     /********************************/
     /********************************/
 

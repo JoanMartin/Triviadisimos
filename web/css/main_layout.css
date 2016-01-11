@@ -21,3 +21,9 @@
 	top: 100px; 
 	visibility: hidden;
 }
+
+#divCreateGame{
+	position: fixed; 
+	top: 100px; 
+	visibility: hidden;
+}
