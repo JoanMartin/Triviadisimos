@@ -415,8 +415,7 @@
             }
             else{
                 header("Location: ./error"); 
-            } 
-            
+            }  
         }
 
         public function addQuestion(){
@@ -438,8 +437,16 @@
             else{
                 header("Location: ./error"); 
             } 
-            
         }
 
+
+
+        public function changePrivilege(){
+            $m = new Model(Config::$mvc_bd_nombre, Config::$mvc_bd_usuario,
+                      Config::$mvc_bd_clave, Config::$mvc_bd_hostname);            
+
+            $result = $m->changePrivilege($_POST['nick'], $_POST['privilege']);                
+            header("Refresh:0; url=./index.php");
+        }
  	}
 ?>

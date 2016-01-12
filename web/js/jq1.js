@@ -72,6 +72,15 @@ $(document).ready(function () {
       
       });
     });
+    
+    //CHANGE USER PRIVILEGE FORM
+    $(document).click(function() {
+      $("#divBlack").click(function(){
+          $('#divPrivilege').css('visibility', 'hidden');
+          $('#divBlack').css('visibility', 'hidden');
+      
+      });
+    });
 
 
 /***********************************/

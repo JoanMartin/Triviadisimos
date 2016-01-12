@@ -42,7 +42,15 @@
                             <a><?php echo $_SESSION['username'] ?></a>
                             <ul>
                                 <?php if($_SESSION['privilegio']=='admin'){ ?>
-                                    <li><a href="edition">Edici&oacuten Preguntas</a></li>
+                                    <li>       
+                                        <li class="submenu">
+                                        <a>Opciones de administrador</a>
+                                            <ul>
+                                                <li><a onclick="changePrivilege()">Cambiar privilegios</a></li>
+                                                <li><a href="edition">Edici&oacuten Preguntas</a></li>
+                                            </ul>
+                                        </li> 
+                                    </li>
                                 <?php } ?>
                                 <li><a href="finishedGames">Historial de partidas</a></li>
                                 <li><a href="stats">Estad&iacutesticas</a></li>
@@ -62,6 +70,45 @@
                     </ul>
                 </nav>
             </header>
+        </div>
+
+        <!--BLACK SCREEN TO CHANGE PRIVILEGE-->
+        <div class="row" id="divBlack"></div>
+
+
+        <!--PRIVILEGE FORM-->
+        <div class="container-login">
+            <div class="row centered-form">
+                <div class="col-md-4 col-sm-offset-2 col-md-offset-4">
+                    <div class="panel panel-default" id="divPrivilege" name="divPrivilege">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Cambiar privilegios</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form" method="post" action="changePrivilege" >
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" name="nick" id="nick" class="form-control input-sm" placeholder="Nick">
+                                        </div>
+                                    </div>                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <select class="form-control" name="privilege" id="privilege">
+                                                <option value="admin">Administrador</option>
+                                                <option value="user">Usuario normal</option>
+                                            </select>                                      
+                                        </div>
+                                    </div>                                
+                                </div>
+                                <input type="submit" value="Cambiar" class="btn btn-info btn-block button special">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="contenido">

@@ -23,6 +23,13 @@ a{
 	z-index: 2;
 }
 
+#divPrivilege{
+	position: fixed; 
+	top: 100px; 
+	visibility: hidden;
+	z-index: 2;
+}
+
 #divBlack {
 	position: fixed;
 	top: 0px; 

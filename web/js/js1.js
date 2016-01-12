@@ -16,12 +16,6 @@
         document.getElementById("divRegister").style.visibility="hidden";
     }
 
-    function CreateGameFunction() {
-        document.getElementById("divBlack").style.visibility="visible";
-        document.getElementById("divCreateGame").style.visibility="visible";
-
-    }
-
     /********************************/
      //perfil
     /********************************/
@@ -51,7 +45,7 @@
  //editionQuestion.php
 /********************************/
     function cancelar() {
-        location.href = "./index.php?ctl=edition";
+        location.href = "./edition";
 
     }
 
@@ -62,5 +56,11 @@
     //SHOW OF ADD QUESTION FORM
     function addQuestionFunction() {
         document.getElementById("divEdition").style.visibility="visible";
+        document.getElementById("divBlack").style.visibility="visible";
+    }
+
+    //CHANGE USER PRIVILEGE FORM
+    function changePrivilege() {
+        document.getElementById("divPrivilege").style.visibility="visible";
         document.getElementById("divBlack").style.visibility="visible";
     }

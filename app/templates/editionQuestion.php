@@ -7,7 +7,7 @@
                 <h3 class="text-center">Edici&oacuten de la pregunta</h3>
                 <br />
 
-                <form role="form" id="formEditProfile" name="formEditProfile" method="post" action="index.php?ctl=editQuestion" >                       
+                <form role="form" id="formEditProfile" name="formEditProfile" method="post" action="editQuestion" >                       
                     <input type="text" class="form-control" id="Text_Pregunta" name="Text_Pregunta" value="<?php echo $result['Text_Pregunta'] ?>" > 
                     <input type="hidden" class="form-control" id="ID_Pregunta" name="ID_Pregunta" value="<?php echo $result['ID_Pregunta'] ?>" > 
                     <br>   
