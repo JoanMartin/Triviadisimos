@@ -53,7 +53,7 @@
 
 		//echo "<script type='text/javascript'>alert('$mundo');</script>";
 
-    	$sql = "SELECT DISTINCT `Nombre_Categoria` FROM `bdtriviadisimos`.`mundo`
+    	$sql = "SELECT DISTINCT `ID_Categoria`, `Nombre_Categoria` FROM `bdtriviadisimos`.`mundo`
     	INNER JOIN `bdtriviadisimos`.`categoria` ON `mundo`.`id_mundo` = `categoria`.`id_mundo`
     	WHERE `Nombre_Mundo` = '$mundo'";
 
@@ -63,7 +63,7 @@
 			echo "<option>Seleccione una categoria</option>";
 			while($row = $result->fetch_assoc()) {	
 				
-				echo '<option value='.$row['Nombre_Categoria'].'>'.$row['Nombre_Categoria'].'</option>';
+				echo '<option value='.$row['ID_Categoria'].'>'.$row['Nombre_Categoria'].'</option>';
 			}
 		}else{
 			echo '<option value="No se encuentran resultados">No se encuentran resultados</option>';

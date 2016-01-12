@@ -363,19 +363,19 @@ class Model
 
         return 'editChange';    
     } 
+    /*
+    public function searchCategory($idCategoria){
+        
+            $sql = "SELECT `ID_Categoria` FROM `bdtriviadisimos`.`categoria` WHERE `ID_Categoria`= '".$idCategoria."'";
 
-    public function searchCategory($categoria){
+            $result = mysql_query($sql, $this->conexion);
 
-        $sql = "SELECT `ID_Categoria` FROM `bdtriviadisimos`.`categoria` WHERE `Nombre_Categoria`= '".$categoria."'";
-
-        $result = mysql_query($sql, $this->conexion);
-
-        if ($result) {
-            $row = mysql_fetch_assoc($result);
-            return $row;
-        }        
+            if ($result) {
+                $row = mysql_fetch_assoc($result);
+                return $row;
+            }   
     }
-
+    */
     public function addQuestion($idcategoria, $titulo){
        
         $sql = "INSERT INTO `bdtriviadisimos`.`pregunta` (`Text_Pregunta`, `ID_Categoria`) VALUES ('".$titulo."', '".$idcategoria."')";

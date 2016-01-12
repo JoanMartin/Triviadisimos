@@ -190,8 +190,8 @@
             $paramsNormalHisFalladas = $m->statFalladas($nick, 'Normal', 'Historia');
             $paramsNormalDepAcertadas = $m->statAcertadas($nick, 'Normal', 'Deportes');
             $paramsNormalDepFalladas = $m->statFalladas($nick, 'Normal', 'Deportes');
-            $paramsNormalEspAcertadas = $m->statAcertadas($nick, 'Normal', 'Espétaculos');
-            $paramsNormalEspFalladas = $m->statFalladas($nick, 'Normal', 'Espétaculos');
+            $paramsNormalEspAcertadas = $m->statAcertadas($nick, 'Normal', 'Espectáculos');
+            $paramsNormalEspFalladas = $m->statFalladas($nick, 'Normal', 'Espectáculos');
             $paramsNormalAyLAcertadas = $m->statAcertadas($nick, 'Normal', 'Arte y literatura');
             $paramsNormalAyLFalladas = $m->statFalladas($nick, 'Normal', 'Arte y literatura');    
             //Disney
@@ -311,7 +311,7 @@
              'listadoPreguntasCiencias' => $m->editionAdminListarPreguntas('Ciencia'),
              'listadoPreguntasHistoria' => $m->editionAdminListarPreguntas('Historia'),
              'listadoPreguntasArteyLiteratura' => $m->editionAdminListarPreguntas('Arte y literatura'),
-             'listadoPreguntasEspectaculos' => $m->editionAdminListarPreguntas('Espétaculos'),
+             'listadoPreguntasEspectaculos' => $m->editionAdminListarPreguntas('Espectáculos'),
              'listadoPreguntasDeportes' => $m->editionAdminListarPreguntas('Deportes'),
              'listadoPreguntasHabiaUnaVez' => $m->editionAdminListarPreguntas('Había una vez'),
              'listadoPreguntasMarMundoDisney' => $m->editionAdminListarPreguntas('Maravilloso mundo de Disney'),
@@ -372,8 +372,10 @@
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
 
-                $result = $m->searchCategory($_POST['categoria']);                
-                $result1 = $m->addQuestion($result['ID_Categoria'], $_POST['titulo']);
+                //$result = $m->searchCategory($_POST['categoria']);
+                $msg = $_POST['categoria'];
+                //echo "<script type='text/javascript'>alert('$msg');</script>";
+                $result1 = $m->addQuestion($_POST['categoria'], $_POST['titulo']);
                 $result2 = $m->searchQuestion($_POST['titulo']);
                 $result3 = $m->addAnswers($result2['ID_Pregunta'], $_POST['respCorrecta'], $_POST['resp1'], $_POST['resp2'], $_POST['resp3']);
             }
