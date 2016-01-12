@@ -62,14 +62,12 @@
 		if ($result->num_rows > 0) {
 			echo "<option>Seleccione una categoria</option>";
 			while($row = $result->fetch_assoc()) {	
-
+				
 				echo '<option value='.$row['Nombre_Categoria'].'>'.$row['Nombre_Categoria'].'</option>';
 			}
 		}else{
 			echo '<option value="No se encuentran resultados">No se encuentran resultados</option>';
 		}
 	}
-
-
 
 ?>

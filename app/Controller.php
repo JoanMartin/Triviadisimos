@@ -181,85 +181,32 @@
             $stats = $m->statNormalFalladas($nick);
             $paramsNormalFalladas = $stats;
 
-            $stats = $m->statNormalGeoAcertadas($nick);
-            $paramsNormalGeoAcertadas = $stats;
-
-            $stats = $m->statNormalGeoFalladas($nick);
-            $paramsNormalGeoFalladas = $stats;
-
-            $stats = $m->statNormalCieAcertadas($nick);
-            $paramsNormalCieAcertadas = $stats;
-
-            $stats = $m->statNormalCieFalladas($nick);
-            $paramsNormalCieFalladas = $stats;
-
-            $stats = $m->statNormalHisAcertadas($nick);
-            $paramsNormalHisAcertadas = $stats;
-
-            $stats = $m->statNormalHisFalladas($nick);
-            $paramsNormalHisFalladas = $stats;
-
-            $stats = $m->statNormalDepAcertadas($nick);
-            $paramsNormalDepAcertadas = $stats;
-
-            $stats = $m->statNormalDepFalladas($nick);
-            $paramsNormalDepFalladas = $stats;
-
-            $stats = $m->statNormalEspAcertadas($nick);
-            $paramsNormalEspAcertadas = $stats;
-
-            $stats = $m->statNormalEspFalladas($nick);
-            $paramsNormalEspFalladas = $stats;
-
-            $stats = $m->statNormalAyLAcertadas($nick);
-            $paramsNormalAyLAcertadas = $stats;
-
-            $stats = $m->statNormalAyLFalladas($nick);
-            $paramsNormalAyLFalladas = $stats;
-
-            //Diney
-
-            //Había una vez
-            $stats = $m->statDisneyHabAcertadas($nick);
-            $paramsDisneyHabLAcertadas = $stats;
-
-            $stats = $m->statDisneyHabFalladas($nick);
-            $paramsDisneyHabFalladas = $stats;
-
-            //Maravilloso mundo de Disney
-            $stats = $m->statDisneyMarAcertadas($nick);
-            $paramsDisneyMarAcertadas = $stats;
-
-            $stats = $m->statDisneyMarFalladas($nick);
-            $paramsDisneyMarFalladas = $stats;
-
-            //Monstruos y villanos
-            $stats = $m->statDisneyMonAcertadas($nick);
-            $paramsDisneyMonAcertadas = $stats;
-
-            $stats = $m->statDisneyMonFalladas($nick);
-            $paramsDisneyMonFalladas = $stats;
-
-            //Héroes y heroínas
-            $stats = $m->statDisneyHerAcertadas($nick);
-            $paramsDisneyHerAcertadas = $stats;
-
-            $stats = $m->statDisneyHerFalladas($nick);
-            $paramsDisneyHerFalladas = $stats;
-
-            //Estrellas secundarias
-            $stats = $m->statDisneyEstAcertadas($nick);
-            $paramsDisneyEstAcertadas = $stats;
-
-            $stats = $m->statDisneyEstFalladas($nick);
-            $paramsDisneyEstFalladas = $stats;
-
-            //Lugares y objetos
-            $stats = $m->statDisneyLugAcertadas($nick);
-            $paramsDisneyLugAcertadas = $stats;
-
-            $stats = $m->statDisneyLugFalladas($nick);
-            $paramsDisneyLugFalladas = $stats;
+            //Normal
+            $paramsNormalGeoAcertadas = $m->statAcertadas($nick, 'Normal', 'Geografía');
+            $paramsNormalGeoFalladas = $m->statFalladas($nick, 'Normal', 'Geografía');
+            $paramsNormalCieAcertadas = $m->statAcertadas($nick, 'Normal', 'Ciencia');
+            $paramsNormalCieFalladas = $m->statFalladas($nick, 'Normal', 'Ciencia');
+            $paramsNormalHisAcertadas = $m->statAcertadas($nick, 'Normal', 'Historia');
+            $paramsNormalHisFalladas = $m->statFalladas($nick, 'Normal', 'Historia');
+            $paramsNormalDepAcertadas = $m->statAcertadas($nick, 'Normal', 'Deportes');
+            $paramsNormalDepFalladas = $m->statFalladas($nick, 'Normal', 'Deportes');
+            $paramsNormalEspAcertadas = $m->statAcertadas($nick, 'Normal', 'Espétaculos');
+            $paramsNormalEspFalladas = $m->statFalladas($nick, 'Normal', 'Espétaculos');
+            $paramsNormalAyLAcertadas = $m->statAcertadas($nick, 'Normal', 'Arte y literatura');
+            $paramsNormalAyLFalladas = $m->statFalladas($nick, 'Normal', 'Arte y literatura');    
+            //Disney
+            $paramsDisneyHabLAcertadas = $m->statAcertadas($nick, 'Disney', 'Había una vez');
+            $paramsDisneyHabFalladas = $m->statFalladas($nick, 'Disney', 'Había una vez');
+            $paramsDisneyMarAcertadas = $m->statAcertadas($nick, 'Disney', 'Maravilloso mundo de Disney');
+            $paramsDisneyMarFalladas = $m->statFalladas($nick, 'Disney', 'Maravilloso mundo de Disney');
+            $paramsDisneyMonAcertadas = $m->statAcertadas($nick, 'Disney', 'Monstruos y villanos');
+            $paramsDisneyMonFalladas = $m->statFalladas($nick, 'Disney', 'Monstruos y villanos');
+            $paramsDisneyHerAcertadas = $m->statAcertadas($nick, 'Disney', 'Héroes y heroínas');
+            $paramsDisneyHerFalladas = $m->statFalladas($nick, 'Disney', 'Héroes y heroínas');
+            $paramsDisneyEstAcertadas = $m->statAcertadas($nick, 'Disney', 'Estrellas secundarias');
+            $paramsDisneyEstFalladas = $m->statFalladas($nick, 'Disney', 'Estrellas secundarias');
+            $paramsDisneyLugAcertadas = $m->statAcertadas($nick, 'Disney', 'Lugares y objetos');
+            $paramsDisneyLugFalladas = $m->statFalladas($nick, 'Disney', 'Lugares y objetos');
 
             require __DIR__ . '/templates/stats.php';
         }
@@ -360,18 +307,18 @@
                       Config::$mvc_bd_clave, Config::$mvc_bd_hostname);
 
             $params = array(
-             'listadoPreguntasGeografia' => $m->editionAdminListarPreguntasGeografia(),
-             'listadoPreguntasCiencias' => $m->editionAdminListarPreguntasCiencias(),
-             'listadoPreguntasHistoria' => $m->editionAdminListarPreguntasHistoria(),
-             'listadoPreguntasArteyLiteratura' => $m->editionAdminListarPreguntasArteyLiteratura(),
-             'listadoPreguntasEspectaculos' => $m->editionAdminListarPreguntasEspectaculos(),
-             'listadoPreguntasDeportes' => $m->editionAdminListarPreguntasDeportes(),
-             'listadoPreguntasHabiaUnaVez' => $m->editionAdminListarPreguntasHabiaUnaVez(),
-             'listadoPreguntasMarMundoDisney' => $m->editionAdminListarPreguntasMarMundoDisney(),
-             'listadoPreguntasMonstruosYVillanos' => $m->editionAdminListarPreguntasMonstruosYVillanos(),
-             'listadoPreguntasLugaresYObjetos' => $m->editionAdminListarPreguntasLugaresYObjetos(),
-             'listadoPreguntasEstSecundarias' => $m->editionAdminListarPreguntasEstSecundarias(),
-             'listadoPreguntasHerYHer' => $m->editionAdminListarPreguntasHerYHer(),
+             'listadoPreguntasGeografia' => $m->editionAdminListarPreguntas('Geografía'),
+             'listadoPreguntasCiencias' => $m->editionAdminListarPreguntas('Ciencia'),
+             'listadoPreguntasHistoria' => $m->editionAdminListarPreguntas('Historia'),
+             'listadoPreguntasArteyLiteratura' => $m->editionAdminListarPreguntas('Arte y literatura'),
+             'listadoPreguntasEspectaculos' => $m->editionAdminListarPreguntas('Espétaculos'),
+             'listadoPreguntasDeportes' => $m->editionAdminListarPreguntas('Deportes'),
+             'listadoPreguntasHabiaUnaVez' => $m->editionAdminListarPreguntas('Había una vez'),
+             'listadoPreguntasMarMundoDisney' => $m->editionAdminListarPreguntas('Maravilloso mundo de Disney'),
+             'listadoPreguntasMonstruosYVillanos' => $m->editionAdminListarPreguntas('Monstruos y villanos'),
+             'listadoPreguntasLugaresYObjetos' => $m->editionAdminListarPreguntas('Lugares y objetos'),
+             'listadoPreguntasEstSecundarias' => $m->editionAdminListarPreguntas('Estrellas secundarias'),
+             'listadoPreguntasHerYHer' => $m->editionAdminListarPreguntas('Héroes y heroínas'),
             );
                  
             require __DIR__ . '/templates/editionAdmin.php';
