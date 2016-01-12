@@ -13,7 +13,7 @@
 
 	<section class="wrapper style4 first">
 		<header class="game-container title-blue">
-			<h2>Te toca jugar</h2>
+			<h2>Tu turno</h2>
 		</header>
 
 		<?php 
@@ -239,7 +239,7 @@
 
 	<section class="wrapper style4">
 		<header class="game-container title-blue">
-			<h2>Le toca jugar</h2>
+			<h2>Turno del oponente</h2>
 		</header>
 
 		<?php 
@@ -456,7 +456,7 @@
 
 	<section class="wrapper style4 first">
 		<header class="game-container title-blue">
-			<h2>Partidas esperando para empezar</h2>
+			<h2>Esperando oponente</h2>
 		</header>
 
 		<?php 

@@ -44,7 +44,7 @@
                                 <?php if($_SESSION['privilegio']=='admin'){ ?>
                                     <li><a href="edition">Edici&oacuten Preguntas</a></li>
                                 <?php } ?>
-                                <li><a href="finishedGames">Partidas finalizadas</a></li>
+                                <li><a href="finishedGames">Historial de partidas</a></li>
                                 <li><a href="stats">Estad&iacutesticas</a></li>
                                 <li><a href="profile">Perfil</a></li>
                                 <li><a href="#">Ayuda</a></li>
