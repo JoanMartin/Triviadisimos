@@ -19,7 +19,8 @@
 	        $nick = $_SESSION["username"];
 
 	        $params = array(
-				'games' => $m->games($nick),
+				'startedGames' => $m->games($nick, 'Iniciada'),
+                'waitingGames' => $m->games($nick, 'En espera'),
                 'level' => $m->getLevel($nick),
 			);
 
@@ -34,7 +35,7 @@
             $nick = $_SESSION["username"];
 
             $params = array(
-                'games' => $m->finishedGames($nick),
+                'games' => $m->games($nick, 'Finalizada'),
                 'level' => $m->getLevel($nick),
             );
 

@@ -39,15 +39,11 @@
                 <nav id="nav">
                     <ul> 
                         <li class="submenu">
-                            <a>Opciones</a>
+                            <a><?php echo $_SESSION['username'] ?></a>
                             <ul>
-                            <?php                           
-                            if($_SESSION['privilegio']=='admin'){  
-                            ?>
-                                <li><a href="edition">Edici&oacuten Preguntas</a></li>
-                            <?php
-                            }
-                            ?>
+                                <?php if($_SESSION['privilegio']=='admin'){ ?>
+                                    <li><a href="edition">Edici&oacuten Preguntas</a></li>
+                                <?php } ?>
                                 <li><a href="finishedGames">Partidas finalizadas</a></li>
                                 <li><a href="stats">Estad&iacutesticas</a></li>
                                 <li><a href="profile">Perfil</a></li>

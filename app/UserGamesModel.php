@@ -84,10 +84,29 @@ class UserGamesModel {
     }
 
 
-    public function games($nick) {
+    public function games($nick, $status) {
         $nick = htmlspecialchars($nick);
+        $status = htmlspecialchars($status);
 
-        $sql = "SELECT 
+        if ($status == 'En espera') {
+            $sql = "SELECT 
+                jugador.Nick as NomJug,
+                jugador.URL_ImagenJugador as ImagenJug,
+                mundo.URL_ImagenMundo as ImagenMundo
+
+                FROM jugador
+                    INNER JOIN participacion
+                        ON participacion.ID_Jugador = jugador.ID_Jugador
+    
+                    INNER JOIN partida
+                        ON participacion.ID_Partida = partida.ID_Partida
+                    
+                    INNER JOIN mundo
+                        ON partida.ID_Mundo = mundo.ID_Mundo
+                        
+                WHERE jugador.Nick = '".$nick."' AND partida.Estado_Partida = '".$status."'";
+        } else {
+            $sql = "SELECT 
                 part1.Turno as TurnoJug1,
                 part1.ID_Participacion as PartJug1,
                 jug1.Nick as NomJug1,
@@ -126,64 +145,11 @@ class UserGamesModel {
                     LEFT OUTER JOIN categoria as cat
                         ON preg.ID_Categoria = cat.ID_Categoria
                         
-                WHERE jug1.Nick ='".$nick."' AND partida.Estado_Partida = 'Iniciada'
-                ORDER BY Partida";  
-
-        $result = mysql_query($sql, $this->conexion);
-
-        $userGame = array();
-        while ($row = mysql_fetch_assoc($result)) {
-            $userGame[] = $row;
+                WHERE jug1.Nick = '".$nick."' AND partida.Estado_Partida = '".$status."'
+                ORDER BY Partida";
         }
 
-        return $userGame;
-    }
-
-
-    public function finishedGames($nick) {
-        $nick = htmlspecialchars($nick);
-
-        $sql = "SELECT 
-                part1.Turno as TurnoJug1,
-                part1.ID_Participacion as PartJug1,
-                jug1.Nick as NomJug1,
-                jug1.URL_ImagenJugador as ImagenJug1,
-                part2.ID_Participacion as PartJug2,
-                jug2.Nick as NomJug2, 
-                jug2.URL_ImagenJugador as ImagenJug2,
-                part1.ID_Partida as Partida,
-                inter.ID_Participacion as InterJug, 
-                cat.Nombre_Categoria as NomCat,
-                mundo.URL_ImagenMundo as ImagenMundo,
-                inter.Acertada as PregAcertada
-
-                FROM jugador as jug1
-                    INNER JOIN participacion as part1
-                        ON part1.ID_Jugador = jug1.ID_Jugador
-    
-                    INNER JOIN partida
-                        ON part1.ID_Partida = partida.ID_Partida
-                    
-                    INNER JOIN mundo
-                        ON partida.ID_Mundo = mundo.ID_Mundo
-                        
-                    INNER JOIN participacion as part2
-                        ON part1.ID_Partida = part2.ID_Partida AND part1.ID_Jugador != part2.ID_Jugador
-                        
-                    INNER JOIN jugador as jug2
-                        ON part2.ID_Jugador = jug2.ID_Jugador
-
-                    LEFT OUTER JOIN intervencion as inter
-                        ON part1.ID_Participacion = inter.ID_Participacion OR part2.ID_Participacion = inter.ID_Participacion
-                        
-                    LEFT OUTER JOIN pregunta as preg
-                        ON inter.ID_Pregunta = preg.ID_Pregunta
-                        
-                    LEFT OUTER JOIN categoria as cat
-                        ON preg.ID_Categoria = cat.ID_Categoria
-                        
-                WHERE jug1.Nick ='".$nick."' AND partida.Estado_Partida = 'Finalizada'
-                ORDER BY Partida";  
+          
 
         $result = mysql_query($sql, $this->conexion);
 
