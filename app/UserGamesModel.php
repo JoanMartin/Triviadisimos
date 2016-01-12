@@ -21,21 +21,17 @@ class UserGamesModel {
         $nick = htmlspecialchars($nick);
         $world = htmlspecialchars($world);
 
-        $sql = "SELECT ID_Nivel as id FROM jugador
+        $sql = "SELECT ID_Nivel, ID_Jugador FROM jugador
                 WHERE Nick = '".$nick."'"; 
         $result = mysql_query($sql, $this->conexion);
         $row = mysql_fetch_array($result);
         $id_level = $row[0];
+        $id_user = $row[1];
 
         $sql = "SELECT ID_Mundo FROM mundo WHERE Nombre_Mundo = '".$world."'"; 
         $result = mysql_query($sql, $this->conexion);
         $row = mysql_fetch_array($result);
         $id_world = $row[0];
-
-        $sql = "SELECT ID_Jugador FROM jugador WHERE Nick = '".$nick."'"; 
-        $result = mysql_query($sql, $this->conexion);
-        $row = mysql_fetch_array($result);
-        $id_user = $row[0];
 
         $sql = "SELECT partida.ID_Partida FROM partida 
                     INNER JOIN participacion

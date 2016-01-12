@@ -11,21 +11,16 @@
         
     if(!isset($_SESSION['username'])){    
         //Sesión No iniciada
-        //$sesion=0;
         session_destroy();  
 
-        // enrutamiento
-        $map = array(
+        $functions = array(
             'homePage' => array('controller' =>'Controller', 'action' =>'homePage'),
             'registerUser' => array('controller' =>'Controller', 'action' =>'registerUser'),
             'loginUser' => array('controller' =>'Controller', 'action' =>'loginUser')
         );           
     } else { 
         //Sesión Iniciada
-        //session_destroy();  
-
-        // enrutamiento
-        $map = array(
+        $functions = array(
             'userHomePage' => array('controller' =>'Controller', 'action' =>'userHomePage'),
             'finishedGames' => array('controller' =>'Controller', 'action' =>'finishedGames'),
             'game' => array('controller' =>'Controller', 'action' =>'game'),
@@ -39,24 +34,20 @@
             'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
         );
 
-        if($_SESSION['privilegio']=='admin'){  
-        
-            // enrutamiento
-            $map1 = array(
+        if ($_SESSION['privilegio'] == 'admin') {  
+            $functionsAdmin = array(
                 'edition' => array('controller' =>'Controller', 'action' =>'edition'),
                 'question' => array('controller' =>'Controller', 'action' =>'question'),
                 'editQuestion' => array('controller' =>'Controller', 'action' =>'editQuestion'),
                 'addQuestion' => array('controller' =>'Controller', 'action' =>'addQuestion')
-
             );
-            $map = array_merge($map, $map1);
-
+            $functions = array_merge($functions, $functionsAdmin);
         }
     }
 
     // Parseo de la ruta
     if (isset($_GET['ctl'])) {
-        if (isset($map[$_GET['ctl']])) {
+        if (isset($functions[$_GET['ctl']])) {
             $ruta = $_GET['ctl'];
         } else {
             header('Status: 404 Not Found');  
@@ -73,7 +64,7 @@
         }
     }
 
-    $controlador = $map[$ruta];
+    $controlador = $functions[$ruta];
     // Ejecución del controlador asociado a la ruta
     if (method_exists($controlador['controller'],$controlador['action'])) {
         call_user_func(array(new $controlador['controller'], $controlador['action']));
