@@ -5,14 +5,14 @@
         <title>Triviad&iacutesimos</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_main_css ?>" />
-        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_mainlay_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_divBlack_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_validate_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_errRepeated_css ?>" />
 
 
+        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_divBlack_js ?>"></script>
+        
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq_js ?>"></script>
-        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_js1_js ?>"></script>
-        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq1_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_validate_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_valadmet_js ?>"></script>
 

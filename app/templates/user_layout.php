@@ -6,21 +6,17 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_main_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_user_main_css ?>" />
-        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_mainlay_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_divBlack_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_game_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_stats_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_profile_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_errRepeated_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_validate_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_editAdmin_css ?>" />
-        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_editQuestion_css ?>" />
 
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq_js ?>"></script>
-        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_js1_js ?>"></script>
-        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq1_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_validate_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_editAdmin_js ?>"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
         <script src="<?php echo 'web/js/'.Config::$mvc_jqmin_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_jqdropomin_js ?>"></script>
@@ -29,7 +25,8 @@
         <script src="<?php echo 'web/js/'.Config::$mvc_util_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_main_js ?>"></script>
         
-        <script src="<?php echo 'web/js/'.Config::$mvc_jq_transition ?>"></script>
+        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_divBlack_js ?>"></script>
+        <script src="<?php echo 'web/js/'.Config::$mvc_game_transition ?>"></script>
     </head>
 
     <body class="background-color-blue">
