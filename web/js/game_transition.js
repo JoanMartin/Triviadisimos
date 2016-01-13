@@ -161,6 +161,16 @@
     }
 
 
+    function insertIntervention(correct, id_question) {
+        jQuery.post(
+            "app/GameController.php", 
+            {correct: correct,
+            id_question: id_question,
+            category: category,
+            functionname: 'insertIntervention'});
+    }
+
+
     function questionNotAnswered(){
         insertIntervention(0, data_aux[0].id_question);
         lookForCorrectAnswer(data_aux);
