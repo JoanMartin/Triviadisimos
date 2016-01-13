@@ -76,7 +76,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Deportes':
-							                    $color['orange'] = '#FFAF00';
+							                    $color['orange'] = '#E2A600';
 							                    break;
 
 							                case 'Maravilloso mundo de Disney':
@@ -95,7 +95,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Héroes y heroínas':
-							                    $color['orange'] = '#FFAF00';
+							                    $color['orange'] = '#E2A600';
 							                    break;
 							            }
 									}
@@ -173,7 +173,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Deportes':
-							                    $color['orange'] = '#FFAF00';
+							                    $color['orange'] = '#E2A600';
 							                    break;
 
 							                case 'Maravilloso mundo de Disney':
@@ -192,7 +192,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Héroes y heroínas':
-							                    $color['orange'] = '#FFAF00';
+							                    $color['orange'] = '#E2A600';
 							                    break;
 							            }
 									}
@@ -296,7 +296,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Deportes':
-							                    $color['orange'] = '#FFAF00';
+							                    $color['orange'] = '#E2A600';
 							                    break;
 
 							                case 'Maravilloso mundo de Disney':
@@ -315,7 +315,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Héroes y heroínas':
-							                    $color['orange'] = '#FFAF00';
+							                    $color['orange'] = '#E2A600';
 							                    break;
 							            }
 									}
@@ -393,7 +393,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Deportes':
-							                    $color['orange'] = '#FFAF00';
+							                    $color['orange'] = '#E2A600';
 							                    break;
 
 							                case 'Maravilloso mundo de Disney':
@@ -412,7 +412,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Héroes y heroínas':
-							                    $color['orange'] = '#FFAF00';
+							                    $color['orange'] = '#E2A600';
 							                    break;
 							            }
 									}

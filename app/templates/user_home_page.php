@@ -13,12 +13,12 @@
 
 	<section class="wrapper style4 first">
 		<header class="game-container title-blue">
-			<h2>Te toca jugar</h2>
+			<h2>Tu turno</h2>
 		</header>
 
 		<?php 
 		$partida = 0;
-		foreach ($params['games'] as $games):
+		foreach ($params['startedGames'] as $games):
 			if (($games['TurnoJug1'] == 1) and ($partida != $games['Partida'])):
 				$partida = $games['Partida'];?>
 
@@ -59,7 +59,7 @@
 								            'purple' => '#C6C6C6',
 								            'orange' => '#C6C6C6',
 								        );
-										foreach ($params['games'] as $inter) {
+										foreach ($params['startedGames'] as $inter) {
 											if (($inter['InterJug'] == $inter['PartJug1']) and 
 												($partida == $inter['Partida']) and 
 												($inter['PregAcertada'] == 1)) {
@@ -156,7 +156,7 @@
 								            'purple' => '#C6C6C6',
 								            'orange' => '#C6C6C6',
 								        );
-										foreach ($params['games'] as $inter) {
+										foreach ($params['startedGames'] as $inter) {
 											if (($inter['InterJug'] == $inter['PartJug2']) and 
 												($partida == $inter['Partida']) and 
 												($inter['PregAcertada'] == 1)) {
@@ -239,12 +239,12 @@
 
 	<section class="wrapper style4">
 		<header class="game-container title-blue">
-			<h2>Le toca jugar</h2>
+			<h2>Turno del oponente</h2>
 		</header>
 
 		<?php 
 		$partida = 0;
-		foreach ($params['games'] as $games):
+		foreach ($params['startedGames'] as $games):
 			if (($games['TurnoJug1'] == 0) and ($partida != $games['Partida'])):
 				$partida = $games['Partida'];?>
 
@@ -281,7 +281,7 @@
 						            'purple' => '#C6C6C6',
 						            'orange' => '#C6C6C6',
 						        );
-								foreach ($params['games'] as $inter) {
+								foreach ($params['startedGames'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug1']) and 
 										($partida == $inter['Partida']) and 
 										($inter['PregAcertada'] == 1)) {
@@ -378,7 +378,7 @@
 						            'purple' => '#C6C6C6',
 						            'orange' => '#C6C6C6',
 						        );
-								foreach ($params['games'] as $inter) {
+								foreach ($params['startedGames'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug2']) and 
 										($partida == $inter['Partida']) and 
 										($inter['PregAcertada'] == 1)) {
@@ -453,6 +453,81 @@
 		<?php endforeach; ?>
 	</section>
 
+
+	<section class="wrapper style4 first">
+		<header class="game-container title-blue">
+			<h2>Esperando oponente</h2>
+		</header>
+
+		<?php 
+		$partida = 0;
+		foreach ($params['waitingGames'] as $games):?>
+			<div class="row">
+				<div class="column col-2">
+					<section class="game-container worldImage">
+						<img class="img-responsive" src="web/images/<?php echo $games['ImagenMundo']?>">
+					</section>
+				</div>
+				<div class="column col-5">
+					<section class="game-container game">
+						<div class="row">
+							<div class="column col-6">
+								<div class="row">
+									<div class="column col-12">
+										<header>
+											<h3><?php echo $games['NomJug']?></h3>
+										</header>
+			                		</div>
+								</div>
+								<div class="row">
+									<div class="column col-12 user-image">
+						 				<img class="img-responsive" src="web/images/users/<?php echo $games['ImagenJug']?>.jpg">
+			                		</div>
+								</div>
+	                		</div>
+
+							<div class="column col-6">
+								<div class="row">
+									<div class="column col-12">
+				                    	<ul class="icons">			
+					                        <li class="icon circle" style="background: #C6C6C6"></li>	
+					                        <li class="icon circle" style="background: #C6C6C6"></li>	
+					                        <li class="icon circle" style="background: #C6C6C6"></li>		
+					                    </ul>
+			                		</div>
+								</div>
+								<div class="row">
+									<div class="column col-12">
+				                    	<ul class="icons">			
+					                        <li class="icon circle" style="background: #C6C6C6"></li>	
+					                        <li class="icon circle" style="background: #C6C6C6"></li>	
+					                        <li class="icon circle" style="background: #C6C6C6"></li>					
+					                    </ul>
+			                		</div>
+								</div>
+							</div>
+	            		</div>
+					</section>
+				</div>
+				<div class="column col-5">
+					<section class="game-container game">
+						<div class="row">
+							<div class="column col-12">
+								<header>
+									<h3>¡Esperando oponente!</h3>
+								</header>
+	                		</div>
+						</div>
+						<div class="row">
+							<div class="column col-12 questionMark-image">
+				 				<img class="img-responsive" src="web/images/questionMark.png">
+	                		</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	</section>
 <?php $contenido = ob_get_clean() ?>
 
 <?php include 'user_layout.php' ?>
