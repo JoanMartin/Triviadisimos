@@ -8,18 +8,21 @@
 	opacity: 0.75; 
 	filter: alpha(opacity=40); 
 	visibility: hidden;
+	z-index: 1;
 }
 
 #divRegister{
 	position: fixed;
 	top: 100px; 
 	visibility: hidden;
+	z-index: 2;
 }
 
 #divLogin{
 	position: fixed; 
 	top: 100px; 
 	visibility: hidden;
+	z-index: 2;
 }
 
 #divCreateGame{

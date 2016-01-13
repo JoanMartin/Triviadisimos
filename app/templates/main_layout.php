@@ -23,7 +23,7 @@
         <div>
             <!-- Header -->
             <header id="header">
-                <h1 id="logo"><a href="index.php">Triviadísimos</a></h1>
+                <h1 id="logo"><a href="index.php">Triviad&iacutesimos</a></h1>
                 <nav id="nav">
                     <ul>
                         <li class="menu"><a href="help">Ayuda</a></li>

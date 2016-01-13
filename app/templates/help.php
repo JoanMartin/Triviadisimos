@@ -76,7 +76,7 @@
                         <p class = "fontHelp">
                            Para empezar una nueva partida, clica en el bot&oacuten 'Iniciar nueva partida' situado en la esquina superior derecha de la pantalla. Se te abrir&aacute un men&uacute desplegable en el que podr&aacutes seleccionar de qu&eacute mundo quieres que sea la partida.
                            <br><br>
-                            A continuaci&oacuten, si hay otro jugador de Triviad&iacutesimos con tu mismo nivel y está esperando para jugar una partida del mismo mundo, os uniremos y ya podr&eacuteis competir. Si no hay ning&uacuten jugador esperando, tendr&aacutes que esperar hasta que otro jugador con tu mismo nivel quiera empezar una partida del mismo mundo.
+                            A continuaci&oacuten, si hay otro jugador de Triviad&iacutesimos con tu mismo nivel y est&aacute esperando para jugar una partida del mismo mundo, os uniremos y ya podr&eacuteis competir. Si no hay ning&uacuten jugador esperando, tendr&aacutes que esperar hasta que otro jugador con tu mismo nivel quiera empezar una partida del mismo mundo.
                         </p>
                     </div>
                 </div>
@@ -221,4 +221,11 @@
 
 <?php $contenido = ob_get_clean() ?>
 
-<?php include 'user_layout.php' ?>
+<?php
+    if(!isset($_SESSION['username'])) {
+        include 'main_layout.php' ;  
+    }else{
+        include 'user_layout.php';     
+    }
+
+?>

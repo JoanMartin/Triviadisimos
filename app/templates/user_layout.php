@@ -21,7 +21,6 @@
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq1_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_validate_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_editAdmin_js ?>"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
         <script src="<?php echo 'web/js/'.Config::$mvc_jqmin_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_jqdropomin_js ?>"></script>
@@ -36,7 +35,7 @@
     <body class="background-color-blue">
         <div id="page-wrapper">
             <header id="header">
-                <h1 id="logo"><a href="index.php">Triviadísimos</a></h1>
+                <h1 id="logo"><a href="index.php">Triviad&iacutesimos</a></h1>
                 <nav id="nav">
                     <ul> 
                         <li class="submenu">

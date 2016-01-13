@@ -3,3 +3,92 @@
 	font-size: 22px;
 	color: black;
 }
+
+
+.boxBlueTitle{
+	background: #013ADF;
+}
+
+.boxBlueBody{
+	background: #A9D0F5;
+}
+
+.boxGreenTitle{
+	background: #31B404;
+}
+
+.boxGreenBody{
+	background: #CEF6CE;
+}
+
+.boxYellowTitle{
+	background: #F4FA58;
+}
+
+.boxYellowBody{
+	background: #F2F5A9;
+}
+
+.boxOrangeTitle{
+	background: #FF8000;
+}
+
+.boxOrangeBody{
+	background: #F7BE81;
+}
+
+.boxPinkTitle{
+	background: #B404AE;
+}
+
+.boxPinkBody{
+	background: #F6CEEC;
+}
+
+.boxRedTitle{
+	background: #DF0101;
+}
+
+.boxRedBody{
+	background: #F78181;
+}
+
+.boxPrincipalTitle{
+	background: #FFFFFF;
+	border-color: #949494;
+}
+
+.fontTitlePrincipal{
+	color: #000000;
+	font-weight: bold;
+	text-align: center;
+}
+
+.fontTitle{
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+.clickable
+{
+    cursor: pointer;
+}
+
+.clickable .glyphicon
+{
+    background: rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px
+}
+
+.panel-heading span
+{
+    margin-top: -23px;
+    font-size: 15px;
+    margin-right: -9px;
+}
+a.clickable { color: inherit; }
+a.clickable:hover { text-decoration:none; }
