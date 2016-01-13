@@ -90,7 +90,7 @@
                         "app/GameController.php", 
                         {functionname: 'finishGame'});
                 }
-            }, 1000);
+            }, 2000);
         } else {
             lookForCorrectAnswer(dataJson);
             $(tag).css({'background': 'red'}); 
@@ -106,13 +106,12 @@
             {correct: correct,
             id_question: id_question,
             category: category,
-            functionname: 'insertIntervention'});
-
-        setTimeout(function(){ 
-            if (correct == 1) {
-                $("#categories").load("app/templates/game_reloadCategories.php");
-            }
-        }, 1000);
+            functionname: 'insertIntervention'},
+            function(data, textStatus) {
+                if (correct == 1) {
+                    $("#categories").load("app/templates/game_reloadCategories.php");
+                }
+            });
     }
 
 
