@@ -412,4 +412,15 @@ class Model
         return 'insertCorrect';        
     }
 
+    public function changePrivilege($nick, $privilege){
+        $sql = "SELECT ID_Privilegio FROM privilegio 
+                WHERE Tipo_Privilegio = '".$privilege."'"; 
+
+        $result = mysql_query($sql, $this->conexion);
+        $row = mysql_fetch_array($result);
+        $id_privilege = $row[0];
+
+        $sql = "UPDATE jugador SET ID_Privilegio = '".$id_privilege."' WHERE Nick = '".$nick."'";
+        $result = mysql_query($sql, $this->conexion); 
+    }
 }

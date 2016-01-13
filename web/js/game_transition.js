@@ -1,6 +1,5 @@
     
     var stop = false;  
-    var won;
     var data_aux;
     var category;
 
@@ -72,60 +71,46 @@
     function answerClicked(tag, dataJson, idJson) {
         $('#progressBar').stop();
 
-        insertIntervention(dataJson[idJson].correcta, dataJson[0].id_question);
-        checkWon();
-        if (dataJson[idJson].correcta == 1) {
-            $(tag).css({'background': 'green'});
 
-            setTimeout(function(){ 
-                if (!won) {
-                    $('#progressBar').css({'height': '0em'});
-                    getNextQuestion(tag);
-                } else {
-                    $('#blackDiv').css({'visibility': 'visible'}); 
-                    $('#congratulationsImgLeft').css({'visibility': 'visible'}); 
-                    $('#congratulationsImgRight').css({'visibility': 'visible'}); 
-
-                    jQuery.post(
-                        "app/GameController.php", 
-                        {functionname: 'finishGame'});
-                }
-            }, 2000);
-        } else {
-            lookForCorrectAnswer(dataJson);
-            $(tag).css({'background': 'red'}); 
-            invertTurn();
-        }
-        unbindClickFunction();
-    }
-
-
-    function insertIntervention (correct, id_question) {
         jQuery.post(
             "app/GameController.php", 
-            {correct: correct,
-            id_question: id_question,
+            {correct: dataJson[idJson].correcta,
+            id_question: dataJson[0].id_question,
             category: category,
             functionname: 'insertIntervention'},
             function(data, textStatus) {
-                if (correct == 1) {
+                if (dataJson[idJson].correcta == 1) {
+                    $(tag).css({'background': 'green'});
                     $("#categories").load("app/templates/game_reloadCategories.php");
+
+                    jQuery.post(
+                        "app/GameController.php", 
+                        {functionname: 'checkWon'},
+                        function(data, textStatus) {
+                            var won = data;
+                            if (!won) {
+                                $('#progressBar').css({'height': '0em'});
+                                getNextQuestion(tag);
+                            } else {
+                                setTimeout(function(){
+                                    $('#blackDiv').css({'visibility': 'visible'}); 
+                                    $('#congratulationsImgLeft').css({'visibility': 'visible'}); 
+                                    $('#congratulationsImgRight').css({'visibility': 'visible'}); 
+
+                                    jQuery.post(
+                                        "app/GameController.php", 
+                                        {functionname: 'finishGame'});
+                                }, 1000);
+                            }
+                        });
+                } else {
+                    lookForCorrectAnswer(dataJson);
+                    $(tag).css({'background': 'red'}); 
+                    invertTurn();
                 }
             });
-    }
 
-
-    function checkWon () {
-        jQuery.post(
-            "app/GameController.php", 
-            {functionname: 'checkWon'},
-            function(data, textStatus) {
-                setWon(data);
-            });
-    }
-
-    function setWon(data) {
-        won = data;
+        unbindClickFunction();
     }
 
 
@@ -149,7 +134,7 @@
                     complete: questionNotAnswered
                 });
             });
-        }, 2000);       
+        }, 1000);       
     }
 
 

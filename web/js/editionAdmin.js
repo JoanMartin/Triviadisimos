@@ -10,3 +10,10 @@ $(document).ready(function(){
     	$("#categoria").load('app/ModelDynamicSelects.php?mundo='+mundo);
   	});
 });
+
+$(document).ready(function(){
+  	$("#privilege").change(function(event){
+    	var mundo = $("#mundo").find(':selected').val().split(' ').join('+');
+    	$("#categoria").load('app/ModelDynamicSelects.php?mundo='+mundo);
+  	});
+});

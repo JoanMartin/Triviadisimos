@@ -13,7 +13,7 @@
                             <h3 class="panel-title">A&ntildeadir pregunta</h3>
                         </div>
                             <div class="panel-body">
-                            <form role="form" id="formRegister" name="formRegister" method="post" action="index.php?ctl=addQuestion" >                            
+                            <form role="form" id="formRegister" name="formRegister" method="post" action="addQuestion" >                            
                                 
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -95,7 +95,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasGeografia']) || is_object($params['listadoPreguntasGeografia'])){
                             foreach ($params['listadoPreguntasGeografia'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -120,7 +120,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasCiencias']) || is_object($params['listadoPreguntasCiencias'])){
                             foreach ($params['listadoPreguntasCiencias'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -145,7 +145,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasHistoria']) || is_object($params['listadoPreguntasHistoria'])){
                             foreach ($params['listadoPreguntasHistoria'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -170,7 +170,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasArteyLiteratura']) || is_object($params['listadoPreguntasArteyLiteratura'])){
                             foreach ($params['listadoPreguntasArteyLiteratura'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -195,7 +195,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasEspectaculos']) || is_object($params['listadoPreguntasEspectaculos'])){
                             foreach ($params['listadoPreguntasEspectaculos'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -220,7 +220,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasDeportes']) || is_object($params['listadoPreguntasDeportes'])){
                             foreach ($params['listadoPreguntasDeportes'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -258,7 +258,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasHabiaUnaVez']) || is_object($params['listadoPreguntasHabiaUnaVez'])){
                             foreach ($params['listadoPreguntasHabiaUnaVez'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -283,7 +283,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasMarMundoDisney']) || is_object($params['listadoPreguntasMarMundoDisney'])){
                             foreach ($params['listadoPreguntasMarMundoDisney'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -308,7 +308,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasMonstruosYVillanos']) || is_object($params['listadoPreguntasMonstruosYVillanos'])){
                             foreach ($params['listadoPreguntasMonstruosYVillanos'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -333,7 +333,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasLugaresYObjetos']) || is_object($params['listadoPreguntasLugaresYObjetos'])){
                             foreach ($params['listadoPreguntasLugaresYObjetos'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -358,7 +358,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasEstSecundarias']) || is_object($params['listadoPreguntasEstSecundarias'])){
                             foreach ($params['listadoPreguntasEstSecundarias'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>
@@ -382,7 +382,7 @@
                         <?php 
                         if (is_array($params['listadoPreguntasHerYHer']) || is_object($params['listadoPreguntasHerYHer'])){
                             foreach ($params['listadoPreguntasHerYHer'] as $listadoPreguntas) :?>
-                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="index.php?ctl=question" >       
+                            <form role="form" id="formEditQu" name="formEditQu" method="post" action="question" >       
                                 <input type="hidden" name="ID_Pregunta" id="ID_Pregunta" value=<?php echo $listadoPreguntas['ID_Pregunta'] ?>>                                
                                 <a onclick="parentNode.submit()"><?php echo "- ".$listadoPreguntas['Text_Pregunta'] ?></a>
                                 <br>

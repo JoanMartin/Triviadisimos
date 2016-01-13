@@ -23,6 +23,13 @@ a{
 	z-index: 2;
 }
 
+#divPrivilege{
+	position: fixed; 
+	top: 100px; 
+	visibility: hidden;
+	z-index: 2;
+}
+
 #divBlack {
 	position: fixed;
 	top: 0px; 
@@ -59,5 +66,16 @@ a.clickable:hover { text-decoration:none; }
 
 #top{
 	margin-top: 150px;
+}
+
+
+
+.correct{
+	background-color: #99ff66;
+}
+
+#panelQuestion {
+	padding-top: 4em;
+	padding-bottom: 15%;
 }
 

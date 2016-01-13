@@ -17,7 +17,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-6">
                     <div class="panel panel-default boxWhite">
                             <div class="panel-heading">
-                             <h4 class= "fontTitlePrincipal">Partidas normales</h4> 
+                             <h4 class= "fontTitlePrincipal">Preguntas normales</h4> 
                             </div>
                             <div class="panel-body boxWhiteBody">
                             <table class="table">
@@ -52,7 +52,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-6">
                     <div class="panel panel-default boxWhite">
                         <div class="panel-heading">
-                        <h4 class= "fontTitlePrincipal">Partidas disney</h4> 
+                        <h4 class= "fontTitlePrincipal">Preguntas Disney</h4> 
                         </div>
                         <div class="panel-body boxWhiteBody">
                             <table class="table">
@@ -87,7 +87,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-6">
                     <div class="panel panel-default boxWhite">
                         <div class="panel-heading">
-                         <h4 class= "fontTitlePrincipal">Partidas totales</h4> 
+                         <h4 class= "fontTitlePrincipal">Preguntas totales</h4> 
                         </div>
                         <div class="panel-body boxWhiteBody">
                             <table class="table">

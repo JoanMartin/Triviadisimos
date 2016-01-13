@@ -5,17 +5,16 @@
         <title>Triviad&iacutesimos</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_main_css ?>" />
-        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_mainlay_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_divBlack_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_validate_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_errRepeated_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_help_css ?>" />
 
-
+        
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq_js ?>"></script>
-        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_js1_js ?>"></script>
-        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq1_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_validate_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_valadmet_js ?>"></script>
+        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_divBlack_js ?>"></script>
 
     </head>
 
@@ -140,9 +139,9 @@
             <div class="row">
                 <div class="column col-2">
                     <ul class="default">
-                        <li class="title">Triviadísimos</li>
+                        <li class="title">Triviad&iacutesimos</li>
                         <li><a class="item" onclick="RegisterFunction()">Registrarse</a></li>
-                        <li><a class="item" onclick="LoginFunction()">Iniciar sesión</a></li>
+                        <li><a class="item" onclick="LoginFunction()">Iniciar sesi&oacuten</a></li>
                     </ul>
                 </div>
                 <div class="column col-2">
@@ -163,9 +162,9 @@
                 </div>
                 <div class="column col-2">
                     <ul class="default">
-                        <li class="title">Quiénes somos</li>
+                        <li class="title">Qui&eacutenes somos</li>
                         <li class="item">Preguntas frecuentes</li>
-                        <li class="item">Ayuda</li>
+                        <li class="item"><a href="help">Ayuda</a></li>
                     </ul>
                 </div>
                 <div class="column col-2">

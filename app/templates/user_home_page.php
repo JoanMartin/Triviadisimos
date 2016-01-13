@@ -52,12 +52,12 @@
 
 				                		<?php 
 								        $color = array(
-								            'green' => '#C6C6C6',
-								            'yellow' => '#C6C6C6',
-								            'blue' => '#C6C6C6',
-								            'red' => '#C6C6C6',
-								            'purple' => '#C6C6C6',
-								            'orange' => '#C6C6C6',
+								            'green' => '#fff',
+								            'yellow' => '#fff',
+								            'blue' => '#fff',
+								            'red' => '#fff',
+								            'purple' => '#fff',
+								            'orange' => '#fff',
 								        );
 										foreach ($params['startedGames'] as $inter) {
 											if (($inter['InterJug'] == $inter['PartJug1']) and 
@@ -149,12 +149,12 @@
 
 				                		<?php 
 								        $color = array(
-								            'green' => '#C6C6C6',
-								            'yellow' => '#C6C6C6',
-								            'blue' => '#C6C6C6',
-								            'red' => '#C6C6C6',
-								            'purple' => '#C6C6C6',
-								            'orange' => '#C6C6C6',
+								            'green' => '#fff',
+								            'yellow' => '#fff',
+								            'blue' => '#fff',
+								            'red' => '#fff',
+								            'purple' => '#fff',
+								            'orange' => '#fff',
 								        );
 										foreach ($params['startedGames'] as $inter) {
 											if (($inter['InterJug'] == $inter['PartJug2']) and 
@@ -274,12 +274,12 @@
 
 		                		<?php 
 						        $color = array(
-						            'green' => '#C6C6C6',
-						            'yellow' => '#C6C6C6',
-						            'blue' => '#C6C6C6',
-						            'red' => '#C6C6C6',
-						            'purple' => '#C6C6C6',
-						            'orange' => '#C6C6C6',
+						            'green' => '#fff',
+						            'yellow' => '#fff',
+						            'blue' => '#fff',
+						            'red' => '#fff',
+						            'purple' => '#fff',
+						            'orange' => '#fff',
 						        );
 								foreach ($params['startedGames'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug1']) and 
@@ -371,12 +371,12 @@
 
 		                		<?php 
 						        $color = array(
-						            'green' => '#C6C6C6',
-						            'yellow' => '#C6C6C6',
-						            'blue' => '#C6C6C6',
-						            'red' => '#C6C6C6',
-						            'purple' => '#C6C6C6',
-						            'orange' => '#C6C6C6',
+						            'green' => '#fff',
+						            'yellow' => '#fff',
+						            'blue' => '#fff',
+						            'red' => '#fff',
+						            'purple' => '#fff',
+						            'orange' => '#fff',
 						        );
 								foreach ($params['startedGames'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug2']) and 
@@ -490,18 +490,18 @@
 								<div class="row">
 									<div class="column col-12">
 				                    	<ul class="icons">			
-					                        <li class="icon circle" style="background: #C6C6C6"></li>	
-					                        <li class="icon circle" style="background: #C6C6C6"></li>	
-					                        <li class="icon circle" style="background: #C6C6C6"></li>		
+					                        <li class="icon circle" style="background: #fff"></li>	
+					                        <li class="icon circle" style="background: #fff"></li>	
+					                        <li class="icon circle" style="background: #fff"></li>		
 					                    </ul>
 			                		</div>
 								</div>
 								<div class="row">
 									<div class="column col-12">
 				                    	<ul class="icons">			
-					                        <li class="icon circle" style="background: #C6C6C6"></li>	
-					                        <li class="icon circle" style="background: #C6C6C6"></li>	
-					                        <li class="icon circle" style="background: #C6C6C6"></li>					
+					                        <li class="icon circle" style="background: #fff"></li>	
+					                        <li class="icon circle" style="background: #fff"></li>	
+					                        <li class="icon circle" style="background: #fff"></li>					
 					                    </ul>
 			                		</div>
 								</div>
@@ -514,7 +514,7 @@
 						<div class="row">
 							<div class="column col-12">
 								<header>
-									<h3>¡Esperando oponente!</h3>
+									<h3>&iexclEsperando oponente!</h3>
 								</header>
 	                		</div>
 						</div>

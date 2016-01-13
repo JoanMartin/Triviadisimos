@@ -48,12 +48,12 @@
 
 		                		<?php 
 						        $color = array(
-						            'green' => '#C6C6C6',
-						            'yellow' => '#C6C6C6',
-						            'blue' => '#C6C6C6',
-						            'red' => '#C6C6C6',
-						            'purple' => '#C6C6C6',
-						            'orange' => '#C6C6C6',
+						            'green' => '#fff',
+						            'yellow' => '#fff',
+						            'blue' => '#fff',
+						            'red' => '#fff',
+						            'purple' => '#fff',
+						            'orange' => '#fff',
 						        );
 								foreach ($params['games'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug1']) and 
@@ -76,7 +76,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Deportes':
-							                    $color['orange'] = '#E2A600';
+							                    $color['orange'] = '#FFAF00';
 							                    break;
 
 							                case 'Maravilloso mundo de Disney':
@@ -95,7 +95,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Héroes y heroínas':
-							                    $color['orange'] = '#E2A600';
+							                    $color['orange'] = '#FFAF00';
 							                    break;
 							            }
 									}
@@ -145,12 +145,12 @@
 
 		                		<?php 
 						        $color = array(
-						            'green' => '#C6C6C6',
-						            'yellow' => '#C6C6C6',
-						            'blue' => '#C6C6C6',
-						            'red' => '#C6C6C6',
-						            'purple' => '#C6C6C6',
-						            'orange' => '#C6C6C6',
+						            'green' => '#fff',
+						            'yellow' => '#fff',
+						            'blue' => '#fff',
+						            'red' => '#fff',
+						            'purple' => '#fff',
+						            'orange' => '#fff',
 						        );
 								foreach ($params['games'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug2']) and 
@@ -173,7 +173,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Deportes':
-							                    $color['orange'] = '#E2A600';
+							                    $color['orange'] = '#FFAF00';
 							                    break;
 
 							                case 'Maravilloso mundo de Disney':
@@ -192,7 +192,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Héroes y heroínas':
-							                    $color['orange'] = '#E2A600';
+							                    $color['orange'] = '#FFAF00';
 							                    break;
 							            }
 									}
@@ -268,12 +268,12 @@
 
 		                		<?php 
 						        $color = array(
-						            'green' => '#C6C6C6',
-						            'yellow' => '#C6C6C6',
-						            'blue' => '#C6C6C6',
-						            'red' => '#C6C6C6',
-						            'purple' => '#C6C6C6',
-						            'orange' => '#C6C6C6',
+						            'green' => '#fff',
+						            'yellow' => '#fff',
+						            'blue' => '#fff',
+						            'red' => '#fff',
+						            'purple' => '#fff',
+						            'orange' => '#fff',
 						        );
 								foreach ($params['games'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug1']) and 
@@ -296,7 +296,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Deportes':
-							                    $color['orange'] = '#E2A600';
+							                    $color['orange'] = '#FFAF00';
 							                    break;
 
 							                case 'Maravilloso mundo de Disney':
@@ -315,7 +315,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Héroes y heroínas':
-							                    $color['orange'] = '#E2A600';
+							                    $color['orange'] = '#FFAF00';
 							                    break;
 							            }
 									}
@@ -365,12 +365,12 @@
 
 		                		<?php 
 						        $color = array(
-						            'green' => '#C6C6C6',
-						            'yellow' => '#C6C6C6',
-						            'blue' => '#C6C6C6',
-						            'red' => '#C6C6C6',
-						            'purple' => '#C6C6C6',
-						            'orange' => '#C6C6C6',
+						            'green' => '#fff',
+						            'yellow' => '#fff',
+						            'blue' => '#fff',
+						            'red' => '#fff',
+						            'purple' => '#fff',
+						            'orange' => '#fff',
 						        );
 								foreach ($params['games'] as $inter) {
 									if (($inter['InterJug'] == $inter['PartJug2']) and 
@@ -393,7 +393,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Deportes':
-							                    $color['orange'] = '#E2A600';
+							                    $color['orange'] = '#FFAF00';
 							                    break;
 
 							                case 'Maravilloso mundo de Disney':
@@ -412,7 +412,7 @@
 							                    $color['purple'] = '#FF00F3';
 							                    break;
 							                case 'Héroes y heroínas':
-							                    $color['orange'] = '#E2A600';
+							                    $color['orange'] = '#FFAF00';
 							                    break;
 							            }
 									}

@@ -16,7 +16,7 @@
 		}
 
 		.game-container.worldImage {
-			background-color: orange;
+			background-color: #FFC052;
 			margin: 0.1em;
 			padding-top: 0.7em; 
 			height:10.2em;
@@ -24,7 +24,7 @@
 
 		.game-container.game {
 			color: black;
-			background-color: orange;
+			background-color: #FFC052;
 			margin: 0.1em;
 		}
 

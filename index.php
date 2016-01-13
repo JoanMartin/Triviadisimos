@@ -41,7 +41,8 @@
                 'edition' => array('controller' =>'Controller', 'action' =>'edition'),
                 'question' => array('controller' =>'Controller', 'action' =>'question'),
                 'editQuestion' => array('controller' =>'Controller', 'action' =>'editQuestion'),
-                'addQuestion' => array('controller' =>'Controller', 'action' =>'addQuestion')
+                'addQuestion' => array('controller' =>'Controller', 'action' =>'addQuestion'),
+                'changePrivilege' => array('controller' =>'Controller', 'action' =>'changePrivilege')
             );
             $functions = array_merge($functions, $functionsAdmin);
         }

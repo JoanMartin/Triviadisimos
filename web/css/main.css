@@ -1713,8 +1713,9 @@ input[type="button"].btn-block {
 
     .container-level {
         color: inherit;
-        margin: 3em 28em 0em 28em;
+        margin: 2.8em 28em 0em 28em;
         border-radius: 10px;
+        box-shadow: 0px 12px 30px 1px rgba(0,0,0,0.75);
     }
 
         .container-level h3 {
@@ -1746,6 +1747,7 @@ input[type="button"].btn-block {
 
     .container-bestUsers {
         background: orange;  
+        box-shadow: 0px 24px 30px 1px rgba(0,0,0,0.75);
     }
 
         .container-bestUsers.first {
