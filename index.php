@@ -41,7 +41,7 @@
                 'editQuestion' => array('controller' =>'Controller', 'action' =>'editQuestion'),
                 'addQuestion' => array('controller' =>'Controller', 'action' =>'addQuestion')
             );
-            $map = array_merge($map, $map1);
+            $functions = array_merge($functions, $functionsAdmin);
         }
     }
 
