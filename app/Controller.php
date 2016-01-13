@@ -390,5 +390,9 @@
             
         }
 
+        public function help(){
+            require __DIR__ . '/templates/help.php';            
+        }
+
  	}
 ?>

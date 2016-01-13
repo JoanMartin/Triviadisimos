@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_validate_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_editAdmin_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_editQuestion_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_help_css ?>" />
 
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_js1_js ?>"></script>
@@ -47,7 +48,7 @@
                                 <li><a href="finishedGames">Historial de partidas</a></li>
                                 <li><a href="stats">Estad&iacutesticas</a></li>
                                 <li><a href="profile">Perfil</a></li>
-                                <li><a href="#">Ayuda</a></li>
+                                <li><a href="help">Ayuda</a></li>
                                 <li><a href="closeSession">Cerrar sesi&oacuten</a></li>
                             </ul>
                         </li>  

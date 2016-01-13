@@ -18,7 +18,8 @@
 		static public $mvc_profile_css 		= "profile.css";		
 		static public $mvc_editAdmin_css 	= "editionAdmin.css";	
 		static public $mvc_editQuestion_css = "editionQuestion.css";	
-		static public $mvc_game_css 		= "game.css";		
+		static public $mvc_game_css 		= "game.css";			
+		static public $mvc_help_css 		= "help.css";		
 		
 		//JQ
 		static public $mvc_jq_transition	= "jquery_transition.js";

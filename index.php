@@ -16,6 +16,7 @@
         $functions = array(
             'homePage' => array('controller' =>'Controller', 'action' =>'homePage'),
             'registerUser' => array('controller' =>'Controller', 'action' =>'registerUser'),
+            'help' => array('controller' =>'Controller', 'action' =>'help'),
             'loginUser' => array('controller' =>'Controller', 'action' =>'loginUser')
         );           
     } else { 
@@ -31,6 +32,7 @@
             'editProfile' => array('controller' =>'Controller', 'action' =>'editProfile'),
             'changePasswordProfile' => array('controller' =>'Controller', 'action' =>'changePasswordProfile'),
             'imgProfile' => array('controller' =>'Controller', 'action' =>'imgProfile'),
+            'help' => array('controller' =>'Controller', 'action' =>'help'),
             'closeSession' => array('controller' =>'Controller', 'action' =>'closeSession')
         );
 

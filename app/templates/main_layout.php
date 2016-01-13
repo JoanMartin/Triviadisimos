@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_mainlay_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_validate_css ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_errRepeated_css ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_help_css ?>" />
 
 
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq_js ?>"></script>
@@ -25,7 +26,7 @@
                 <h1 id="logo"><a href="index.php">Triviadísimos</a></h1>
                 <nav id="nav">
                     <ul>
-                        <li class="menu"><a href="#">Ayuda</a></li>
+                        <li class="menu"><a href="help">Ayuda</a></li>
                         <li class="buttonPointer"><a onclick="LoginFunction()">Iniciar sesi&oacuten</a></li>
                         <li><a onclick="RegisterFunction()" class="button special">Registrarse</a></li>
                     </ul>
