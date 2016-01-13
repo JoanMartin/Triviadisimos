@@ -16,10 +16,11 @@
         <link rel="stylesheet" type="text/css" href="<?php echo 'web/css/'.Config::$mvc_help_css ?>" />
 
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jq_js ?>"></script>
+        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_jqmin_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_validate_js ?>"></script>
+        <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_valadmet_js ?>"></script>
         <script type="text/javascript" src="<?php echo 'web/js/'.Config::$mvc_editAdmin_js ?>"></script>
 
-        <script src="<?php echo 'web/js/'.Config::$mvc_jqmin_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_jqdropomin_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_jqscrollymin_js ?>"></script>
         <script src="<?php echo 'web/js/'.Config::$mvc_skelmin_js ?>"></script>
