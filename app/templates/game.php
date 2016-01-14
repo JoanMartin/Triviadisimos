@@ -152,7 +152,7 @@
 
 		<div id="btnStop" class="column col-7">
 			<center>
-				<img class="img-responsive" src="web/images/stopButton.png">
+				<img class="img-responsive" src="web/images/stopButton.png" style="cursor: pointer">
 			</center>
 		</div>
 

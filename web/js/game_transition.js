@@ -106,7 +106,12 @@
                 } else {
                     lookForCorrectAnswer(dataJson);
                     $(tag).css({'background': 'red'}); 
+
                     invertTurn();
+
+                    setTimeout(function(){
+                        window.location.href = "./index.php";
+                    }, 1000);
                 }
             });
 
@@ -174,6 +179,11 @@
     function questionNotAnswered(){
         insertIntervention(0, data_aux[0].id_question);
         lookForCorrectAnswer(data_aux);
+
+        setTimeout(function(){
+            window.location.href = "./index.php";
+        }, 1000);
+
         invertTurn();
         unbindClickFunction();
     }

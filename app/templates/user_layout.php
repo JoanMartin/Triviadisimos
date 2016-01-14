@@ -65,7 +65,7 @@
                                 <li><a href="createDisneyGame">Partida Disney</a></li>
                             </ul>
                         </li>    
-                        <li><a href="index.php">Principal</a></li>                  
+                        <li><a href="index.php">Menú principal</a></li>                  
                     </ul>
                 </nav>
             </header>

@@ -133,16 +133,16 @@ class Model
             $row = mysql_fetch_assoc($result);
             return $row;
         }
-    }    
+    }  
 
-    public function statDisneyAcertadas($nick){
+    public function statMundoAcertadas($nick, $mundo){
         $nick = htmlspecialchars($nick);  
         
         $sql = "SELECT SUM(numero_acertadas) AS numero_acertadas FROM `bdtriviadisimos`.`jugador`
         INNER JOIN `bdtriviadisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
         INNER JOIN `bdtriviadisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
         INNER JOIN `bdtriviadisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
-        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Disney'";
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= '".$mundo."'";
            
         $result = mysql_query($sql, $this->conexion);
 
@@ -152,48 +152,14 @@ class Model
         }
     }
 
-    public function statDisneyFalladas($nick){
+    public function statMundoFalladas($nick, $mundo){
         $nick = htmlspecialchars($nick);  
         
         $sql = "SELECT SUM(numero_falladas) AS numero_falladas FROM `bdtriviadisimos`.`jugador`
         INNER JOIN `bdtriviadisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
         INNER JOIN `bdtriviadisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
         INNER JOIN `bdtriviadisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
-        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Disney'";
-           
-        $result = mysql_query($sql, $this->conexion);
-
-        if ($result) {
-            $row = mysql_fetch_assoc($result);
-            return $row;
-        }
-    }
-
-    public function statNormalAcertadas($nick){
-        $nick = htmlspecialchars($nick);  
-        
-        $sql = "SELECT SUM(numero_acertadas) AS numero_acertadas FROM `bdtriviadisimos`.`jugador`
-        INNER JOIN `bdtriviadisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
-        INNER JOIN `bdtriviadisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
-        INNER JOIN `bdtriviadisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
-        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal'";
-           
-        $result = mysql_query($sql, $this->conexion);
-
-        if ($result) {
-            $row = mysql_fetch_assoc($result);
-            return $row;
-        }
-    }
-
-    public function statNormalFalladas($nick){
-        $nick = htmlspecialchars($nick);  
-        
-        $sql = "SELECT SUM(numero_falladas) AS numero_falladas FROM `bdtriviadisimos`.`jugador`
-        INNER JOIN `bdtriviadisimos`.`estadistica` ON `jugador`.`id_jugador` = `estadistica`.`id_jugador` 
-        INNER JOIN `bdtriviadisimos`.`categoria` ON `estadistica`.`id_categoria` = `categoria`.`id_categoria`
-        INNER JOIN `bdtriviadisimos`.`mundo` ON `categoria`.`id_mundo` = `mundo`.`id_mundo`
-        WHERE `Nick`='".$nick."' AND `nombre_mundo`= 'Normal'";
+        WHERE `Nick`='".$nick."' AND `nombre_mundo`= '".$mundo."'";
            
         $result = mysql_query($sql, $this->conexion);
 
@@ -363,19 +329,8 @@ class Model
 
         return 'editChange';    
     } 
-    /*
-    public function searchCategory($idCategoria){
-        
-            $sql = "SELECT `ID_Categoria` FROM `bdtriviadisimos`.`categoria` WHERE `ID_Categoria`= '".$idCategoria."'";
 
-            $result = mysql_query($sql, $this->conexion);
 
-            if ($result) {
-                $row = mysql_fetch_assoc($result);
-                return $row;
-            }   
-    }
-    */
     public function addQuestion($idcategoria, $titulo){
        
         $sql = "INSERT INTO `bdtriviadisimos`.`pregunta` (`Text_Pregunta`, `ID_Categoria`) VALUES ('".$titulo."', '".$idcategoria."')";

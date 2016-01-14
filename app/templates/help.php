@@ -186,7 +186,7 @@
                     </div>
                     <div class="panel-body boxBlueBody">                  
                         <p class = "fontHelp">
-                            Puedes modificar tu perfil en el men&uacute desplegable que tiene tu nick y clicando el botoacuten 'Perfil'. Las opciones que puedes modificar son tu nombre y apellidos, tu email, tu foto de perfil y tu contrase&ntildea.
+                            Puedes modificar tu perfil en el men&uacute desplegable que tiene tu nick y clicando el bot&oacuten 'Perfil'. Las opciones que puedes modificar son tu nombre y apellidos, tu email, tu foto de perfil y tu contrase&ntildea.
                         </p>
                     </div>
                 </div>
@@ -208,8 +208,10 @@
                             - Modificar cualquier pregunta
                             <br>
                             - A&ntildeadir m&aacutes preguntas a la lista
+                            <br>
+                            - Modificar los privilegios de otro usuario
                             <br><br>
-                            Todo esto lo podr&aacute hacer desde el men&uacute desplegable que tiene tu nick y clicando el bot&oacuten 'Edici&oacuten preguntas'.
+                            Todo esto lo podr&aacutes hacer desde el men&uacute desplegable que tiene tu nick y clicando el bot&oacuten 'Edici&oacuten preguntas'.
 
                         </p>
                     </div>

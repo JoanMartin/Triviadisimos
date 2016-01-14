@@ -164,25 +164,16 @@
 
             //Normales
 
-            $stats = $m->statTotalesAcertadas($nick);
-            $paramsTotalesAcertadas = $stats;
+            $paramsTotalesAcertadas = $m->statTotalesAcertadas($nick);
+            $paramsTotalesFalladas = $m->statTotalesFalladas($nick);
 
-            $stats = $m->statTotalesFalladas($nick);
-            $paramsTotalesFalladas = $stats;
+            //Por mundo
+            $paramsDisneyAcertadas = $m->statMundoAcertadas($nick, 'Disney');
+            $paramsDisneyFalladas = $m->statMundoFalladas($nick, 'Disney');
+            $paramsNormalAcertadas = $m->statMundoAcertadas($nick, 'Normal');
+            $paramsNormalFalladas = $m->statMundoFalladas($nick, 'Normal');
 
-            $stats = $m->statDisneyAcertadas($nick);
-            $paramsDisneyAcertadas = $stats;
-
-            $stats = $m->statDisneyFalladas($nick);
-            $paramsDisneyFalladas = $stats;
-
-            $stats = $m->statNormalAcertadas($nick);
-            $paramsNormalAcertadas = $stats;
-
-            $stats = $m->statNormalFalladas($nick);
-            $paramsNormalFalladas = $stats;
-
-            //Normal
+            //Por categoría de mundo Normal
             $paramsNormalGeoAcertadas = $m->statAcertadas($nick, 'Normal', 'Geografía');
             $paramsNormalGeoFalladas = $m->statFalladas($nick, 'Normal', 'Geografía');
             $paramsNormalCieAcertadas = $m->statAcertadas($nick, 'Normal', 'Ciencia');
@@ -195,7 +186,8 @@
             $paramsNormalEspFalladas = $m->statFalladas($nick, 'Normal', 'Espectáculos');
             $paramsNormalAyLAcertadas = $m->statAcertadas($nick, 'Normal', 'Arte y literatura');
             $paramsNormalAyLFalladas = $m->statFalladas($nick, 'Normal', 'Arte y literatura');    
-            //Disney
+            
+            //Por categoría de mundo Disney
             $paramsDisneyHabLAcertadas = $m->statAcertadas($nick, 'Disney', 'Había una vez');
             $paramsDisneyHabFalladas = $m->statFalladas($nick, 'Disney', 'Había una vez');
             $paramsDisneyMarAcertadas = $m->statAcertadas($nick, 'Disney', 'Maravilloso mundo de Disney');

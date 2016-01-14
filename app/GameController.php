@@ -132,6 +132,11 @@
         $m->finishGame ($nick, $game);
     }
 
+
+    function returnMainPage () {
+        header("Refresh:0; url=./index.php");
+    }
+
     
     switch($_POST['functionname']) {
         case 'lookForQuestion':
@@ -148,6 +153,9 @@
             break;
         case 'finishGame':
             finishGame();
+            break;
+        case 'returnMainPage':
+            returnMainPage();
             break;
     }
 ?>
