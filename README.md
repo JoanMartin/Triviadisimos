@@ -3,6 +3,14 @@ Por Joan Martín y Carlos Tenorio
  
 Juego Online desarrollado para la Práctica 2 de la asignatura de Base de Datos II de la carrera de Ingeniería Informática en la Universitat de les Illes Balears.
 
+Se puede ver el siguiente manual del juego en el apartado "ayuda" del propio juego.
+
+
+*********************************************
+Script para escribir muchas preguntas rápidamente
+*********************************************
+Se puede utilizar el script hecho en Java para escribir rápidamente muchas preguntas guardadas en .css y separadas por categorías. Basta con meter dichos .css en la carpeta "questions", con los nombres exactos de las categorías correspondientes, y ejecutar el programa.
+
 
 *********************************************
 Registrarse e iniciar sesión
